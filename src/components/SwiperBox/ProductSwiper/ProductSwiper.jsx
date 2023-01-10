@@ -3,12 +3,12 @@ import { Swiper, SwiperSlide } from "swiper/react";
 
 // import required modules
 import { Pagination, Navigation } from "swiper";
-import "./SwiperBox.css";
+import "./ProductSwiper.css";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import SwiperProduct from "./SwiperProduct";
-import { productSwiper } from "../../assets/Data/Data";
+import { productSwiper } from "../../../assets/Data/Data";
 let SwiperBox = () => {
     return (
         <>

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./HomeBox.css";
 import FeaturesVideo from "../../../assets/Videos/video.mp4";
-import { SwiperBox } from "../../index";
+import { SwiperBox, ReviewSwiper, PartnerSwiper } from "../../index";
 import { MainTitle } from "../../index";
 import { AiOutlineSearch } from "react-icons/ai";
 import { HiOutlineArrowNarrowLeft } from "react-icons/hi";
@@ -15,6 +15,9 @@ import { StoresInfo } from "../../../assets/Data/Data";
 // ===============Icon================
 import { ReactComponent as Svghand } from "../../../assets/Icons/icon-touch hand-36.svg";
 import { ReactComponent as SvgVideo } from "../../../assets/Icons/ico - 24 - audiovisual - play_circle_outlined.svg";
+import { ReactComponent as Svghappy } from "../../../assets/Icons/icon-38-happy emojy.svg";
+import { ReactComponent as Svgemojy2 } from "../../../assets/Icons/icon-38-emojy2.svg";
+import { ReactComponent as Svgemojy } from "../../../assets/Icons/icon-38-emojy.svg";
 // ===============Img================
 import featuresIMG from "../../../assets/Img/IMG_3541-removebg-preview.png";
 const HomeBox = () => {
@@ -198,7 +201,7 @@ const HomeBox = () => {
                             <div className="box">
                                 <h3>
                                     التاجر المبتدأ
-                                    <CiFaceSmile />
+                                    <Svghappy />
                                 </h3>
                                 <h2>
                                     <span>800</span>
@@ -241,7 +244,7 @@ const HomeBox = () => {
                             <div className="box">
                                 <h3>
                                     العلامة التجارية
-                                    <MdOutlineTagFaces />
+                                    <Svgemojy2 />
                                 </h3>
                                 <h2>
                                     <span>2500</span>
@@ -283,7 +286,7 @@ const HomeBox = () => {
                             </div>
                             <div className="box">
                                 <h3>
-                                    التاجر المحترف <CiFaceSmile />
+                                    التاجر المحترف <Svgemojy />
                                 </h3>
                                 <h2>
                                     <span>1400</span>
@@ -324,6 +327,24 @@ const HomeBox = () => {
                                 <button>ابدأ الآن</button>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+            {/* =========================== */}
+            <div className="our-review p-main">
+                <div className="container gap-2 gap-md-5 ">
+                    <MainTitle text={"قالوا عنا"} />
+                    <div className="all  ">
+                        <ReviewSwiper />
+                    </div>
+                </div>
+            </div>
+            {/* =========================== */}
+            <div className="our-partners p-main">
+                <div className="container gap-2 gap-md-5 ">
+                    <MainTitle text={"شركاء النجاح"} />
+                    <div className="all ">
+                        <PartnerSwiper />
                     </div>
                 </div>
             </div>

@@ -6,6 +6,11 @@ import productSwiperImg1 from "../Img/product 1.png";
 import productSwiperImg2 from "../Img/product 2.png";
 import productSwiperImg3 from "../Img/product3.png";
 import productSwiperImg4 from "../Img/product 4.png";
+import partnerImg1 from "../Img/STC Pay.png";
+import partnerImg2 from "../Img/المشاهير.png";
+import partnerImg3 from "../Img/Alibaba.png";
+import partnerImg4 from "../Img/DHL.png";
+import review from "../Img/قالوا عنا.png";
 
 // ==========
 let index = 1;
@@ -149,5 +154,42 @@ export let StoresInfo = [
     {
         id: index++,
         Img: StoreImg4,
+    },
+];
+
+export let DataReview = [
+    {
+        id: index++,
+        Img: review,
+        text: `منصة رائعة تساعدك لبدء أعمالك في التجارة الإلكترونية`,
+    },
+    {
+        id: index++,
+        Img: review,
+        text: `منصة رائعة تساعدك لبدء أعمالك في التجارة الإلكترونية`,
+    },
+    {
+        id: index++,
+        Img: review,
+        text: `منصة رائعة تساعدك لبدء أعمالك في التجارة الإلكترونية`,
+    },
+];
+
+export let DataPartner = [
+    {
+        id: index++,
+        Img: partnerImg1,
+    },
+    {
+        id: index++,
+        Img: partnerImg2,
+    },
+    {
+        id: index++,
+        Img: partnerImg3,
+    },
+    {
+        id: index++,
+        Img: partnerImg4,
     },
 ];

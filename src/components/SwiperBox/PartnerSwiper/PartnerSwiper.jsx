@@ -1,0 +1,53 @@
+// Import Swiper React components
+import { Swiper, SwiperSlide } from "swiper/react";
+
+// import required modules
+import { Autoplay, Pagination, Navigation } from "swiper";
+
+import "./PartnerSwiper.css";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import { DataPartner } from "../../../assets/Data/Data.js";
+import PartnerBox from "./PartnerBox.jsx";
+let PartnerSwiper = () => {
+    return (
+        <>
+            <Swiper
+                slidesPerView={4}
+                spaceBetween={40}
+                slidesPerGroup={1}
+                loop={true}
+                autoplay={{
+                    delay: 3500,
+                    disableOnInteraction: false,
+                }}
+                breakpoints={{
+                    200: {
+                        slidesPerView: 1,
+                    },
+                    992: {
+                        slidesPerView: 2,
+                    },
+                    1200: {
+                        slidesPerView: 4,
+                    },
+                }}
+                navigation={false}
+                modules={[Pagination, Navigation, Autoplay]}
+                className="swiper-partner"
+            >
+                {DataPartner.length
+                    ? DataPartner.map((el) => {
+                          return (
+                              <SwiperSlide key={el.id}>
+                                  <PartnerBox Img={el.Img} />
+                              </SwiperSlide>
+                          );
+                      })
+                    : null}
+            </Swiper>
+        </>
+    );
+};
+export default PartnerSwiper;

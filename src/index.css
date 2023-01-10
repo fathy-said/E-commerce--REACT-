@@ -152,6 +152,9 @@ ul {
   font-size: var(--font-size-24);
   font-weight: 500;
   letter-spacing: 0.1px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
 }
 

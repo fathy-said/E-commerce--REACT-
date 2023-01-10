@@ -808,3 +808,43 @@
 }
 
 /* ===============end-our-package=================== */
+/* ===============start-our-review =================== */
+.our-review {}
+
+.our-review .container {
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.our-review .container .main-title h5 {
+  padding: 10px 40px;
+}
+
+.our-review .container .all {
+  width: 100%;
+}
+
+/* ===============end-our-review =================== */
+/* ===============start-our-partners =================== */
+.our-partners {}
+
+.our-partners .container {
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.our-partners .container .main-title h5 {
+  padding: 10px 40px;
+}
+
+.our-partners .container .all {
+  width: 100%;
+}
+
+/* ===============end-our-partners =================== */
