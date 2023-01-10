@@ -5,13 +5,18 @@ import { SwiperBox } from "../../index";
 import { MainTitle } from "../../index";
 import { AiOutlineSearch } from "react-icons/ai";
 import { HiOutlineArrowNarrowLeft } from "react-icons/hi";
-import { TbHandClick } from "react-icons/tb";
+// import { Svghand } from "react-icons/tb";
 import { IoCheckmarkSharp } from "react-icons/io5";
 import { CiFaceSmile } from "react-icons/ci";
 import { MdOutlineTagFaces } from "react-icons/md";
 
 // ===============Data================
 import { StoresInfo } from "../../../assets/Data/Data";
+// ===============Icon================
+import { ReactComponent as Svghand } from "../../../assets/Icons/icon-touch hand-36.svg";
+import { ReactComponent as SvgVideo } from "../../../assets/Icons/ico - 24 - audiovisual - play_circle_outlined.svg";
+// ===============Img================
+import featuresIMG from "../../../assets/Img/IMG_3541-removebg-preview.png";
 const HomeBox = () => {
     // const [age, setAge] = useState("");
 
@@ -125,19 +130,19 @@ const HomeBox = () => {
                         <div className="box-right">
                             <ul>
                                 <li>
-                                    <TbHandClick />
+                                    <Svghand />
                                     افتح متجرك بسهولة
                                 </li>
                                 <li>
-                                    <TbHandClick />
+                                    <Svghand />
                                     تجربة مجانية لتتعرف على خدماتنا
                                 </li>
                                 <li>
-                                    <TbHandClick />
+                                    <Svghand />
                                     خدمات إضافية مميزة لتساعدك في تسويق متجرك
                                 </li>
                                 <li>
-                                    <TbHandClick />
+                                    <Svghand />
                                     باقات احترافية وقوالب متعددة تناسب طبيعة
                                     نشاط متجرك
                                 </li>
@@ -148,6 +153,18 @@ const HomeBox = () => {
                             <video controls>
                                 <source src={FeaturesVideo} type="video/mp4" />
                             </video>
+                            <div className="box-img">
+                                <img src={featuresIMG} alt="" />
+                                <span
+                                    onClick={(e) => {
+                                        e.currentTarget.parentElement.classList.add(
+                                            "not-active"
+                                        );
+                                    }}
+                                >
+                                    <SvgVideo />
+                                </span>
+                            </div>
                             {/* <iframe
                             width="560"
                             height="315"

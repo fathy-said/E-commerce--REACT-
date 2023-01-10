@@ -43,7 +43,7 @@ let SwiperBox = () => {
                 {productSwiper.length
                     ? productSwiper.map((el, index) => {
                           return (
-                              <SwiperSlide key={index}>
+                              <SwiperSlide key={el.id} id={el.id}>
                                   <SwiperProduct
                                       Img={el.Img}
                                       Name={el.name}

@@ -9,6 +9,8 @@ import "./Header.css";
 import { AiOutlineSearch } from "react-icons/ai";
 import { FiMenu } from "react-icons/fi";
 import Logo from "../../assets/Img/Logo-1.png";
+// ============Icon================
+import { ReactComponent as SearchIcon } from "../../assets/Icons/icon_24_search.svg";
 let Header = () => (
     <>
         <div className="header">
@@ -24,7 +26,8 @@ let Header = () => (
                     <Navbar.Collapse id="navbarScroll">
                         <Form className="d-flex">
                             <button>
-                                <AiOutlineSearch />
+                                {/* <AiOutlineSearch /> */}
+                                <SearchIcon />
                             </button>
                             <Form.Control
                                 type="search"

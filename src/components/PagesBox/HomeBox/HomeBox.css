@@ -8,6 +8,8 @@
   background-repeat: no-repeat;
   height: 350px;
   width: 100%;
+  /* padding-bottom: var(--main-margin-bottom); */
+  margin-bottom: 40px;
 }
 
 .hero::before {
@@ -55,7 +57,32 @@
   left: 50%;
   transform: translateX(-50%);
   font-size: var(--font-size-32);
-  padding: 6px 40px;
+  padding: 6px 60px;
+}
+
+@media (max-width: 768px) {
+  .hero .container h2 {
+    color: var(--back-color-01);
+    font-weight: bold;
+    font-size: var(--font-size-38);
+    margin-bottom: 20px;
+  }
+
+  .hero .container h3 {
+    color: var(--back-color-01);
+    font-weight: 500;
+    font-size: var(--font-size-28);
+    margin-bottom: 40px;
+    /* margin-bottom: 0 !important; */
+
+  }
+
+  .hero .container button {
+
+    padding: 10px 60px;
+    font-size: var(--font-size-28);
+
+  }
 }
 
 /* ===============end-hero=================== */
@@ -91,7 +118,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
+  gap: 16px;
   min-height: 340px;
 
 }
@@ -101,7 +128,7 @@
   width: 100%;
   flex: 1;
   height: 100%;
-  background-image: url("../../../assets/Img/hero.jpg");
+  background-image: url("../../../assets/Img/شركات\ شحن\ متعددة.png");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -116,7 +143,7 @@
   width: 100%;
   flex: 1;
   height: 100%;
-  background-image: url("../../../assets/Img/hero.jpg");
+  background-image: url("../../../assets/Img/باقات\ اشتراك\ متعددة.png");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -126,7 +153,7 @@
   justify-content: center;
 }
 
-.box-information .box-left::before,
+/* .box-information .box-left::before,
 .box-information .box-right::before {
   content: '';
   position: absolute;
@@ -147,7 +174,7 @@
   content: '';
   background-color: #1dbbbe9f;
 
-}
+} */
 
 .box-information .container {
   height: 100%;
@@ -282,6 +309,7 @@
   justify-content: center;
   height: 140px;
   /* box-shadow: #000000F0 0px 3px 6px; */
+  cursor: pointer;
 }
 
 .stores-info .content-stores .box img {
@@ -291,7 +319,7 @@
 .stores-info bdi {
   display: block;
   margin-top: 20px;
-  font-size: var(--font-size-18);
+  font-size: var(--font-size-24);
   font-weight: 500;
   color: var(--main-color-01);
   display: flex;
@@ -299,6 +327,7 @@
   justify-content: flex-start;
   gap: 10px;
   cursor: pointer;
+  letter-spacing: 0.24px;
 }
 
 .stores-info bdi svg {
@@ -331,15 +360,15 @@
 .trade-info .box {
 
   position: relative;
-  background-image: url('../../../assets//Img/hero.jpg');
+  background-image: url('../../../assets/Img/banner-\ نحن\ بوابتك\ لعالم\ التجارة\ الالكترونية.png');
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  height: 280px;
+  height: 340px;
   width: 100%;
 }
 
-.trade-info .box::before {
+/* .trade-info .box::before {
   content: '';
   position: absolute;
   height: 100%;
@@ -348,7 +377,7 @@
   bottom: 0;
   background-color: #02466aad;
   z-index: 2;
-}
+} */
 
 .trade-info .container {
   position: relative;
@@ -364,8 +393,9 @@
 .trade-info .container h4 {
   color: var(--font-color-default);
   font-weight: 500;
-  font-size: var(--font-size-28);
+  font-size: var(--font-size-48);
   margin-bottom: 20px;
+  letter-spacing: 0.19px;
 }
 
 .trade-info .container h5 {
@@ -373,6 +403,7 @@
   font-weight: 500;
   font-size: var(--font-size-20);
   margin-bottom: 30px;
+  letter-spacing: 0.13px;
   /* margin-bottom: 0 !important; */
 }
 
@@ -384,10 +415,19 @@
   transform: translateX(-50%);
 }
 
+@media (max-width: 768px) {
+  .trade-info .container h4 {
+
+    font-size: var(--font-size-38);
+
+  }
+}
+
 /* ===============end-trade-info=================== */
 /* ===============start-out-features=================== */
 .out-features {
   background-color: var(--back-color-04);
+  min-height: 470px;
 }
 
 .out-features .container {
@@ -404,8 +444,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 20px;
-  row-gap: 40px;
+  gap: 40px;
+  row-gap: 60px;
+  height: 100%;
 }
 
 
@@ -436,7 +477,7 @@
   align-items: center;
   justify-content: flex-start;
   gap: 10px;
-  font-size: var(--font-size-18);
+  font-size: var(--font-size-24);
   font-weight: 500;
   letter-spacing: 0.24px;
 
@@ -453,6 +494,8 @@
   align-items: center;
   justify-content: center;
   max-width: 100%;
+  position: relative;
+  flex-direction: column;
 }
 
 .out-features .container .box-left video {
@@ -460,9 +503,46 @@
   max-width: 674px;
   height: 100%;
   max-height: 517px;
+
 }
 
 .out-features .container .box-left video source {}
+
+.out-features .container .box-left .box-img {
+  width: 100%;
+  max-width: 670px;
+  height: 100%;
+  max-height: 517px;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--back-color-04);
+  box-shadow: rgba(0, 0, 0, 0.06) 0px 1px 4px;
+  cursor: pointer;
+  margin-right: 0px;
+  box-sizing: content-box !important;
+  border: 2px solid var(--back-color-04);
+}
+
+.out-features .container .box-left .box-img img {
+  width: 100%;
+  height: 100%;
+  max-width: 674px;
+  max-height: 517px;
+  object-fit: contain;
+}
+
+.out-features .container .box-left .box-img span {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.out-features .container .box-left .box-img.not-active {
+  display: none;
+}
 
 /* ===============end-out-features=================== */
 /* ===============start-our-package=================== */

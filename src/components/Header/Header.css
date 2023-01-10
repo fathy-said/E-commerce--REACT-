@@ -1,6 +1,6 @@
 .header {
   /* background-color: ; */
-  min-height: 70px;
+  min-height: 90px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -47,7 +47,7 @@
 .header .container .navbar .navbar-brand {
   padding-left: 40px;
   width: 120px;
-  height: 70px;
+  height: 74px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -77,7 +77,7 @@
   outline: none !important;
   border: none !important;
   box-shadow: none !important;
-  color: var(--black-color-01);
+  color: var(--black-color-03);
   height: 100%;
   flex: 1;
   padding-right: 0 !important;
@@ -141,7 +141,7 @@
   }
 
   .navbar-collapse.show {
-    height: 370px;
+    height: 380px;
     margin: 20px 0;
   }
 

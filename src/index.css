@@ -4,6 +4,7 @@
   --unnamed-color: #0099FB;
   --black-color-01: #011723;
   --unnamed-color: #67747B;
+  --font-color-03: #ADB5B9;
   --font-color-02: #02466A;
   --main-color-01: #1DBBBE;
   --font-color-default: #fff;
@@ -23,6 +24,7 @@
   --font-size-28: 28px;
   --font-size-32: 32px;
   --font-size-38: 38px;
+  --font-size-48: 48px;
   --font-size-54: 54px;
   --main-border-radius-01: 32px;
   --main-border-radius-02: 8px;
@@ -37,8 +39,26 @@
   --unnamed-line-spacing-53: 53px;
   --unnamed-line-spacing-80: 80px; */
   --transition: ease .3s;
-  --main-padding-top: 40px;
-  --main-padding-bottom: 40px;
+  --main-padding-top: 45px;
+  --main-padding-bottom: 45px;
+}
+
+@media (max-width: 768px) {
+  :root {
+
+    --font-size-15: 15px;
+    --font-size-16: 16px;
+    --font-size-18: 18px;
+    --font-size-20: 20px;
+    --font-size-24: 20px;
+    --font-size-28: 24px;
+    --font-size-32: 38px;
+    --font-size-38: 28px;
+    --font-size-48: 38px;
+    --font-size-54: 45px;
+
+
+  }
 }
 
 /* Character Styles */
@@ -95,7 +115,7 @@
 /* ================================global================================== */
 body {
   background-color: var(--back-color-03) !important;
-  background-color: #02466A0A !important;
+  /* background-color: #02466A0A !important; */
   min-height: 1500px;
 }
 
@@ -131,6 +151,8 @@ ul {
   color: var(--font-color-default);
   font-size: var(--font-size-24);
   font-weight: 500;
+  letter-spacing: 0.1px;
+
 }
 
 .p-main {
@@ -140,4 +162,18 @@ ul {
 
 .app {
   /* max-width: 1400px; */
+}
+
+@media (min-width: 1400px) {
+  .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+    max-width: 1440px !important;
+  }
+}
+
+.app {
+  max-width: 2000px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
 }

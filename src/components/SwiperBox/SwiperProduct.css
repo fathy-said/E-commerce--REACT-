@@ -20,7 +20,7 @@
 
 .swiper-product .box .box-img {
   flex: 1;
-  max-height: 250px;
+  max-height: 245px;
 }
 
 .swiper-product .box .box-img img {
@@ -50,7 +50,7 @@
 
 .swiper-product .box .content h6 {
   color: var(--black-color-01);
-  font-weight: 500;
+  font-weight: 400;
   font-size: var(--font-size-20);
 }
 

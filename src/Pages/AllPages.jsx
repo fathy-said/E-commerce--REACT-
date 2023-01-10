@@ -5,12 +5,14 @@ import { Home } from "./index";
 const AllPages = () => {
     return (
         <>
-            <BrowserRouter>
-                <Header />
-                <Routes>
-                    <Route path="/" element={<Home />} />
-                </Routes>
-            </BrowserRouter>
+            <div className="w-100">
+                <BrowserRouter>
+                    <Header />
+                    <Routes>
+                        <Route path="/" element={<Home />} />
+                    </Routes>
+                </BrowserRouter>
+            </div>
         </>
     );
 };
