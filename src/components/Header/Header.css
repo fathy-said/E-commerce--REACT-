@@ -46,9 +46,16 @@
 
 .header .container .navbar .navbar-brand {
   padding-left: 40px;
-  font-size: var(--font-size-28);
-  font-weight: 600;
-  color: var(--black-color-01);
+  width: 120px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header .container .navbar .navbar-brand img {
+  max-height: 100%;
+  object-fit: contain;
 }
 
 .header .container .navbar form {
@@ -104,7 +111,7 @@
 
 .header .navbar-collapse .navbar-nav a {
   color: var(--black-color-01);
-  font-size: var(--font-size-18);
+  font-size: var(--font-size-20);
   font-weight: 500;
   transition: var(--transition);
   border-radius: var(--main-border-radius-02);

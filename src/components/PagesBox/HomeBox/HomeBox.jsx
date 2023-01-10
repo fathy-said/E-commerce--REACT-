@@ -51,7 +51,6 @@ const HomeBox = () => {
             </div>
 
             {/* =========================== */}
-
             <div className="stores-info p-main">
                 <div className="container">
                     <div className="header flex-column flex-md-row gap-4 gap-md-3 ">

@@ -33,16 +33,16 @@
 }
 
 .hero .container h2 {
-  color: var(--font-color-default);
-  font-weight: 700;
-  font-size: var(--font-size-38);
+  color: var(--back-color-01);
+  font-weight: bold;
+  font-size: var(--font-size-54);
   margin-bottom: 20px;
 }
 
 .hero .container h3 {
-  color: var(--font-color-default);
+  color: var(--back-color-01);
   font-weight: 500;
-  font-size: var(--font-size-28);
+  font-size: var(--font-size-38);
   margin-bottom: 40px;
   /* margin-bottom: 0 !important; */
 
@@ -54,6 +54,8 @@
   bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
+  font-size: var(--font-size-32);
+  padding: 6px 40px;
 }
 
 /* ===============end-hero=================== */
@@ -90,12 +92,12 @@
   align-items: center;
   justify-content: center;
   gap: 10px;
-  min-height: 250px;
+  min-height: 340px;
 
 }
 
 .box-information .box-left {
-  min-height: 250px;
+  min-height: 340px;
   width: 100%;
   flex: 1;
   height: 100%;
@@ -110,7 +112,7 @@
 }
 
 .box-information .box-right {
-  min-height: 250px;
+  min-height: 340px;
   width: 100%;
   flex: 1;
   height: 100%;
@@ -137,13 +139,13 @@
 
 .box-information .box-right::before {
   content: '';
-  background-color: rgb(2 70 106 / 65%);
+  background-color: rgb(2 70 106 / 75%);
 
 }
 
 .box-information .box-left::before {
   content: '';
-  background-color: #1dbbbe94;
+  background-color: #1dbbbe9f;
 
 }
 
@@ -160,9 +162,9 @@
 
 .box-information .container h4 {
   margin: 0;
-  font-size: var(--font-size-20);
+  font-size: var(--font-size-38);
   font-weight: 500;
-  color: var(--font-color-default);
+  color: var(--back-color-01);
 }
 
 /* ===============end-box-information=================== */

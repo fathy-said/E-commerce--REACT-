@@ -1,5 +1,4 @@
 :root {
-
   /* Colors: */
   --unnamed-color: #0077FF;
   --unnamed-color: #0099FB;
@@ -11,11 +10,10 @@
   --font-color-01: #8a9191;
   --default-color-01: #B6BE34;
   --back-color-01: #F7FCFF;
-  --back-color-02: #e3f3f3;
+  --back-color-02: #1DBBBE1A;
   --back-color-03: #02466A0A;
   --back-color-04: #F4F5F7;
-  --back-color-05: #00000003;
-
+  --back-color-05: #f2f5f6;
   /* Font/text values */
   --font-size-15: 15px;
   --font-size-16: 16px;
@@ -23,6 +21,7 @@
   --font-size-20: 20px;
   --font-size-24: 24px;
   --font-size-28: 28px;
+  --font-size-32: 32px;
   --font-size-38: 38px;
   --font-size-54: 54px;
   --main-border-radius-01: 32px;

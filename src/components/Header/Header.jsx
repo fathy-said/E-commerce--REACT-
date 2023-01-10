@@ -8,13 +8,15 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import "./Header.css";
 import { AiOutlineSearch } from "react-icons/ai";
 import { FiMenu } from "react-icons/fi";
-
+import Logo from "../../assets/Img/Logo-1.png";
 let Header = () => (
     <>
         <div className="header">
             <div className="container">
                 <Navbar expand="lg">
-                    <Navbar.Brand href="#">اطلبها</Navbar.Brand>
+                    <Navbar.Brand href="#">
+                        <img src={Logo} alt="" srcset="" />
+                    </Navbar.Brand>
 
                     <Navbar.Toggle aria-controls="navbarScroll">
                         <FiMenu />

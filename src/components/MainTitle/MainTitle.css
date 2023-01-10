@@ -4,10 +4,16 @@
   align-items: center;
   justify-content: start;
   height: fit-content;
-  padding-bottom: 60px;
 }
 
 .main-title .bt-main {
   background-color: var(--default-color-01);
   cursor: text;
+}
+
+@media (max-width: 768px) {
+  .main-title {
+
+    padding: 50px 0;
+  }
 }
