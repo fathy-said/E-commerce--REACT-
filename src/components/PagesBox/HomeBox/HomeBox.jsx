@@ -1,14 +1,15 @@
 import React, { useState } from "react";
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import Select from "@mui/material/Select";
+
 import "./HomeBox.css";
-import FeaturesVideo from "../../../assets/Videos/video.mp4";
+
 import { SwiperBox } from "../../index";
 import { MainTitle } from "../../index";
+import { FormControl } from "@mui/material";
 import { AiOutlineSearch } from "react-icons/ai";
 import { HiOutlineArrowNarrowLeft } from "react-icons/hi";
-import { TbHandClick } from "react-icons/tb";
-import { IoCheckmarkSharp } from "react-icons/io5";
-import { CiFaceSmile } from "react-icons/ci";
-import { MdOutlineTagFaces } from "react-icons/md";
 
 // ===============Data================
 import { StoresInfo } from "../../../assets/Data/Data";
@@ -119,207 +120,12 @@ const HomeBox = () => {
             </div>
 
             {/* =========================== */}
-            <div className="out-features p-main">
-                <div className="container ">
-                    <MainTitle text={"لماذا اطلبها ؟"} />
-                    <div className="all flex-column-reverse flex-md-row">
-                        <div className="box-right">
-                            <ul>
-                                <li>
-                                    <TbHandClick />
-                                    افتح متجرك بسهولة
-                                </li>
-                                <li>
-                                    <TbHandClick />
-                                    تجربة مجانية لتتعرف على خدماتنا
-                                </li>
-                                <li>
-                                    <TbHandClick />
-                                    خدمات إضافية مميزة لتساعدك في تسويق متجرك
-                                </li>
-                                <li>
-                                    <TbHandClick />
-                                    باقات احترافية وقوالب متعددة تناسب طبيعة
-                                    نشاط متجرك
-                                </li>
-                            </ul>
-                        </div>
-
-                        <div className="box-left">
-                            <video controls>
-                                <source src={FeaturesVideo} type="video/mp4" />
-                            </video>
-                            {/* <iframe
-                            width="560"
-                            height="315"
-                            src="https://www.youtube.com/embed/fK3EwBLzqGc"
-                            title="YouTube video player"
-                            frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                            allowfullscreen
-                        ></iframe> */}
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            {/* =========================== */}
-
-            <div className="our-package p-main">
-                <div className="container">
-                    <MainTitle text={"باقات اطلبها"} />
-                    <div className="all">
-                        <ul>
-                            <li>سنوي/ 6 شهور</li>
-                            <li>
-                                <label className="switch">
-                                    <input type="checkbox" />
-                                    <span className="slider" />
-                                </label>
-                            </li>
-                        </ul>
-                        <div className="content-package flex-column flex-xl-row">
-                            <div className="box">
-                                <h3>
-                                    التاجر المبتدأ
-                                    <CiFaceSmile />
-                                </h3>
-                                <h2>
-                                    <span>800</span>
-                                    <span>ر.س</span>
-                                    <span>سنوي</span>
-                                </h2>
-                                <ul>
-                                    <li>
-                                        <IoCheckmarkSharp />
-                                        100منتج
-                                    </li>
-                                    <li>
-                                        <IoCheckmarkSharp />
-                                        10تصنيفات
-                                    </li>
-                                    <li>
-                                        <IoCheckmarkSharp />
-                                        دعم فني 24
-                                    </li>
-                                    <li className="not-active">
-                                        <IoCheckmarkSharp />
-                                        تجربة مجانية
-                                    </li>
-                                    <li className="not-active">
-                                        <IoCheckmarkSharp />
-                                        تجربة مجانية
-                                    </li>
-                                    <li className="not-active">
-                                        <IoCheckmarkSharp />
-                                        تخصيص القالب
-                                    </li>
-                                    <li className="not-active">
-                                        <IoCheckmarkSharp />
-                                        خدمات الاستشارة
-                                    </li>
-                                </ul>
-
-                                <button>ابدأ الآن</button>
-                            </div>
-                            <div className="box">
-                                <h3>
-                                    العلامة التجارية
-                                    <MdOutlineTagFaces />
-                                </h3>
-                                <h2>
-                                    <span>2500</span>
-                                    <span>ر.س</span>
-                                    <span>سنوي</span>
-                                </h2>
-                                <ul>
-                                    <li>
-                                        <IoCheckmarkSharp />
-                                        100منتج
-                                    </li>
-                                    <li>
-                                        <IoCheckmarkSharp />
-                                        10تصنيفات
-                                    </li>
-                                    <li>
-                                        <IoCheckmarkSharp />
-                                        دعم فني 24
-                                    </li>
-                                    <li>
-                                        <IoCheckmarkSharp />
-                                        تجربة مجانية
-                                    </li>
-                                    <li>
-                                        <IoCheckmarkSharp />
-                                        تجربة مجانية
-                                    </li>
-                                    <li>
-                                        <IoCheckmarkSharp />
-                                        تخصيص القالب
-                                    </li>
-                                    <li>
-                                        <IoCheckmarkSharp />
-                                        خدمات الاستشارة
-                                    </li>
-                                </ul>
-
-                                <button>ابدأ الآن</button>
-                            </div>
-                            <div className="box">
-                                <h3>
-                                    التاجر المحترف <CiFaceSmile />
-                                </h3>
-                                <h2>
-                                    <span>1400</span>
-                                    <span>ر.س</span>
-                                    <span>سنوي</span>
-                                </h2>
-                                <ul>
-                                    <li>
-                                        <IoCheckmarkSharp />
-                                        100منتج
-                                    </li>
-                                    <li>
-                                        <IoCheckmarkSharp />
-                                        10تصنيفات
-                                    </li>
-                                    <li>
-                                        <IoCheckmarkSharp />
-                                        دعم فني 24
-                                    </li>
-                                    <li>
-                                        <IoCheckmarkSharp />
-                                        تجربة مجانية
-                                    </li>
-                                    <li>
-                                        <IoCheckmarkSharp />
-                                        تجربة مجانية
-                                    </li>
-                                    <li>
-                                        <IoCheckmarkSharp />
-                                        تخصيص القالب
-                                    </li>
-                                    <li className="not-active">
-                                        <IoCheckmarkSharp />
-                                        خدمات الاستشارة
-                                    </li>
-                                </ul>
-
-                                <button>ابدأ الآن</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            {/* =========================== */}
         </>
     );
 };
 
 export default HomeBox;
-//   <li>
-//       <IoCheckmarkSharp />
-//   </li>;
+
 //  <FormControl fullWidth>
 //      <InputLabel id="demo-simple-select-label">Age</InputLabel>
 //      <Select

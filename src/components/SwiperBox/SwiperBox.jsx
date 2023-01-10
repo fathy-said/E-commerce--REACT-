@@ -8,7 +8,6 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import SwiperProduct from "./SwiperProduct";
-import { productSwiper } from "../../assets/Data/Data";
 let SwiperBox = () => {
     return (
         <>
@@ -40,20 +39,33 @@ let SwiperBox = () => {
                 modules={[Pagination, Navigation]}
                 className="mySwiper"
             >
-                {productSwiper.length
-                    ? productSwiper.map((el, index) => {
-                          return (
-                              <SwiperSlide key={index}>
-                                  <SwiperProduct
-                                      Img={el.Img}
-                                      Name={el.name}
-                                      Evaluate={el.evaluate}
-                                      Mark={el.mark}
-                                  />
-                              </SwiperSlide>
-                          );
-                      })
-                    : null}
+                <SwiperSlide>
+                    <SwiperProduct />
+                </SwiperSlide>
+                <SwiperSlide>
+                    <SwiperProduct />
+                </SwiperSlide>
+                <SwiperSlide>
+                    <SwiperProduct />
+                </SwiperSlide>
+                <SwiperSlide>
+                    <SwiperProduct />
+                </SwiperSlide>
+                <SwiperSlide>
+                    <SwiperProduct />
+                </SwiperSlide>
+                <SwiperSlide>
+                    <SwiperProduct />
+                </SwiperSlide>
+                <SwiperSlide>
+                    <SwiperProduct />
+                </SwiperSlide>
+                <SwiperSlide>
+                    <SwiperProduct />
+                </SwiperSlide>
+                <SwiperSlide>
+                    <SwiperProduct />
+                </SwiperSlide>
             </Swiper>
         </>
     );

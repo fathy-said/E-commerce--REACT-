@@ -18,11 +18,6 @@
   overflow: hidden;
 }
 
-.swiper-product .box .box-img {
-  flex: 1;
-  height: 100%;
-}
-
 
 .swiper-product .box hr {
   all: unset;
