@@ -19,7 +19,6 @@ const SwiperProduct = ({ Img, Name, Evaluate, Mark }) => {
                                 <AiFillStar />
                             </span>
                             <bdi>{Mark} ر.س</bdi>
-                            <bdi>{Mark} ر.س</bdi>
                         </div>
                     </div>
                 </div>

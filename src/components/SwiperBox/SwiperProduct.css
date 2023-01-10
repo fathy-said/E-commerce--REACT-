@@ -11,7 +11,7 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  background-color: #ffffff;
+  background-color: var(--back-color-05);
   gap: 8px;
   height: 100%;
   border-radius: var(--main-border-radius-02);
@@ -20,19 +20,25 @@
 
 .swiper-product .box .box-img {
   flex: 1;
+  max-height: 250px;
+}
+
+.swiper-product .box .box-img img {
   height: 100%;
+  max-width: 100%;
+  object-fit: cover;
 }
 
 
 .swiper-product .box hr {
   all: unset;
   background-color: var(--main-color-01);
-  height: 1px;
+  height: 1px !important;
   width: 100%;
 }
 
 .swiper-product .box .content {
-  flex: 1;
+  flex: .5;
   width: 100%;
   display: flex;
   align-items: flex-start;

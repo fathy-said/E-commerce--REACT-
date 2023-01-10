@@ -14,7 +14,7 @@ let SwiperBox = () => {
         <>
             <Swiper
                 slidesPerView={6}
-                spaceBetween={20}
+                spaceBetween={40}
                 slidesPerGroup={1}
                 // loop={true}
                 loopFillGroupWithBlank={true}
@@ -32,9 +32,9 @@ let SwiperBox = () => {
                     1200: {
                         slidesPerView: 5,
                     },
-                    1400: {
-                        slidesPerView: 6,
-                    },
+                    // 1400: {
+                    //     slidesPerView: 6,
+                    // },
                 }}
                 navigation={true}
                 modules={[Pagination, Navigation]}
