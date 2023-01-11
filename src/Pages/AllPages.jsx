@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { Header } from "../components";
+import { FooterOverlay, Header } from "../components";
 import { Home } from "./index";
 const AllPages = () => {
     return (
@@ -11,6 +11,7 @@ const AllPages = () => {
                     <Routes>
                         <Route path="/" element={<Home />} />
                     </Routes>
+                    <FooterOverlay />
                 </BrowserRouter>
             </div>
         </>
