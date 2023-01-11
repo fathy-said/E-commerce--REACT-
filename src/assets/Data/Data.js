@@ -193,3 +193,32 @@ export let DataPartner = [
         Img: partnerImg4,
     },
 ];
+
+export let DataPackage = [
+    {
+        yearly: {
+            startUp: {
+                price: `800`,
+            },
+            brand: {
+                price: `2500`,
+            },
+            professional: {
+                price: `1400`,
+            },
+            type: `سنوي`,
+        },
+        monthly: {
+            startUp: {
+                price: `350`,
+            },
+            brand: {
+                price: `750`,
+            },
+            professional: {
+                price: `500`,
+            },
+            type: `6شهور`,
+        },
+    },
+];

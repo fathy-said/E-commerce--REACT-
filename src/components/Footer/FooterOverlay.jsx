@@ -1,7 +1,7 @@
 import React from "react";
 
 import "./FooterOverlay.css";
-import LogoImg from "../../assets/Img/اطلبها-لوجو@2x.png";
+import LogoImg from "../../assets/Img/logo png.png";
 import { ReactComponent as Iconsnapchat } from "../../assets/Icons/snapchat.svg";
 import { ReactComponent as Iconfacebook } from "../../assets/Icons/icon-24-facebook.svg";
 import { ReactComponent as Icontwitter } from "../../assets/Icons/icon-24-twitter.svg";
@@ -9,7 +9,7 @@ import { ReactComponent as Iconinstagram } from "../../assets/Icons/icon-32-inst
 import { ReactComponent as Icontiktok } from "../../assets/Icons/icon-32-tiktok.svg";
 const FooterOverlay = () => (
     <>
-        <footer className="main-footer ">
+        <footer className="main-footer  ">
             <div className="all">
                 <div className="container flex-column flex-lg-row-reverse  align-items-center align-items-lg-start ">
                     <div className="box-left">

@@ -1,7 +1,12 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./HomeBox.css";
 import FeaturesVideo from "../../../assets/Videos/video.mp4";
-import { SwiperBox, ReviewSwiper, PartnerSwiper } from "../../index";
+import {
+    ProductSwiper,
+    ReviewSwiper,
+    PartnerSwiper,
+    LoadingBox,
+} from "../../index";
 import { MainTitle } from "../../index";
 import { AiOutlineSearch } from "react-icons/ai";
 import { HiOutlineArrowNarrowLeft } from "react-icons/hi";
@@ -20,12 +25,39 @@ import { ReactComponent as Svgemojy2 } from "../../../assets/Icons/icon-38-emojy
 import { ReactComponent as Svgemojy } from "../../../assets/Icons/icon-38-emojy.svg";
 // ===============Img================
 import featuresIMG from "../../../assets/Img/IMG_3541-removebg-preview.png";
+// ===============redux================
+import { useDispatch, useSelector } from "react-redux";
+import { productThunk } from "../../../RTK/Thunk/ProductThunk";
+import { StoresThunk } from "../../../RTK/Thunk/StoresThunk";
+import { VideoThunk } from "../../../RTK/Thunk/VideoThunk";
+import { PackageThunk } from "../../../RTK/Thunk/PackageThunk";
 const HomeBox = () => {
-    // const [age, setAge] = useState("");
+    let dispatch = useDispatch();
+    useEffect(() => {
+        if (shouldData.current) {
+            dispatch(productThunk());
+            dispatch(StoresThunk());
+            dispatch(VideoThunk());
+            dispatch(PackageThunk());
+            // ===========
+            shouldData.current = false;
+        }
+    }, []);
+    let [getTypePackage, setTypePackage] = useState(false);
+    let { productData, productLoading } = useSelector(
+        (state) => state.ProductReducer
+    );
+    let { storesData, storesLoading } = useSelector(
+        (state) => state.StoresReducer
+    );
+    let { packageDataMonthly, packageDataYearly } = useSelector(
+        (state) => state.PackageReducer
+    );
 
-    // const handleChange = (event) => {
-    //     setAge(event.target.value);
-    // };
+    let { videoData } = useSelector((state) => state.VideoReducer);
+    const shouldData = useRef(true);
+    // console.log(packageDataMonthly);
+
     return (
         <>
             <div className="hero">
@@ -40,7 +72,13 @@ const HomeBox = () => {
                 <div className="container">
                     <MainTitle text="المنتجات المتميزة" />
                     <div className="all">
-                        <SwiperBox />
+                        {productLoading ? (
+                            <LoadingBox />
+                        ) : productData.length ? (
+                            <ProductSwiper productSwiperData={productData} />
+                        ) : (
+                            <h2>لم يتم العثور على البيانات</h2>
+                        )}
                     </div>
                 </div>
             </div>
@@ -92,20 +130,24 @@ const HomeBox = () => {
                     </div>
                     <div className="content-stores">
                         <div className="row">
-                            {StoresInfo.length
-                                ? StoresInfo.map((el, index) => {
-                                      return (
-                                          <div
-                                              className=" container-box col-6  col-md-4 col-lg-3 col-xl-2 "
-                                              key={index}
-                                          >
-                                              <div className="box">
-                                                  <img src={el.Img} alt="" />
-                                              </div>
-                                          </div>
-                                      );
-                                  })
-                                : null}
+                            {storesLoading ? (
+                                <LoadingBox />
+                            ) : storesData.length ? (
+                                storesData.map((el, index) => {
+                                    return (
+                                        <div
+                                            className=" container-box col-6  col-md-4 col-lg-3 col-xl-2 "
+                                            key={index}
+                                        >
+                                            <div className="box">
+                                                <img src={el.Img} alt="" />
+                                            </div>
+                                        </div>
+                                    );
+                                })
+                            ) : (
+                                <h2>لم يتم العثور على البيانات</h2>
+                            )}
                         </div>
                         <bdi>
                             عرض المزيد من المتاجر
@@ -154,7 +196,10 @@ const HomeBox = () => {
 
                         <div className="box-left">
                             <video controls>
-                                <source src={FeaturesVideo} type="video/mp4" />
+                                <source
+                                    src={videoData !== null ? videoData : ""}
+                                    type="video/mp4"
+                                />
                             </video>
                             <div className="box-img">
                                 <img src={featuresIMG} alt="" />
@@ -193,140 +238,296 @@ const HomeBox = () => {
                             <li>
                                 <label className="switch">
                                     <input type="checkbox" />
-                                    <span className="slider" />
+                                    <span
+                                        className="slider"
+                                        onClick={() =>
+                                            setTypePackage(!getTypePackage)
+                                        }
+                                    />
                                 </label>
                             </li>
                         </ul>
-                        <div className="content-package flex-column flex-xl-row">
-                            <div className="box">
-                                <h3>
-                                    التاجر المبتدأ
-                                    <Svghappy />
-                                </h3>
-                                <h2>
-                                    <span>800</span>
-                                    <span>ر.س</span>
-                                    <span>سنوي</span>
-                                </h2>
-                                <ul>
-                                    <li>
-                                        <IoCheckmarkSharp />
-                                        100منتج
-                                    </li>
-                                    <li>
-                                        <IoCheckmarkSharp />
-                                        10تصنيفات
-                                    </li>
-                                    <li>
-                                        <IoCheckmarkSharp />
-                                        دعم فني 24
-                                    </li>
-                                    <li className="not-active">
-                                        <IoCheckmarkSharp />
-                                        تجربة مجانية
-                                    </li>
-                                    <li className="not-active">
-                                        <IoCheckmarkSharp />
-                                        تجربة مجانية
-                                    </li>
-                                    <li className="not-active">
-                                        <IoCheckmarkSharp />
-                                        تخصيص القالب
-                                    </li>
-                                    <li className="not-active">
-                                        <IoCheckmarkSharp />
-                                        خدمات الاستشارة
-                                    </li>
-                                </ul>
+                        {getTypePackage ? (
+                            <div className="content-package flex-column flex-xl-row">
+                                <div className="box">
+                                    <h3>
+                                        التاجر المبتدأ
+                                        <Svghappy />
+                                    </h3>
+                                    <h2>
+                                        <span>
+                                            {packageDataYearly.startUp.price}
+                                        </span>
+                                        <span>ر.س</span>
+                                        <span>{packageDataYearly.type}</span>
+                                    </h2>
+                                    <ul>
+                                        <li>
+                                            <IoCheckmarkSharp />
+                                            100منتج
+                                        </li>
+                                        <li>
+                                            <IoCheckmarkSharp />
+                                            10تصنيفات
+                                        </li>
+                                        <li>
+                                            <IoCheckmarkSharp />
+                                            دعم فني 24
+                                        </li>
+                                        <li className="not-active">
+                                            <IoCheckmarkSharp />
+                                            تجربة مجانية
+                                        </li>
+                                        <li className="not-active">
+                                            <IoCheckmarkSharp />
+                                            تجربة مجانية
+                                        </li>
+                                        <li className="not-active">
+                                            <IoCheckmarkSharp />
+                                            تخصيص القالب
+                                        </li>
+                                        <li className="not-active">
+                                            <IoCheckmarkSharp />
+                                            خدمات الاستشارة
+                                        </li>
+                                    </ul>
 
-                                <button>ابدأ الآن</button>
-                            </div>
-                            <div className="box">
-                                <h3>
-                                    العلامة التجارية
-                                    <Svgemojy2 />
-                                </h3>
-                                <h2>
-                                    <span>2500</span>
-                                    <span>ر.س</span>
-                                    <span>سنوي</span>
-                                </h2>
-                                <ul>
-                                    <li>
-                                        <IoCheckmarkSharp />
-                                        100منتج
-                                    </li>
-                                    <li>
-                                        <IoCheckmarkSharp />
-                                        10تصنيفات
-                                    </li>
-                                    <li>
-                                        <IoCheckmarkSharp />
-                                        دعم فني 24
-                                    </li>
-                                    <li>
-                                        <IoCheckmarkSharp />
-                                        تجربة مجانية
-                                    </li>
-                                    <li>
-                                        <IoCheckmarkSharp />
-                                        تجربة مجانية
-                                    </li>
-                                    <li>
-                                        <IoCheckmarkSharp />
-                                        تخصيص القالب
-                                    </li>
-                                    <li>
-                                        <IoCheckmarkSharp />
-                                        خدمات الاستشارة
-                                    </li>
-                                </ul>
+                                    <button>ابدأ الآن</button>
+                                </div>
+                                <div className="box">
+                                    <h3>
+                                        العلامة التجارية
+                                        <Svgemojy2 />
+                                    </h3>
+                                    <h2>
+                                        <span>
+                                            {packageDataYearly.brand.price}
+                                        </span>
+                                        <span>ر.س</span>
+                                        <span>{packageDataYearly.type}</span>
+                                    </h2>
+                                    <ul>
+                                        <li>
+                                            <IoCheckmarkSharp />
+                                            100منتج
+                                        </li>
+                                        <li>
+                                            <IoCheckmarkSharp />
+                                            10تصنيفات
+                                        </li>
+                                        <li>
+                                            <IoCheckmarkSharp />
+                                            دعم فني 24
+                                        </li>
+                                        <li>
+                                            <IoCheckmarkSharp />
+                                            تجربة مجانية
+                                        </li>
+                                        <li>
+                                            <IoCheckmarkSharp />
+                                            تجربة مجانية
+                                        </li>
+                                        <li>
+                                            <IoCheckmarkSharp />
+                                            تخصيص القالب
+                                        </li>
+                                        <li>
+                                            <IoCheckmarkSharp />
+                                            خدمات الاستشارة
+                                        </li>
+                                    </ul>
 
-                                <button>ابدأ الآن</button>
-                            </div>
-                            <div className="box">
-                                <h3>
-                                    التاجر المحترف <Svgemojy />
-                                </h3>
-                                <h2>
-                                    <span>1400</span>
-                                    <span>ر.س</span>
-                                    <span>سنوي</span>
-                                </h2>
-                                <ul>
-                                    <li>
-                                        <IoCheckmarkSharp />
-                                        100منتج
-                                    </li>
-                                    <li>
-                                        <IoCheckmarkSharp />
-                                        10تصنيفات
-                                    </li>
-                                    <li>
-                                        <IoCheckmarkSharp />
-                                        دعم فني 24
-                                    </li>
-                                    <li>
-                                        <IoCheckmarkSharp />
-                                        تجربة مجانية
-                                    </li>
-                                    <li>
-                                        <IoCheckmarkSharp />
-                                        تجربة مجانية
-                                    </li>
-                                    <li>
-                                        <IoCheckmarkSharp />
-                                        تخصيص القالب
-                                    </li>
-                                    <li className="not-active">
-                                        <IoCheckmarkSharp />
-                                        خدمات الاستشارة
-                                    </li>
-                                </ul>
+                                    <button>ابدأ الآن</button>
+                                </div>
+                                <div className="box">
+                                    <h3>
+                                        التاجر المحترف <Svgemojy />
+                                    </h3>
+                                    <h2>
+                                        <span>
+                                            {
+                                                packageDataYearly.professional
+                                                    .price
+                                            }
+                                        </span>
+                                        <span>ر.س</span>
+                                        <span>{packageDataYearly.type}</span>
+                                    </h2>
+                                    <ul>
+                                        <li>
+                                            <IoCheckmarkSharp />
+                                            100منتج
+                                        </li>
+                                        <li>
+                                            <IoCheckmarkSharp />
+                                            10تصنيفات
+                                        </li>
+                                        <li>
+                                            <IoCheckmarkSharp />
+                                            دعم فني 24
+                                        </li>
+                                        <li>
+                                            <IoCheckmarkSharp />
+                                            تجربة مجانية
+                                        </li>
+                                        <li>
+                                            <IoCheckmarkSharp />
+                                            تجربة مجانية
+                                        </li>
+                                        <li>
+                                            <IoCheckmarkSharp />
+                                            تخصيص القالب
+                                        </li>
+                                        <li className="not-active">
+                                            <IoCheckmarkSharp />
+                                            خدمات الاستشارة
+                                        </li>
+                                    </ul>
 
-                                <button>ابدأ الآن</button>
+                                    <button>ابدأ الآن</button>
+                                </div>
                             </div>
-                        </div>
+                        ) : packageDataMonthly !== null ? (
+                            <div className="content-package flex-column flex-xl-row">
+                                <div className="box">
+                                    <h3>
+                                        التاجر المبتدأ
+                                        <Svghappy />
+                                    </h3>
+                                    <h2>
+                                        <span>
+                                            {packageDataMonthly.startUp.price}
+                                        </span>
+                                        <span>ر.س</span>
+                                        <span>{packageDataMonthly.type}</span>
+                                    </h2>
+                                    <ul>
+                                        <li>
+                                            <IoCheckmarkSharp />
+                                            100منتج
+                                        </li>
+                                        <li>
+                                            <IoCheckmarkSharp />
+                                            10تصنيفات
+                                        </li>
+                                        <li>
+                                            <IoCheckmarkSharp />
+                                            دعم فني 24
+                                        </li>
+                                        <li className="not-active">
+                                            <IoCheckmarkSharp />
+                                            تجربة مجانية
+                                        </li>
+                                        <li className="not-active">
+                                            <IoCheckmarkSharp />
+                                            تجربة مجانية
+                                        </li>
+                                        <li className="not-active">
+                                            <IoCheckmarkSharp />
+                                            تخصيص القالب
+                                        </li>
+                                        <li className="not-active">
+                                            <IoCheckmarkSharp />
+                                            خدمات الاستشارة
+                                        </li>
+                                    </ul>
+
+                                    <button>ابدأ الآن</button>
+                                </div>
+                                <div className="box">
+                                    <h3>
+                                        العلامة التجارية
+                                        <Svgemojy2 />
+                                    </h3>
+                                    <h2>
+                                        <span>
+                                            {packageDataMonthly.brand.price}
+                                        </span>
+                                        <span>ر.س</span>
+                                        <span>{packageDataMonthly.type}</span>
+                                    </h2>
+                                    <ul>
+                                        <li>
+                                            <IoCheckmarkSharp />
+                                            100منتج
+                                        </li>
+                                        <li>
+                                            <IoCheckmarkSharp />
+                                            10تصنيفات
+                                        </li>
+                                        <li>
+                                            <IoCheckmarkSharp />
+                                            دعم فني 24
+                                        </li>
+                                        <li>
+                                            <IoCheckmarkSharp />
+                                            تجربة مجانية
+                                        </li>
+                                        <li>
+                                            <IoCheckmarkSharp />
+                                            تجربة مجانية
+                                        </li>
+                                        <li>
+                                            <IoCheckmarkSharp />
+                                            تخصيص القالب
+                                        </li>
+                                        <li>
+                                            <IoCheckmarkSharp />
+                                            خدمات الاستشارة
+                                        </li>
+                                    </ul>
+
+                                    <button>ابدأ الآن</button>
+                                </div>
+                                <div className="box">
+                                    <h3>
+                                        التاجر المحترف <Svgemojy />
+                                    </h3>
+                                    <h2>
+                                        <span>
+                                            {
+                                                packageDataMonthly.professional
+                                                    .price
+                                            }
+                                        </span>
+                                        <span>ر.س</span>
+                                        <span>{packageDataMonthly.type}</span>
+                                    </h2>
+                                    <ul>
+                                        <li>
+                                            <IoCheckmarkSharp />
+                                            100منتج
+                                        </li>
+                                        <li>
+                                            <IoCheckmarkSharp />
+                                            10تصنيفات
+                                        </li>
+                                        <li>
+                                            <IoCheckmarkSharp />
+                                            دعم فني 24
+                                        </li>
+                                        <li>
+                                            <IoCheckmarkSharp />
+                                            تجربة مجانية
+                                        </li>
+                                        <li>
+                                            <IoCheckmarkSharp />
+                                            تجربة مجانية
+                                        </li>
+                                        <li>
+                                            <IoCheckmarkSharp />
+                                            تخصيص القالب
+                                        </li>
+                                        <li className="not-active">
+                                            <IoCheckmarkSharp />
+                                            خدمات الاستشارة
+                                        </li>
+                                    </ul>
+
+                                    <button>ابدأ الآن</button>
+                                </div>
+                            </div>
+                        ) : null}
                     </div>
                 </div>
             </div>
@@ -354,20 +555,3 @@ const HomeBox = () => {
 };
 
 export default HomeBox;
-//   <li>
-//       <IoCheckmarkSharp />
-//   </li>;
-//  <FormControl fullWidth>
-//      <InputLabel id="demo-simple-select-label">Age</InputLabel>
-//      <Select
-//          labelId="demo-simple-select-label"
-//          id="demo-simple-select"
-//          value={age}
-//          label="Age"
-//          onChange={handleChange}
-//      >
-//          <MenuItem value={10}>Ten</MenuItem>
-//          <MenuItem value={20}>Twenty</MenuItem>
-//          <MenuItem value={30}>Thirty</MenuItem>
-//      </Select>
-//  </FormControl>;

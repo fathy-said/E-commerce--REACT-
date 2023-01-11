@@ -1,17 +1,19 @@
 import FooterOverlay from "./Footer/FooterOverlay";
 import Header from "./Header/Header";
-import SwiperBox from "./SwiperBox/ProductSwiper/ProductSwiper";
+import ProductSwiper from "./SwiperBox/ProductSwiper/ProductSwiper.jsx";
 import ReviewSwiper from "./SwiperBox/ReviewSwiper/ReviewSwiper.jsx";
 import PartnerSwiper from "./SwiperBox/PartnerSwiper/PartnerSwiper.jsx";
 import MainTitle from "./MainTitle/MainTitle";
+import LoadingBox from "./LoadingBox/LoadingBox";
 import HomeBox from "./PagesBox/HomeBox/HomeBox";
 
 export {
     FooterOverlay,
     Header,
-    SwiperBox,
+    ProductSwiper,
     MainTitle,
     HomeBox,
     ReviewSwiper,
     PartnerSwiper,
+    LoadingBox,
 };
