@@ -5,6 +5,7 @@ import ReviewSwiper from "./SwiperBox/ReviewSwiper/ReviewSwiper.jsx";
 import PartnerSwiper from "./SwiperBox/PartnerSwiper/PartnerSwiper.jsx";
 import MainTitle from "./MainTitle/MainTitle";
 import LoadingBox from "./LoadingBox/LoadingBox";
+import NotFoundPage from "./NotFoundPage/NotFoundPage";
 import HomeBox from "./PagesBox/HomeBox/HomeBox";
 
 export {
@@ -16,4 +17,5 @@ export {
     ReviewSwiper,
     PartnerSwiper,
     LoadingBox,
+    NotFoundPage,
 };

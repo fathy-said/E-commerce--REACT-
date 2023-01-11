@@ -8,9 +8,8 @@ import "./ReviewSwiper.css";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import { DataReview } from "../../../assets/Data/Data";
 import ReviewBox from "./ReviewBox.jsx";
-let ReviewSwiper = () => {
+let ReviewSwiper = ({ DataReviewSwiper }) => {
     return (
         <>
             <Swiper
@@ -34,8 +33,8 @@ let ReviewSwiper = () => {
                 modules={[Pagination, Navigation, Autoplay]}
                 className="swiper-review"
             >
-                {DataReview.length
-                    ? DataReview.map((el) => {
+                {DataReviewSwiper.length
+                    ? DataReviewSwiper.map((el) => {
                           return (
                               <SwiperSlide key={el.id}>
                                   <ReviewBox Img={el.Img} text={el.text} />

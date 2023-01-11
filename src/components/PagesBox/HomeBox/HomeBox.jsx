@@ -31,6 +31,8 @@ import { productThunk } from "../../../RTK/Thunk/ProductThunk";
 import { StoresThunk } from "../../../RTK/Thunk/StoresThunk";
 import { VideoThunk } from "../../../RTK/Thunk/VideoThunk";
 import { PackageThunk } from "../../../RTK/Thunk/PackageThunk";
+import { ReviewThunk } from "../../../RTK/Thunk/ReviewThunk";
+import { PartnersThunk } from "../../../RTK/Thunk/PartnersThunk";
 const HomeBox = () => {
     let dispatch = useDispatch();
     useEffect(() => {
@@ -39,6 +41,8 @@ const HomeBox = () => {
             dispatch(StoresThunk());
             dispatch(VideoThunk());
             dispatch(PackageThunk());
+            dispatch(ReviewThunk());
+            dispatch(PartnersThunk());
             // ===========
             shouldData.current = false;
         }
@@ -52,6 +56,12 @@ const HomeBox = () => {
     );
     let { packageDataMonthly, packageDataYearly } = useSelector(
         (state) => state.PackageReducer
+    );
+    let { reviewData, reviewLoading } = useSelector(
+        (state) => state.ReviewReducer
+    );
+    let { partnersData, partnersLoading } = useSelector(
+        (state) => state.PartnersReducer
     );
 
     let { videoData } = useSelector((state) => state.VideoReducer);
@@ -535,8 +545,14 @@ const HomeBox = () => {
             <div className="our-review p-main">
                 <div className="container gap-2 gap-md-5 ">
                     <MainTitle text={"قالوا عنا"} />
-                    <div className="all  ">
-                        <ReviewSwiper />
+                    <div className="all">
+                        {reviewLoading ? (
+                            <LoadingBox />
+                        ) : reviewData.length ? (
+                            <ReviewSwiper DataReviewSwiper={reviewData} />
+                        ) : (
+                            <h2>لم يتم العثور على البيانات</h2>
+                        )}
                     </div>
                 </div>
             </div>
@@ -545,7 +561,13 @@ const HomeBox = () => {
                 <div className="container gap-2 gap-md-5 ">
                     <MainTitle text={"شركاء النجاح"} />
                     <div className="all ">
-                        <PartnerSwiper />
+                        {partnersLoading ? (
+                            <LoadingBox />
+                        ) : partnersData.length ? (
+                            <PartnerSwiper PartnerDataSwiper={partnersData} />
+                        ) : (
+                            <h2>لم يتم العثور على البيانات</h2>
+                        )}
                     </div>
                 </div>
             </div>

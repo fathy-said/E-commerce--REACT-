@@ -8,9 +8,8 @@ import "./PartnerSwiper.css";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import { DataPartner } from "../../../assets/Data/Data.js";
 import PartnerBox from "./PartnerBox.jsx";
-let PartnerSwiper = () => {
+let PartnerSwiper = ({ PartnerDataSwiper }) => {
     return (
         <>
             <Swiper
@@ -37,8 +36,8 @@ let PartnerSwiper = () => {
                 modules={[Pagination, Navigation, Autoplay]}
                 className="swiper-partner"
             >
-                {DataPartner.length
-                    ? DataPartner.map((el) => {
+                {PartnerDataSwiper.length
+                    ? PartnerDataSwiper.map((el) => {
                           return (
                               <SwiperSlide key={el.id}>
                                   <PartnerBox Img={el.Img} />
