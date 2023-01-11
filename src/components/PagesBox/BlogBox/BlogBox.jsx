@@ -104,6 +104,75 @@ const BlogBox = () => {
                                     />
                                 </div>
                             </div>
+                            <div className="box">
+                                <div className="order">
+                                    <div className="box-img">
+                                        <img src={IMgTop} alt="" />
+                                    </div>
+                                    <h6>sssssss</h6>
+                                    <h4>
+                                        استهداف العملاء من خلال منصات التواصل
+                                        الاجتماعي
+                                    </h4>
+                                    <p>
+                                        هذا النص هو مثال لنص يمكن أن يستبدل في
+                                        نفس المساحة، لقد تم توليد هذا النص من
+                                        مولد النص العربى، حيث يمكنك أن تولد مثل
+                                        هذا النص أو العديد من النصوص الأخرى
+                                    </p>
+                                    <OwnerBox
+                                        NameOwner={"منال محمد"}
+                                        DateOwner={"Nov 11, 2022"}
+                                        ImgOwner={ImgOwner}
+                                    />
+                                </div>
+                            </div>
+                            <div className="box">
+                                <div className="order">
+                                    <div className="box-img">
+                                        <img src={IMgTop} alt="" />
+                                    </div>
+                                    <h6>sssssss</h6>
+                                    <h4>
+                                        استهداف العملاء من خلال منصات التواصل
+                                        الاجتماعي
+                                    </h4>
+                                    <p>
+                                        هذا النص هو مثال لنص يمكن أن يستبدل في
+                                        نفس المساحة، لقد تم توليد هذا النص من
+                                        مولد النص العربى، حيث يمكنك أن تولد مثل
+                                        هذا النص أو العديد من النصوص الأخرى
+                                    </p>
+                                    <OwnerBox
+                                        NameOwner={"منال محمد"}
+                                        DateOwner={"Nov 11, 2022"}
+                                        ImgOwner={ImgOwner}
+                                    />
+                                </div>
+                            </div>
+                            <div className="box">
+                                <div className="order">
+                                    <div className="box-img">
+                                        <img src={IMgTop} alt="" />
+                                    </div>
+                                    <h6>sssssss</h6>
+                                    <h4>
+                                        استهداف العملاء من خلال منصات التواصل
+                                        الاجتماعي
+                                    </h4>
+                                    <p>
+                                        هذا النص هو مثال لنص يمكن أن يستبدل في
+                                        نفس المساحة، لقد تم توليد هذا النص من
+                                        مولد النص العربى، حيث يمكنك أن تولد مثل
+                                        هذا النص أو العديد من النصوص الأخرى
+                                    </p>
+                                    <OwnerBox
+                                        NameOwner={"منال محمد"}
+                                        DateOwner={"Nov 11, 2022"}
+                                        ImgOwner={ImgOwner}
+                                    />
+                                </div>
+                            </div>
                         </div>
                         <button className="bt-main">عرض المزيد</button>
                     </div>
