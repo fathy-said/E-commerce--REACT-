@@ -1,9 +1,11 @@
 :root {
   /* Colors: */
-  --unnamed-color: #0077FF;
+  --main-color-2: #0077FF;
   --unnamed-color: #0099FB;
   --black-color-01: #011723;
-  --unnamed-color: #67747B;
+  --font-color-06: #EFF9FF;
+  --font-color-05: #67747B;
+  --font-color-04: #FAFAFA;
   --font-color-03: #ADB5B9;
   --font-color-02: #02466A;
   --main-color-01: #1DBBBE;
@@ -28,6 +30,7 @@
   --font-size-54: 54px;
   --main-border-radius-01: 32px;
   --main-border-radius-02: 8px;
+  --main-border-radius-16: 16px;
   /* ========================================== */
   /* --unnamed-character-spacing-0: 0px;
   --unnamed-character-spacing-0-2: 0.2px;
@@ -117,7 +120,6 @@
 body {
   background-color: var(--back-color-03) !important;
   /* background-color: #02466A0A !important; */
-  min-height: 1500px;
 }
 
 img {
