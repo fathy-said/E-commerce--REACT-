@@ -1,5 +1,6 @@
 .blog-box {
   /* min-height: 1500px; */
+  overflow: hidden;
 }
 
 .blog-box .container {
@@ -184,6 +185,12 @@
   .blog-box .box-body .order {
 
     max-width: 320px;
+  }
+
+  .blog-box .box-body {
+
+    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+
   }
 }
 

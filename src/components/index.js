@@ -9,6 +9,7 @@ import LoadingBox from "./LoadingBox/LoadingBox";
 import NotFoundPage from "./NotFoundPage/NotFoundPage";
 import HomeBox from "./PagesBox/HomeBox/HomeBox";
 import BlogBox from "./PagesBox/BlogBox/BlogBox";
+import DetailBlogBox from "./PagesBox/DetailBlogBox/DetailBlogBox";
 import OwnerBox from "./OwnerBox/OwnerBox";
 
 export {
@@ -24,4 +25,5 @@ export {
     BlogBox,
     BlogHero,
     OwnerBox,
+    DetailBlogBox,
 };

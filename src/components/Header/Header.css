@@ -112,7 +112,7 @@
 .header .navbar-collapse .navbar-nav a {
   color: var(--black-color-01);
   font-size: var(--font-size-20);
-  font-weight: 500;
+  font-weight: var(--font-weight-03);
   transition: var(--transition);
   border-radius: var(--main-border-radius-02);
   padding: 10px 12px;
@@ -122,6 +122,7 @@
   min-width: 100px;
 }
 
+.header .navbar-collapse .navbar-nav a:last-child,
 .header .navbar-collapse .navbar-nav a.active {
   background-color: #f3f3e5;
   color: var(--default-color-01);

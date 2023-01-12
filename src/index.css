@@ -22,6 +22,7 @@
   --font-size-16: 16px;
   --font-size-18: 18px;
   --font-size-20: 20px;
+  --font-size-22: 22px;
   --font-size-24: 24px;
   --font-size-28: 28px;
   --font-size-32: 32px;
@@ -31,6 +32,12 @@
   --main-border-radius-01: 32px;
   --main-border-radius-02: 8px;
   --main-border-radius-16: 16px;
+  --font-weight-01: 300;
+  --font-weight-02: 400;
+  --font-weight-03: 500;
+  --font-weight-04: 600;
+  --font-weight-05: 700;
+
   /* ========================================== */
   /* --unnamed-character-spacing-0: 0px;
   --unnamed-character-spacing-0-2: 0.2px;

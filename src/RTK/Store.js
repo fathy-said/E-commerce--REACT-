@@ -5,6 +5,7 @@ import VideoReducer from "./Reducer/VideoReducer.jsx";
 import PackageReducer from "./Reducer/PackageReducer.jsx";
 import ReviewReducer from "./Reducer/ReviewReducer.jsx";
 import PartnersReducer from "./Reducer/PartnersReducer.jsx";
+import BlogReducer from "./Reducer/BlogReducer.jsx";
 export let Store = configureStore({
     reducer: {
         ProductReducer,
@@ -13,5 +14,6 @@ export let Store = configureStore({
         PackageReducer,
         ReviewReducer,
         PartnersReducer,
+        BlogReducer,
     },
 });

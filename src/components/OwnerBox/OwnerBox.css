@@ -7,7 +7,7 @@
 .owner-box .box {
   display: flex;
   align-items: center;
-  justify-content: start;
+  justify-content: start !important;
   gap: 20px;
 }
 
@@ -32,7 +32,7 @@
 
 .owner-box .box .info {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   gap: 7px;
   flex-direction: column;
@@ -41,13 +41,13 @@
 .owner-box .box .info h5 {
   margin: 0;
   color: var(--black-color-01);
-  font-size: var(--font-size-20);
-  font-weight: 500;
+  font-size: var(--font-size-22);
+  font-weight: var(--font-weight-03);
 }
 
 .owner-box .box .info h6 {
   margin: 0;
   color: var(--font-color-05);
   font-size: var(--font-size-18);
-  font-weight: 300;
+  font-weight: var(--font-weight-01);
 }

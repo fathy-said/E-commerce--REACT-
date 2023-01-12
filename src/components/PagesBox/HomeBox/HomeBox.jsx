@@ -16,7 +16,6 @@ import { CiFaceSmile } from "react-icons/ci";
 import { MdOutlineTagFaces } from "react-icons/md";
 
 // ===============Data================
-import { StoresInfo } from "../../../assets/Data/Data";
 // ===============Icon================
 import { ReactComponent as Svghand } from "../../../assets/Icons/icon-touch hand-36.svg";
 import { ReactComponent as SvgVideo } from "../../../assets/Icons/ico - 24 - audiovisual - play_circle_outlined.svg";
@@ -35,6 +34,8 @@ import { ReviewThunk } from "../../../RTK/Thunk/ReviewThunk";
 import { PartnersThunk } from "../../../RTK/Thunk/PartnersThunk";
 const HomeBox = () => {
     let dispatch = useDispatch();
+    const shouldData = useRef(true);
+
     useEffect(() => {
         if (shouldData.current) {
             dispatch(productThunk());
@@ -65,7 +66,6 @@ const HomeBox = () => {
     );
 
     let { videoData } = useSelector((state) => state.VideoReducer);
-    const shouldData = useRef(true);
     // console.log(packageDataMonthly);
 
     return (
