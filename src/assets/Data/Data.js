@@ -289,6 +289,22 @@ export let StoresInfo = [
         id: index++,
         Img: StoreImg4,
     },
+    {
+        id: index++,
+        Img: StoreImgStarbucks,
+    },
+    {
+        id: index++,
+        Img: StoreImgHuawei,
+    },
+    {
+        id: index++,
+        Img: StoreImg3,
+    },
+    {
+        id: index++,
+        Img: StoreImg4,
+    },
 ];
 
 export let DataReview = [

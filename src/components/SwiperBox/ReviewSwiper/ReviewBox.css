@@ -9,7 +9,7 @@
   padding: 30px;
   border-radius: var(--main-border-radius-02);
   box-shadow: 0px 3px 6px #02466A0F;
-
+  max-height: 180px;
 }
 
 .swiper-review .review-box .box-img {

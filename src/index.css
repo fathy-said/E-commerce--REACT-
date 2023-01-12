@@ -160,8 +160,9 @@ ul {
   border-radius: var(--main-border-radius-01);
   color: var(--font-color-default);
   font-size: var(--font-size-24);
-  font-weight: 500;
+  font-weight: var(--font-weight-03);
   letter-spacing: 0.1px;
+
   display: flex;
   align-items: center;
   justify-content: center;
