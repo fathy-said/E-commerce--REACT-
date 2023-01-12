@@ -14,8 +14,9 @@ const DetailBlogBox = () => {
     return (
         <>
             <div className="detail-blog p-main">
+                <BlogHero />
+
                 <div className="container">
-                    <BlogHero />
                     <div className="all">
                         <div className="row ">
                             <div className="col-md-12 col-lg-3  col-xxl-2 ">

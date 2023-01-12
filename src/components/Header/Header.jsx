@@ -41,7 +41,7 @@ let Header = () => (
                             <Link to={"/"}>الرئيسية</Link>
                             <Link to={"/"}>السوق</Link>
                             <Link to={"/blog"}>المدونة</Link>
-                            <Link to={"/"}>كيف أبدأ</Link>
+                            <Link to={"/start"}>كيف أبدأ</Link>
                             <Link to={"/"}>التسجيل</Link>
                         </Nav>
                     </Navbar.Collapse>

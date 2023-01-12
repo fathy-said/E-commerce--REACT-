@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { FooterOverlay, Header, NotFoundPage } from "../components";
-import { Blog, BlogDetail, Home } from "./index";
+import { Blog, BlogDetail, Home, Start } from "./index";
 const AllPages = () => {
     return (
         <>
@@ -11,6 +11,7 @@ const AllPages = () => {
                     <Routes>
                         <Route path="/" element={<Home />} />
                         <Route path="/blog" element={<Blog />} />
+                        <Route path="/start" element={<Start />} />
                         <Route
                             path="/detail/:type/:id"
                             element={<BlogDetail />}

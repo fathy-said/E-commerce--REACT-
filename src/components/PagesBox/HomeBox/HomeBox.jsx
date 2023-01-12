@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./HomeBox.css";
-import FeaturesVideo from "../../../assets/Videos/video.mp4";
+// import FeaturesVideo from "../../../assets/Videos/video.mp4";
 import {
     ProductSwiper,
     ReviewSwiper,
@@ -12,8 +12,6 @@ import { AiOutlineSearch } from "react-icons/ai";
 import { HiOutlineArrowNarrowLeft } from "react-icons/hi";
 // import { Svghand } from "react-icons/tb";
 import { IoCheckmarkSharp } from "react-icons/io5";
-import { CiFaceSmile } from "react-icons/ci";
-import { MdOutlineTagFaces } from "react-icons/md";
 
 // ===============Data================
 // ===============Icon================
@@ -24,6 +22,7 @@ import { ReactComponent as Svgemojy2 } from "../../../assets/Icons/icon-38-emojy
 import { ReactComponent as Svgemojy } from "../../../assets/Icons/icon-38-emojy.svg";
 // ===============Img================
 import featuresIMG from "../../../assets/Img/IMG_3541-removebg-preview.png";
+import GroupIMG from "../../../assets/Img/Group 1432.png";
 // ===============redux================
 import { useDispatch, useSelector } from "react-redux";
 import { productThunk } from "../../../RTK/Thunk/ProductThunk";
@@ -180,7 +179,7 @@ const HomeBox = () => {
             <div className="out-features p-main">
                 <div className="container ">
                     <MainTitle text={"لماذا اطلبها ؟"} />
-                    <div className="all flex-column-reverse flex-md-row">
+                    <div className="all flex-column-reverse flex-lg-row">
                         <div className="box-right">
                             <ul>
                                 <li>
@@ -201,14 +200,21 @@ const HomeBox = () => {
                                     نشاط متجرك
                                 </li>
                             </ul>
+                            <div className="box-img">
+                                <img src={GroupIMG} alt="" />
+                            </div>
                         </div>
 
                         <div className="box-left">
-                            <video controls>
-                                <source
+                            <video
+                                controls
+                                src={videoData !== null ? videoData : ""}
+                                type="video/mp4"
+                            >
+                                {/* <source
                                     src={videoData !== null ? videoData : ""}
                                     type="video/mp4"
-                                />
+                                /> */}
                             </video>
                             <div className="box-img">
                                 <img src={featuresIMG} alt="" />
@@ -216,6 +222,14 @@ const HomeBox = () => {
                                     onClick={(e) => {
                                         e.currentTarget.parentElement.classList.add(
                                             "not-active"
+                                        );
+                                        e.currentTarget.parentElement.parentElement
+                                            .querySelector("video")
+                                            .setAttribute("autoplay", "");
+                                        console.log(
+                                            e.currentTarget.parentElement.parentElement.querySelector(
+                                                "video"
+                                            )
                                         );
                                     }}
                                 >

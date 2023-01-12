@@ -33,7 +33,7 @@
 .main-footer__logo {
   display: flex;
   align-content: center;
-  justify-content: center;
+  justify-content: flex-end;
 }
 
 
@@ -47,7 +47,7 @@
 
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
   gap: 10px;
   padding: 0 !important;
   margin: 0 !important;
@@ -130,6 +130,17 @@
 
   .main-footer .box-right ul li {
     flex: 1;
+
+  }
+
+  .main-footer__logo {
+
+    justify-content: center;
+  }
+
+  .main-footer .box-left ul {
+    justify-content: center;
+
 
   }
 }
