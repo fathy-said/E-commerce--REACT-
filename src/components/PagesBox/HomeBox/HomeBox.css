@@ -606,7 +606,7 @@
 }
 
 /* The slider */
-.slider {
+.our-package .slider {
   position: absolute;
   cursor: pointer;
   top: 0;
@@ -618,7 +618,7 @@
   border-radius: 30px;
 }
 
-.slider:before {
+.our-package .slider:before {
   position: absolute;
   content: "";
   height: 1.4em;

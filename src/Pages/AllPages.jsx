@@ -5,8 +5,10 @@ import {
     Blog,
     BlogDetail,
     Home,
+    PaymentPage,
     PolicyPayment,
     PolicyUse,
+    RegisterMerchant,
     Start,
 } from "./index";
 const AllPages = () => {
@@ -20,10 +22,15 @@ const AllPages = () => {
                         <Route path="/blog" element={<Blog />} />
                         <Route path="/start" element={<Start />} />
                         <Route
+                            path="/registerMerchant"
+                            element={<RegisterMerchant />}
+                        />
+                        <Route
                             path="/policyPayment"
                             element={<PolicyPayment />}
                         />
                         <Route path="/policyUse" element={<PolicyUse />} />
+                        <Route path="/paymentPage" element={<PaymentPage />} />
                         <Route
                             path="/detail/:type/:id"
                             element={<BlogDetail />}
