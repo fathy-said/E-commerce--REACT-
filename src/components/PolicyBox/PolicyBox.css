@@ -1,0 +1,87 @@
+.policy-box {
+
+  min-height: 100vh;
+  background-color: #fff;
+  padding-top: 80px;
+}
+
+.policy-box .container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.policy-box .container .all {
+
+  max-width: 1364px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: start;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.policy-box .container .all .box {
+  display: flex;
+  align-items: flex-start;
+  justify-content: start;
+  flex-direction: column;
+}
+
+.policy-box .container .all .box .info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin-bottom: 26px;
+}
+
+.policy-box .container .all .box .info h5 {
+  margin: 0;
+  color: var(--font-color-02);
+  font-size: var(--font-size-18);
+  letter-spacing: 0.18px;
+  font-weight: var(--font-weight-03);
+}
+
+.policy-box .container .all .box .info span {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--font-color-07);
+  border-radius: 50%;
+  color: var(--font-color-02);
+  cursor: pointer;
+}
+
+.policy-box .container .all .box .info span svg {}
+
+.policy-box .container .all .box h6 {
+  margin: 0;
+  color: var(--font-color-02);
+  font-size: var(--font-size-20);
+  letter-spacing: 0.2px;
+  font-weight: var(--font-weight-02);
+  margin-right: 40px;
+}
+
+.policy-box .container .all .content {
+  box-shadow: #0000000F 0px 0px 12px;
+  padding: 24px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: start;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.policy-box .container .all .content p {
+  font-size: var(--font-size-20);
+  color: var(--black-color-01);
+  margin: 0;
+  font-weight: var(--font-weight-02);
+  letter-spacing: 0.2px;
+
+}

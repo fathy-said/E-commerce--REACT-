@@ -12,6 +12,7 @@ import BlogBox from "./PagesBox/BlogBox/BlogBox";
 import DetailBlogBox from "./PagesBox/DetailBlogBox/DetailBlogBox";
 import StartBox from "./PagesBox/StartBox/StartBox";
 import OwnerBox from "./OwnerBox/OwnerBox";
+import PolicyBox from "./PolicyBox/PolicyBox";
 
 export {
     FooterOverlay,
@@ -28,4 +29,5 @@ export {
     OwnerBox,
     DetailBlogBox,
     StartBox,
+    PolicyBox,
 };

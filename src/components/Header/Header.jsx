@@ -39,10 +39,10 @@ let Header = () => (
                         </Form>
                         <Nav className="me-auto my-2 my-lg-0" navbarScroll>
                             <Link to={"/"}>الرئيسية</Link>
-                            <Link to={"/"}>السوق</Link>
+                            <Link to={"/policyPayment"}>السوق</Link>
                             <Link to={"/blog"}>المدونة</Link>
                             <Link to={"/start"}>كيف أبدأ</Link>
-                            <Link to={"/"}>التسجيل</Link>
+                            <Link to={"/policyUse"}>التسجيل</Link>
                         </Nav>
                     </Navbar.Collapse>
                 </Navbar>
