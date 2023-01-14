@@ -1,4 +1,4 @@
-.registerMerchant-box {
+.create-store-box {
     background-color: var(--back-color-06);
     position: fixed;
     width: 100%;
@@ -10,7 +10,7 @@
     /* background-color: #f5f8f9; */
 }
 
-.registerMerchant-box .all-content {
+.create-store-box .all-content {
     height: 1700px;
     display: flex;
     align-items: flex-start;
@@ -18,10 +18,10 @@
     gap: 15px;
 }
 
-.registerMerchant-box .all-content {
+.create-store-box .all-content {
 }
 
-.registerMerchant-box .all-content .box-form-banner {
+.create-store-box .all-content .box-form-banner {
     flex: 1;
     background: transparent
         linear-gradient(
@@ -45,7 +45,7 @@
     width: 100%;
 }
 
-/* .registerMerchant-box .all-content .box-form-banner::before {
+/* .create-store-box .all-content .box-form-banner::before {
   position: absolute;
   content: '';
   background-image: url('../../../assets/Img/hero.jpg');
@@ -59,7 +59,7 @@
   z-index: 1;
 } */
 
-.registerMerchant-box .all-content .box-form-banner h5 {
+.create-store-box .all-content .box-form-banner h5 {
     width: 100%;
     margin: 0;
     text-align: right;
@@ -74,7 +74,7 @@
     margin-bottom: 40px;
 }
 
-.registerMerchant-box .all-content .box-form-banner .info-svg {
+.create-store-box .all-content .box-form-banner .info-svg {
     width: 100%;
 
     display: flex;
@@ -82,11 +82,11 @@
     justify-content: flex-end;
 }
 
-.registerMerchant-box .all-content .box-form-banner .info-svg svg {
+.create-store-box .all-content .box-form-banner .info-svg svg {
     width: 60px;
 }
 
-.registerMerchant-box .all-content .box-form-banner .text {
+.create-store-box .all-content .box-form-banner .text {
     display: flex;
     align-items: flex-start;
     justify-content: start;
@@ -95,14 +95,14 @@
     width: 100%;
 }
 
-.registerMerchant-box .all-content .box-form-banner .text h1 {
+.create-store-box .all-content .box-form-banner .text h1 {
     margin: 0;
     color: var(--back-color-01);
     font-size: var(--font-size-94);
     font-weight: var(--font-weight-04);
 }
 
-.registerMerchant-box .all-content .box-form-banner .text h2 {
+.create-store-box .all-content .box-form-banner .text h2 {
     margin: 0;
     color: var(--back-color-01);
     font-size: var(--font-size-54);
@@ -111,17 +111,17 @@
 
 /* ================================================== */
 
-.registerMerchant-box .all-content .box-form-banner h5 span svg {
+.create-store-box .all-content .box-form-banner h5 span svg {
     max-width: 100%;
 }
 
-.registerMerchant-box .all-content .box-container-form {
+.create-store-box .all-content .box-container-form {
     flex: 1;
     width: 100%;
     height: 100%;
 }
 
-.registerMerchant-box .all-content .box-container-form .all {
+.create-store-box .all-content .box-container-form .all {
     padding-top: 50px;
     display: flex;
     align-items: flex-start;
@@ -132,21 +132,21 @@
     gap: 60px;
 }
 
-.registerMerchant-box .all-content .box-container-form .all h2 {
+.create-store-box .all-content .box-container-form .all h2 {
     margin: 0;
     color: var(--main-color-01);
     font-size: var(--font-size-28);
     font-weight: var(--font-weight-04);
 }
 
-.registerMerchant-box .all-content .box-container-form .all h2 {
+.create-store-box .all-content .box-container-form .all h2 {
     margin: 0;
     color: var(--main-color-01);
     font-size: var(--font-size-28);
     font-weight: var(--font-weight-04);
 }
 
-.registerMerchant-box .all-content .box-container-form .all .user-info {
+.create-store-box .all-content .box-container-form .all .user-info {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -154,7 +154,7 @@
     gap: 16px;
 }
 
-.registerMerchant-box .all-content .box-container-form .all .user-info button {
+.create-store-box .all-content .box-container-form .all .user-info button {
     flex: 1;
     width: 100%;
     border: 1px solid var(--main-color-01);
@@ -163,7 +163,7 @@
     height: 56px;
 }
 
-.registerMerchant-box
+.create-store-box
     .all-content
     .box-container-form
     .all
@@ -174,7 +174,7 @@
     color: var(--back-color-01);
 }
 
-.registerMerchant-box
+.create-store-box
     .all-content
     .box-container-form
     .all
@@ -182,13 +182,14 @@
     button:nth-child(2) {
     background-color: transparent;
     color: var(--main-color-01);
+    cursor: text;
 }
 
-.registerMerchant-box .all .user-form {
+.create-store-box .all .user-form {
     width: 100%;
 }
 
-.registerMerchant-box .all .user-form .content {
+.create-store-box .all .user-form .content {
     width: 100%;
     height: 600px;
     overflow-y: auto;
@@ -196,7 +197,7 @@
     padding-right: 10px;
 }
 
-.registerMerchant-box .all h4 {
+.create-store-box .all h4 {
     width: 100%;
     margin: 0;
     color: var(--main-color-01);
@@ -206,20 +207,20 @@
     margin-right: 10px;
 }
 
-.registerMerchant-box .all .user-form .content::-webkit-scrollbar {
+.create-store-box .all .user-form .content::-webkit-scrollbar {
     width: 4px;
 }
 
-.registerMerchant-box .all .user-form .content::-webkit-scrollbar-track {
+.create-store-box .all .user-form .content::-webkit-scrollbar-track {
     border: 2px solid #dddddd;
 }
 
-.registerMerchant-box .all .user-form .content::-webkit-scrollbar-thumb {
+.create-store-box .all .user-form .content::-webkit-scrollbar-thumb {
     border: 2px solid #bebebe;
     border-radius: 30px;
 }
 
-.registerMerchant-box .all .user-form form {
+.create-store-box .all .user-form form {
     width: 100%;
     display: flex;
     align-items: flex-start;
@@ -230,7 +231,7 @@
     height: 1020px;
 }
 
-.registerMerchant-box .all .user-form div {
+.create-store-box .all .user-form div {
     width: 100%;
     display: flex;
     align-items: flex-start;
@@ -239,7 +240,7 @@
     gap: 10px;
 }
 
-.registerMerchant-box .all .user-form div {
+.create-store-box .all .user-form div {
     width: 100%;
     display: flex;
     align-items: flex-start;
@@ -248,7 +249,7 @@
     gap: 10px;
 }
 
-.registerMerchant-box .all .user-form div h5 {
+.create-store-box .all .user-form div h5 {
     width: 100%;
     margin: 0;
     color: var(--black-color-01);
@@ -256,8 +257,8 @@
     font-weight: var(--font-weight-02);
 }
 
-.registerMerchant-box .all .user-form div select,
-.registerMerchant-box .all .user-form div input {
+.create-store-box .all .user-form div select,
+.create-store-box .all .user-form div input {
     width: 100%;
     height: 56px;
     border: none;
@@ -269,20 +270,20 @@
     color: var(--black-color-01);
 }
 
-.registerMerchant-box .all .user-form div select,
-.registerMerchant-box .all .user-form div input::placeholder {
+.create-store-box .all .user-form div select,
+.create-store-box .all .user-form div input::placeholder {
     color: var(--font-color-05);
 }
 
-.registerMerchant-box .all .user-form div select {
+.create-store-box .all .user-form div select {
     background-position: left 20px center;
 }
 
-.registerMerchant-box .all .user-form div.phone {
+.create-store-box .all .user-form div.phone {
     position: relative;
 }
 
-.registerMerchant-box .all .user-form div.phone::before {
+.create-store-box .all .user-form div.phone::before {
     content: "+996";
     position: absolute;
     color: var(--black-color-01);
@@ -295,7 +296,7 @@
     left: 20px;
 }
 
-.registerMerchant-box .all .owner-form {
+.create-store-box .all .owner-form {
     width: 100%;
     display: flex;
     align-items: flex-start;
@@ -303,7 +304,7 @@
     flex-direction: column;
 }
 
-.registerMerchant-box .all .owner-form form {
+.create-store-box .all .owner-form form {
     width: 100%;
     display: flex;
     align-items: flex-start;
@@ -313,12 +314,12 @@
     gap: 25px;
 }
 
-.registerMerchant-box .all .owner-form form h4 {
+.create-store-box .all .owner-form form h4 {
     margin-bottom: 0;
     margin-right: 0px;
 }
 
-.registerMerchant-box .all .owner-form form div {
+.create-store-box .all .owner-form form div {
     width: 100%;
     display: flex;
     align-items: flex-start;
@@ -328,7 +329,7 @@
     position: relative;
 }
 
-.registerMerchant-box .all .owner-form form div input {
+.create-store-box .all .owner-form form div input {
     width: 100%;
     height: 56px;
     border: none;
@@ -340,7 +341,7 @@
     color: var(--black-color-01);
 }
 
-.registerMerchant-box .all .owner-form form div h5 {
+.create-store-box .all .owner-form form div h5 {
     width: 100%;
     margin: 0;
     color: var(--black-color-01);
@@ -348,7 +349,7 @@
     font-weight: var(--font-weight-02);
 }
 
-.registerMerchant-box .all .owner-form form div.phone::before {
+.create-store-box .all .owner-form form div.phone::before {
     content: "+996";
     position: absolute;
     color: var(--black-color-01);
@@ -361,7 +362,7 @@
     left: 20px;
 }
 
-.registerMerchant-box .all .owner-form form div.name span {
+.create-store-box .all .owner-form form div.name span {
     position: absolute;
     width: fit-content;
     height: 24px;
@@ -369,7 +370,7 @@
     right: 15px;
 }
 
-.registerMerchant-box .all .owner-form .box-pay {
+.create-store-box .all .owner-form .box-pay {
     display: flex;
     align-items: flex-start;
     justify-content: start;
@@ -377,7 +378,7 @@
     width: 100%;
 }
 
-.registerMerchant-box .all .owner-form .box-pay .top {
+.create-store-box .all .owner-form .box-pay .top {
     margin-top: 54px;
     display: flex;
     align-items: flex-start;
@@ -388,7 +389,7 @@
     gap: 10px;
 }
 
-.registerMerchant-box .all .owner-form .box-pay .top .form-check {
+.create-store-box .all .owner-form .box-pay .top .form-check {
     width: 24px;
     height: 24px;
     display: flex;
@@ -396,7 +397,7 @@
     justify-content: center;
 }
 
-.registerMerchant-box .all .owner-form .box-pay .top .form-check input {
+.create-store-box .all .owner-form .box-pay .top .form-check input {
     width: 24px;
     height: 24px;
     outline: none;
@@ -405,19 +406,19 @@
     cursor: pointer;
 }
 
-.registerMerchant-box .all .owner-form .box-pay .top h5 {
+.create-store-box .all .owner-form .box-pay .top h5 {
     color: var(--font-color-05);
     font-weight: var(--font-weight-02);
     font-size: var(--font-size-18);
 }
 
-.registerMerchant-box .all .owner-form .box-pay button {
+.create-store-box .all .owner-form .box-pay button {
     width: 100%;
     background-color: var(--font-color-02);
     margin: 20px 0;
 }
 
-.registerMerchant-box .all .owner-form .box-pay ul {
+.create-store-box .all .owner-form .box-pay ul {
     width: 100%;
     display: flex;
     align-items: center;
@@ -426,7 +427,7 @@
     gap: 15px;
 }
 
-.registerMerchant-box .all .owner-form .box-pay ul li {
+.create-store-box .all .owner-form .box-pay ul li {
     margin: 0;
     color: var(--black-color-01);
     font-size: var(--font-size-18);
@@ -434,12 +435,12 @@
     cursor: pointer;
 }
 
-.registerMerchant-box .all .owner-form .box-pay ul li:nth-child(2) {
+.create-store-box .all .owner-form .box-pay ul li:nth-child(2) {
     color: var(--main-color-01);
 }
 
 @media (max-width: 992px) {
-    .registerMerchant-box .all-content {
+    .create-store-box .all-content {
         align-items: flex-start;
         justify-content: flex-start;
         flex-direction: column-reverse;
@@ -447,14 +448,14 @@
         height: 2400px;
     }
 
-    .registerMerchant-box .all-content .box-form-banner {
+    .create-store-box .all-content .box-form-banner {
         height: 600px;
         flex: none;
         padding: 20px;
         padding-top: 40px;
     }
 
-    .registerMerchant-box .all-content .box-container-form {
+    .create-store-box .all-content .box-container-form {
         /* flex: 1;
     width: 100%;
     height: 100%; */
@@ -463,15 +464,15 @@
 }
 
 @media (min-width: 992px) {
-    .registerMerchant-box .all-content .box-form-banner,
-    .registerMerchant-box .all-content .box-container-form {
+    .create-store-box .all-content .box-form-banner,
+    .create-store-box .all-content .box-container-form {
         padding-right: 40px;
     }
 }
 
 @media (min-width: 1400px) {
-    .registerMerchant-box .all-content .box-form-banner,
-    .registerMerchant-box .all-content .box-container-form {
+    .create-store-box .all-content .box-form-banner,
+    .create-store-box .all-content .box-container-form {
         padding-right: 140px;
     }
 }

@@ -8,10 +8,7 @@ import "./RegisterMerchantBox.css";
 const RegisterMerchantBox = () => {
     let navigate = useNavigate();
     let location = useLocation();
-    if (location.pathname === "/registerMerchant") {
-        document.querySelector("body").style.overflow = "hidden";
-        console.log("object");
-    }
+
     return (
         <>
             <div className="registerMerchant-box" dir="ltr">
@@ -26,10 +23,6 @@ const RegisterMerchantBox = () => {
                                 <button
                                     className="bt-main"
                                     onClick={() => {
-                                        document.querySelector(
-                                            "body"
-                                        ).style.overflow = "auto";
-
                                         navigate("/registerRepresentative");
                                     }}
                                 >
@@ -174,10 +167,6 @@ const RegisterMerchantBox = () => {
                                     <button
                                         className="bt-main"
                                         onClick={() => {
-                                            document.querySelector(
-                                                "body"
-                                            ).style.overflow = "auto";
-
                                             navigate("/verificationPage");
                                         }}
                                     >
@@ -185,7 +174,14 @@ const RegisterMerchantBox = () => {
                                     </button>
                                     <ul>
                                         <li>لديك حساب بالفعل ؟</li>
-                                        <li> قم بتسجيل الدخول</li>
+                                        <li
+                                            onClick={() => {
+                                                navigate("/signInPage");
+                                            }}
+                                        >
+                                            {" "}
+                                            قم بتسجيل الدخول
+                                        </li>
                                     </ul>
                                 </div>
                             </div>
@@ -195,8 +191,6 @@ const RegisterMerchantBox = () => {
                     <div className="box-form-banner">
                         <h5
                             onClick={() => {
-                                document.querySelector("body").style.overflow =
-                                    "auto";
                                 navigate("/");
                             }}
                         >

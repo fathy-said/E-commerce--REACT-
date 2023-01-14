@@ -31,9 +31,11 @@ import { VideoThunk } from "../../../RTK/Thunk/VideoThunk";
 import { PackageThunk } from "../../../RTK/Thunk/PackageThunk";
 import { ReviewThunk } from "../../../RTK/Thunk/ReviewThunk";
 import { PartnersThunk } from "../../../RTK/Thunk/PartnersThunk";
+import { useNavigate } from "react-router-dom";
 const HomeBox = () => {
     let dispatch = useDispatch();
     const shouldData = useRef(true);
+    let navigate = useNavigate();
 
     useEffect(() => {
         if (shouldData.current) {
@@ -72,7 +74,14 @@ const HomeBox = () => {
                 <div className="container">
                     <h2>أهلاً بك في منصة اطلبها</h2>
                     <h3>انضم الان الى منصة التجارة الالكترونية الشاملة</h3>
-                    <button className="bt-main">التسجيل</button>
+                    <button
+                        className="bt-main"
+                        onClick={() => {
+                            navigate("/registerMerchant");
+                        }}
+                    >
+                        التسجيل
+                    </button>
                 </div>
             </div>
             {/* =========================== */}
@@ -170,7 +179,14 @@ const HomeBox = () => {
                     <div className="container">
                         <h4>نحن بوابتك لعالم التجارة الإلكترونية</h4>
                         <h5>انشئ متجرك وتمتع بالتجربة المجانية</h5>
-                        <button className="bt-main">التسجيل</button>
+                        <button
+                            className="bt-main"
+                            onClick={() => {
+                                navigate("/registerMerchant");
+                            }}
+                        >
+                            التسجيل
+                        </button>
                     </div>
                 </div>
             </div>

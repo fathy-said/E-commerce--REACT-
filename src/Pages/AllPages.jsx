@@ -12,6 +12,12 @@ import {
     Start,
     RegisterRepresentative,
     VerificationPage,
+    PasswordBackPage,
+    SendPasswordPage,
+    SignInPage,
+    CreateYourStore,
+    OpenControlPanel,
+    PackagePage,
 } from "./index";
 const AllPages = () => {
     return (
@@ -25,6 +31,20 @@ const AllPages = () => {
                         <Route path="/start" element={<Start />} />
                         <Route path="/policyUse" element={<PolicyUse />} />
                         <Route path="/paymentPage" element={<PaymentPage />} />
+                        <Route path="/signInPage" element={<SignInPage />} />
+                        <Route path="/packagePage" element={<PackagePage />} />
+                        <Route
+                            path="/createYourStore"
+                            element={<CreateYourStore />}
+                        />
+                        <Route
+                            path="/openControlPanel"
+                            element={<OpenControlPanel />}
+                        />
+                        <Route
+                            path="/policyPayment"
+                            element={<PolicyPayment />}
+                        />
                         <Route
                             path="/registerMerchant"
                             element={<RegisterMerchant />}
@@ -34,9 +54,14 @@ const AllPages = () => {
                             element={<RegisterRepresentative />}
                         />
                         <Route
-                            path="/policyPayment"
-                            element={<PolicyPayment />}
+                            path="/passwordBackPage"
+                            element={<PasswordBackPage />}
                         />
+                        <Route
+                            path="/sendPasswordPage"
+                            element={<SendPasswordPage />}
+                        />
+
                         <Route
                             path="/verificationPage"
                             element={<VerificationPage />}

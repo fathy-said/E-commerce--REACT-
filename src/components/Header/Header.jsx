@@ -14,6 +14,24 @@ import { ReactComponent as SearchIcon } from "../../assets/Icons/icon_24_search.
 import { Link, useLocation } from "react-router-dom";
 
 const Header = () => {
+    let location = useLocation();
+
+    if (
+        location.pathname === "/registerMerchant" ||
+        location.pathname === "/registerRepresentative" ||
+        location.pathname === "/paymentPage" ||
+        location.pathname === "/signInPage" ||
+        location.pathname === "/createYourStore" ||
+        location.pathname === "/verificationPage" ||
+        location.pathname === "/openControlPanel" ||
+        location.pathname === "/packagePage" ||
+        location.pathname === "/passwordBackPage"
+    ) {
+        document.querySelector("body").style.overflow = "hidden";
+    } else {
+        document.querySelector("body").style.overflow = "auto";
+    }
+
     return (
         <>
             <div className="header">

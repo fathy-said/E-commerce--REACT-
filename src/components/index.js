@@ -15,6 +15,12 @@ import StartBox from "./PagesBox/StartBox/StartBox";
 import RegisterMerchantBox from "./PagesBox/RegisterMerchantBox/RegisterMerchantBox";
 import RegisterRepresentativeBox from "./PagesBox/RegisterRepresentativeBox/RegisterRepresentativeBox";
 import VerificationBox from "./PagesBox/VerificationBox/VerificationBox";
+import PasswordBackBox from "./PagesBox/PasswordBackBox/PasswordBackBox";
+import SendPasswordBox from "./PagesBox/SendPasswordBox/SendPasswordBox";
+import SignInBox from "./PagesBox/SignInBox/SignInBox";
+import OpenControlPanelBox from "./PagesBox/OpenControlPanelBox/OpenControlPanelBox";
+import CreateYourStoreBox from "./PagesBox/CreateYourStoreBox/CreateYourStoreBox";
+import PackageBox from "./PagesBox/PackageBox/PackageBox";
 import OwnerBox from "./OwnerBox/OwnerBox";
 import PolicyBox from "./PolicyBox/PolicyBox";
 import LogoHeader from "./LogoHeader/LogoHeader";
@@ -40,4 +46,10 @@ export {
     RegisterMerchantBox,
     RegisterRepresentativeBox,
     VerificationBox,
+    PasswordBackBox,
+    SendPasswordBox,
+    SignInBox,
+    CreateYourStoreBox,
+    OpenControlPanelBox,
+    PackageBox,
 };

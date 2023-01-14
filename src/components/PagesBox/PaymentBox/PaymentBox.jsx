@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { LogoHeader } from "../../index.js";
 import "./PaymentBox.css";
-import Form from "react-bootstrap/Form";
 
 import { ImArrowRight } from "react-icons/im";
 import { useNavigate, useLocation } from "react-router-dom";
@@ -14,9 +13,6 @@ const PaymentBox = () => {
     let navigate = useNavigate();
     let location = useLocation();
 
-    if (location.pathname === "/paymentPage") {
-        document.querySelector("body").style.overflow = "hidden";
-    }
     return (
         <>
             <div className="payment-box" dir="ltr">
@@ -28,9 +24,6 @@ const PaymentBox = () => {
                             <span
                                 onClick={() => {
                                     navigate(-1);
-                                    document.querySelector(
-                                        "body"
-                                    ).style.overflow = "auto";
                                 }}
                             >
                                 <ImArrowRight />
@@ -168,9 +161,6 @@ const PaymentBox = () => {
                                     <li
                                         onClick={() => {
                                             navigate("/policyPayment");
-                                            document.querySelector(
-                                                "body"
-                                            ).style.overflow = "auto";
                                         }}
                                     >
                                         سياسة الدفع
@@ -181,9 +171,6 @@ const PaymentBox = () => {
                                     <li
                                         onClick={() => {
                                             navigate("/policyUse");
-                                            document.querySelector(
-                                                "body"
-                                            ).style.overflow = "auto";
                                         }}
                                     >
                                         سياسة الاستخدام
