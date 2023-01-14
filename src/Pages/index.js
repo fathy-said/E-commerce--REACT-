@@ -7,3 +7,5 @@ export { default as PolicyPayment } from "./PolicyPayment.jsx";
 export { default as PolicyUse } from "./PolicyUse.jsx";
 export { default as PaymentPage } from "./PaymentPage.jsx";
 export { default as RegisterMerchant } from "./RegisterMerchant.jsx";
+export { default as RegisterRepresentative } from "./RegisterRepresentative.jsx";
+export { default as VerificationPage } from "./VerificationPage.jsx";

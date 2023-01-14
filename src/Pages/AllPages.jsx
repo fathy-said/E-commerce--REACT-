@@ -10,6 +10,8 @@ import {
     PolicyUse,
     RegisterMerchant,
     Start,
+    RegisterRepresentative,
+    VerificationPage,
 } from "./index";
 const AllPages = () => {
     return (
@@ -21,16 +23,24 @@ const AllPages = () => {
                         <Route path="/" element={<Home />} />
                         <Route path="/blog" element={<Blog />} />
                         <Route path="/start" element={<Start />} />
+                        <Route path="/policyUse" element={<PolicyUse />} />
+                        <Route path="/paymentPage" element={<PaymentPage />} />
                         <Route
                             path="/registerMerchant"
                             element={<RegisterMerchant />}
                         />
                         <Route
+                            path="/registerRepresentative"
+                            element={<RegisterRepresentative />}
+                        />
+                        <Route
                             path="/policyPayment"
                             element={<PolicyPayment />}
                         />
-                        <Route path="/policyUse" element={<PolicyUse />} />
-                        <Route path="/paymentPage" element={<PaymentPage />} />
+                        <Route
+                            path="/verificationPage"
+                            element={<VerificationPage />}
+                        />
                         <Route
                             path="/detail/:type/:id"
                             element={<BlogDetail />}

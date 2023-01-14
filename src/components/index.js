@@ -13,6 +13,8 @@ import DetailBlogBox from "./PagesBox/DetailBlogBox/DetailBlogBox";
 import PaymentBox from "./PagesBox/PaymentBox/PaymentBox";
 import StartBox from "./PagesBox/StartBox/StartBox";
 import RegisterMerchantBox from "./PagesBox/RegisterMerchantBox/RegisterMerchantBox";
+import RegisterRepresentativeBox from "./PagesBox/RegisterRepresentativeBox/RegisterRepresentativeBox";
+import VerificationBox from "./PagesBox/VerificationBox/VerificationBox";
 import OwnerBox from "./OwnerBox/OwnerBox";
 import PolicyBox from "./PolicyBox/PolicyBox";
 import LogoHeader from "./LogoHeader/LogoHeader";
@@ -36,4 +38,6 @@ export {
     PaymentBox,
     LogoHeader,
     RegisterMerchantBox,
+    RegisterRepresentativeBox,
+    VerificationBox,
 };
