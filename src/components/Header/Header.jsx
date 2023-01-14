@@ -24,6 +24,7 @@ const Header = () => {
         location.pathname === "/createYourStore" ||
         location.pathname === "/verificationPage" ||
         location.pathname === "/openControlPanel" ||
+        location.pathname === "/createYourStorePayment" ||
         location.pathname === "/packagePage" ||
         location.pathname === "/passwordBackPage"
     ) {

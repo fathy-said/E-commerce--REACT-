@@ -21,6 +21,7 @@ import SignInBox from "./PagesBox/SignInBox/SignInBox";
 import OpenControlPanelBox from "./PagesBox/OpenControlPanelBox/OpenControlPanelBox";
 import CreateYourStoreBox from "./PagesBox/CreateYourStoreBox/CreateYourStoreBox";
 import PackageBox from "./PagesBox/PackageBox/PackageBox";
+import CreateYourStorePaymentBox from "./PagesBox/CreateYourStorePaymentBox/CreateYourStorePaymentBox";
 import OwnerBox from "./OwnerBox/OwnerBox";
 import PolicyBox from "./PolicyBox/PolicyBox";
 import LogoHeader from "./LogoHeader/LogoHeader";
@@ -52,4 +53,5 @@ export {
     CreateYourStoreBox,
     OpenControlPanelBox,
     PackageBox,
+    CreateYourStorePaymentBox,
 };

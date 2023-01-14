@@ -15,3 +15,4 @@ export { default as SignInPage } from "./SignInPage.jsx";
 export { default as CreateYourStore } from "./CreateYourStore.jsx";
 export { default as OpenControlPanel } from "./OpenControlPanel.jsx";
 export { default as PackagePage } from "./PackagePage.jsx";
+export { default as CreateYourStorePayment } from "./CreateYourStorePayment.jsx";

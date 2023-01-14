@@ -18,6 +18,7 @@ import {
     CreateYourStore,
     OpenControlPanel,
     PackagePage,
+    CreateYourStorePayment,
 } from "./index";
 const AllPages = () => {
     return (
@@ -28,31 +29,42 @@ const AllPages = () => {
                     <Routes>
                         <Route path="/" element={<Home />} />
                         <Route path="/blog" element={<Blog />} />
+                        <Route
+                            path="/detail/:type/:id"
+                            element={<BlogDetail />}
+                        />
                         <Route path="/start" element={<Start />} />
-                        <Route path="/policyUse" element={<PolicyUse />} />
-                        <Route path="/paymentPage" element={<PaymentPage />} />
-                        <Route path="/signInPage" element={<SignInPage />} />
+                        <Route
+                            path="/registerMerchant"
+                            element={<RegisterMerchant />}
+                        />
                         <Route path="/packagePage" element={<PackagePage />} />
                         <Route
                             path="/createYourStore"
                             element={<CreateYourStore />}
                         />
+
                         <Route
                             path="/openControlPanel"
                             element={<OpenControlPanel />}
                         />
                         <Route
+                            path="/createYourStorePayment"
+                            element={<CreateYourStorePayment />}
+                        />
+                        <Route path="/paymentPage" element={<PaymentPage />} />
+                        <Route path="/policyUse" element={<PolicyUse />} />
+                        <Route
                             path="/policyPayment"
                             element={<PolicyPayment />}
-                        />
-                        <Route
-                            path="/registerMerchant"
-                            element={<RegisterMerchant />}
                         />
                         <Route
                             path="/registerRepresentative"
                             element={<RegisterRepresentative />}
                         />
+
+                        <Route path="/signInPage" element={<SignInPage />} />
+
                         <Route
                             path="/passwordBackPage"
                             element={<PasswordBackPage />}
@@ -65,10 +77,6 @@ const AllPages = () => {
                         <Route
                             path="/verificationPage"
                             element={<VerificationPage />}
-                        />
-                        <Route
-                            path="/detail/:type/:id"
-                            element={<BlogDetail />}
                         />
                         <Route path="*" element={<NotFoundPage />} />
                     </Routes>
