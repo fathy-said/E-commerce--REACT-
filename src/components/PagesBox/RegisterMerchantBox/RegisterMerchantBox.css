@@ -283,16 +283,18 @@
 }
 
 .registerMerchant-box .all .user-form div select,
+.registerMerchant-box .all .user-form .check-mark,
 .registerMerchant-box .all .user-form div input {
     width: 100%;
     height: 56px;
-    border: none;
-    outline: none;
-    box-shadow: none;
+    border: none !important;
+    outline: none !important ;
+    box-shadow: none !important;
     padding: 0 20px;
     border: 1px solid #e4e4e4;
     border-radius: var(--main-border-radius-04);
     color: var(--black-color-01);
+    background-color: #fff;
 }
 
 .registerMerchant-box .all .user-form div select,

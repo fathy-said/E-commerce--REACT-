@@ -25,9 +25,11 @@ import CreateYourStorePaymentBox from "./PagesBox/CreateYourStorePaymentBox/Crea
 import OwnerBox from "./OwnerBox/OwnerBox";
 import PolicyBox from "./PolicyBox/PolicyBox";
 import LogoHeader from "./LogoHeader/LogoHeader";
+import CheckMarks from "./CheckMarks/CheckMarks";
 
 export {
     FooterOverlay,
+    CheckMarks,
     Header,
     ProductSwiper,
     MainTitle,

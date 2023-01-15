@@ -1,8 +1,10 @@
-import React from "react";
+import React, { Component, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { LogoHeader } from "../../index";
 import { ReactComponent as SvgComponent } from "../../../assets/Icons/Component 59 – 11.svg";
 import { ReactComponent as SvgRepeat } from "../../../assets/Icons/Repeat.svg";
+import OtpInput from "react-otp-input";
+
 import "./VerificationBox.css";
 const VerificationBox = () => {
     let navigate = useNavigate();
@@ -10,6 +12,7 @@ const VerificationBox = () => {
     if (location.pathname === "/verificationPage") {
         document.querySelector("body").style.overflow = "hidden";
     }
+    const [value, setValue] = useState("");
     return (
         <>
             <div className="verificationBox-box" dir="ltr">
@@ -19,11 +22,12 @@ const VerificationBox = () => {
                         <div className="all">
                             <h2>قمنا بإرسال كود التحقق لرقم جوالك</h2>
                             <div className="box">
-                                <input type="text" name="" id="" />
-                                <input type="text" name="" id="" />
-                                <input type="text" name="" id="" />
-                                <input type="text" name="" id="" />
-                                <input type="text" name="" id="" />
+                                <OtpInput
+                                    onChange={(e) => setValue(e)}
+                                    value={value}
+                                    numInputs={5}
+                                    className={"input"}
+                                />
                             </div>
                             <button className="bt-main">تسجيل الدخول</button>
                             <h4>

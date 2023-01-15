@@ -1,0 +1,9 @@
+.check-mark {
+}
+.check-mark svg {
+    left: 20px !important;
+    right: auto !important;
+}
+.check-mark ul {
+    box-shadow: none !important;
+}

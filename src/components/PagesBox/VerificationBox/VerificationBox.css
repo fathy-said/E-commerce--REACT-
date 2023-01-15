@@ -118,14 +118,24 @@
     gap: 27px;
     width: 100%;
 }
+.verificationBox-box .all-content .box-container-form .all .box div {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 10px;
+}
 .verificationBox-box .all-content .box-container-form .all .box input {
-    width: 64px;
+    width: 64px !important;
+    /* width: 100% !important; */
+    font-size: var(--font-size-18);
+    font-weight: var(--font-weight-04);
     height: 70px;
     outline: none;
     border: none;
     border-radius: var(--main-border-radius-04);
     background-color: #ffffff;
-    padding: 0 20px;
+    /* padding: 0 20px; */
 }
 
 .verificationBox-box .all-content .box-container-form .all button {
