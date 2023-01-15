@@ -11,7 +11,7 @@ import { FiMenu } from "react-icons/fi";
 import Logo from "../../assets/Img/Logo-1.png";
 // ============Icon================
 import { ReactComponent as SearchIcon } from "../../assets/Icons/icon_24_search.svg";
-import { Link, useLocation } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 
 const Header = () => {
     let location = useLocation();
@@ -38,7 +38,7 @@ const Header = () => {
             <div className="header">
                 <div className="container">
                     <Navbar expand="lg">
-                        <Navbar.Brand href="#">
+                        <Navbar.Brand>
                             <img src={Logo} alt="" srcset="" />
                         </Navbar.Brand>
 
@@ -59,11 +59,13 @@ const Header = () => {
                                 />
                             </Form>
                             <Nav className="me-auto my-2 my-lg-0" navbarScroll>
-                                <Link to={"/"}>الرئيسية</Link>
-                                <Link to={"/"}>السوق</Link>
-                                <Link to={"/blog"}>المدونة</Link>
-                                <Link to={"/start"}>كيف أبدأ</Link>
-                                <Link to={"/registerMerchant"}>التسجيل</Link>
+                                <NavLink to={"/"}>الرئيسية</NavLink>
+                                <NavLink to={"hhh"}>السوق</NavLink>
+                                <NavLink to={"/blog"}>المدونة</NavLink>
+                                <NavLink to={"/start"}>كيف أبدأ</NavLink>
+                                <NavLink to={"/registerMerchant"}>
+                                    التسجيل
+                                </NavLink>
                             </Nav>
                         </Navbar.Collapse>
                     </Navbar>

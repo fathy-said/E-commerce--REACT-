@@ -82,6 +82,12 @@
         --font-size-94: 64px;
     }
 }
+@media (max-width: 1450px) {
+    :root {
+        --font-size-84: 48px;
+        --font-size-94: 65px;
+    }
+}
 
 /* Character Styles */
 /* .tajawal-—-medium-38pt {

@@ -239,14 +239,10 @@ const HomeBox = () => {
                                         e.currentTarget.parentElement.classList.add(
                                             "not-active"
                                         );
+
                                         e.currentTarget.parentElement.parentElement
                                             .querySelector("video")
-                                            .setAttribute("autoplay", "");
-                                        console.log(
-                                            e.currentTarget.parentElement.parentElement.querySelector(
-                                                "video"
-                                            )
-                                        );
+                                            .play();
                                     }}
                                 >
                                     <SvgVideo />

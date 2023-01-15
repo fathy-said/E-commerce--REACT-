@@ -11,7 +11,7 @@
 }
 
 .registerMerchant-box .all-content {
-    height: 1700px;
+    height: 2000px;
     display: flex;
     align-items: flex-start;
     justify-content: flex-start;
@@ -34,7 +34,7 @@
         0% no-repeat padding-box;
     opacity: 0.95;
     height: 100%;
-    padding: 65px;
+    padding-top: 65px !important;
     display: flex;
     align-items: center;
     justify-content: start;
@@ -43,6 +43,7 @@
     z-index: 22;
     gap: 60px;
     width: 100%;
+    max-width: 952px;
 }
 
 /* .registerMerchant-box .all-content .box-form-banner::before {
@@ -128,7 +129,7 @@
     justify-content: start;
     flex-direction: column;
     width: 100%;
-    max-width: 700px;
+    /* max-width: 665px; */
     gap: 60px;
 }
 
@@ -246,6 +247,31 @@
     justify-content: start;
     flex-direction: column;
     gap: 10px;
+    position: relative;
+}
+/* .registerMerchant-box .all .user-form div .box {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    flex-direction: row;
+}
+.registerMerchant-box .all .user-form div .box h5 {
+    width: fit-content !important;
+} */
+.registerMerchant-box .all .user-form div span {
+    cursor: pointer;
+    position: absolute;
+    /* width: 36px;
+    height: 36px; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    left: -10px;
+}
+.registerMerchant-box .all .user-form div .box span svg {
+    /* width: 100%; */
 }
 
 .registerMerchant-box .all .user-form div h5 {
@@ -444,14 +470,14 @@
         justify-content: flex-start;
         flex-direction: column-reverse;
         gap: 15px;
-        height: 2400px;
+        height: 2800px;
     }
 
     .registerMerchant-box .all-content .box-form-banner {
         height: 600px;
         flex: none;
         padding: 20px;
-        padding-top: 40px;
+        padding-top: 40px !important;
     }
 
     .registerMerchant-box .all-content .box-container-form {
@@ -465,13 +491,22 @@
 @media (min-width: 992px) {
     .registerMerchant-box .all-content .box-form-banner,
     .registerMerchant-box .all-content .box-container-form {
-        padding-right: 40px;
+        /* padding-right: 40px; */
+        padding: 0 40px;
     }
 }
 
-@media (min-width: 1400px) {
+@media (min-width: 1200px) {
     .registerMerchant-box .all-content .box-form-banner,
     .registerMerchant-box .all-content .box-container-form {
-        padding-right: 140px;
+        /* padding-right: 80px; */
+        padding: 0 60px;
+    }
+}
+@media (min-width: 1800px) {
+    .registerMerchant-box .all-content .box-form-banner,
+    .registerMerchant-box .all-content .box-container-form {
+        /* padding-right: 140px; */
+        padding: 0 140px;
     }
 }

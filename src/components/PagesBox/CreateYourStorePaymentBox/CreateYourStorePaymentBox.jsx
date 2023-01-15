@@ -80,11 +80,11 @@ const CreateYourStorePaymentBox = () => {
                                         </div>
                                         <div className="phone">
                                             <h5>رقم الجوال</h5>
-                                            <input type="text" />
+                                            <input type="tel" />
                                         </div>
                                         <div>
                                             <h5>نوع الباقة</h5>
-                                            <select
+                                            {/* <select
                                                 className="form-select"
                                                 aria-label="Default select example"
                                             >
@@ -94,7 +94,11 @@ const CreateYourStorePaymentBox = () => {
                                                 <option value="1">نوع</option>
                                                 <option value="2">نوع</option>
                                                 <option value="3">نوع</option>
-                                            </select>
+                                            </select> */}
+                                            <input
+                                                type="text"
+                                                value={"التاجر مجانيه"}
+                                            />
                                         </div>
                                         <div>
                                             <h5>مدة الاشتراك</h5>
@@ -129,7 +133,7 @@ const CreateYourStorePaymentBox = () => {
                             </div>
                             <div className="owner-form">
                                 <form action="">
-                                    <h4>بيانات المتجر</h4>
+                                    <h4>بيانات المالك</h4>
                                     <div className="name">
                                         <h5>الاسم كامل</h5>
                                         <input type="text" />
@@ -139,7 +143,7 @@ const CreateYourStorePaymentBox = () => {
                                     </div>
                                     <div className="phone">
                                         <h5>رقم الجوال</h5>
-                                        <input type="text" />
+                                        <input type="tel" />
                                     </div>
                                 </form>
                                 <div className="box-pay">

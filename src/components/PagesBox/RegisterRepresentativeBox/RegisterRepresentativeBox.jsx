@@ -52,7 +52,7 @@ const RegisterRepresentativeBox = () => {
                                         </div>
                                         <div className="phone">
                                             <h5>رقم الجوال</h5>
-                                            <input type="text" />
+                                            <input type="tel" />
                                         </div>
 
                                         <div>
@@ -81,20 +81,6 @@ const RegisterRepresentativeBox = () => {
                                 </div>
                             </div>
                             <div className="owner-form">
-                                <form action="">
-                                    <h4>بيانات المتجر</h4>
-                                    <div className="name">
-                                        <h5>الاسم كامل</h5>
-                                        <input type="text" />
-                                        <span>
-                                            <SvgUser />
-                                        </span>
-                                    </div>
-                                    <div className="phone">
-                                        <h5>رقم الجوال</h5>
-                                        <input type="text" />
-                                    </div>
-                                </form>
                                 <div className="box-pay">
                                     <div className="top">
                                         <div className="form-check">

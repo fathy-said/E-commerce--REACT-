@@ -80,7 +80,7 @@ const CreateYourStoreBox = () => {
                                         </div>
                                         <div className="phone">
                                             <h5>رقم الجوال</h5>
-                                            <input type="text" />
+                                            <input type="tel" />
                                         </div>
                                         <div>
                                             <h5>نوع الباقة</h5>
@@ -139,7 +139,7 @@ const CreateYourStoreBox = () => {
                                     </div>
                                     <div className="phone">
                                         <h5>رقم الجوال</h5>
-                                        <input type="text" />
+                                        <input type="tel" />
                                     </div>
                                 </form>
                                 <div className="box-pay">

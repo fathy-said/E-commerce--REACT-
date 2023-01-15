@@ -11,7 +11,7 @@
 }
 
 .registerRepresentative-box .all-content {
-    height: 1700px;
+    height: 1300px;
     display: flex;
     align-items: flex-start;
     justify-content: flex-start;
@@ -34,7 +34,7 @@
         0% no-repeat padding-box;
     opacity: 0.95;
     height: 100%;
-    padding: 65px;
+    padding-top: 65px !important;
     display: flex;
     align-items: center;
     justify-content: start;
@@ -43,6 +43,7 @@
     z-index: 22;
     gap: 60px;
     width: 100%;
+    max-width: 952px;
 }
 
 /* .registerRepresentative-box  .all-content .box-form-banner::before {
@@ -129,7 +130,7 @@
     flex-direction: column;
     width: 100%;
     max-width: 700px;
-    gap: 60px;
+    gap: 30px;
 }
 
 .registerRepresentative-box .all-content .box-container-form .all h2 {
@@ -382,7 +383,6 @@
 }
 
 .registerRepresentative-box .all .owner-form .box-pay .top {
-    margin-top: 54px;
     display: flex;
     align-items: flex-start;
     justify-content: start;
@@ -448,7 +448,7 @@
         justify-content: flex-start;
         flex-direction: column-reverse;
         gap: 15px;
-        height: 2300px;
+        height: 2000px;
     }
 
     .registerRepresentative-box .all-content .box-form-banner {
@@ -469,13 +469,19 @@
 @media (min-width: 992px) {
     .registerRepresentative-box .all-content .box-form-banner,
     .registerRepresentative-box .all-content .box-container-form {
-        padding-right: 40px;
+        padding: 0 40px;
     }
 }
 
-@media (min-width: 1400px) {
+@media (min-width: 1200px) {
     .registerRepresentative-box .all-content .box-form-banner,
     .registerRepresentative-box .all-content .box-container-form {
-        padding-right: 140px;
+        padding: 0 60px;
+    }
+}
+@media (min-width: 1800px) {
+    .registerRepresentative-box .all-content .box-form-banner,
+    .registerRepresentative-box .all-content .box-container-form {
+        padding: 0 140px;
     }
 }

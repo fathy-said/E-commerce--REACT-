@@ -29,7 +29,14 @@ const SendPasswordBox = () => {
                                     </h3>
                                 </div>
                             </div>
-                            <button className="bt-main">تسجيل الدخول</button>
+                            <button
+                                className="bt-main"
+                                onClick={() => {
+                                    navigate("/signInPage");
+                                }}
+                            >
+                                تسجيل الدخول
+                            </button>
                         </div>
                     </div>
 
