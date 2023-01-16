@@ -30,7 +30,7 @@ const PackageBox = () => {
     let navigate = useNavigate();
 
     return (
-        <div>
+        <>
             <div className="package-box p-main">
                 <div className="all-package-box">
                     <div className="container">
@@ -65,7 +65,7 @@ const PackageBox = () => {
 
                             {getTypePackage ? (
                                 packageDataYearly !== null ? (
-                                    <div className="content-package flex-column flex-xl-row">
+                                    <div className="content-package ">
                                         <div className="box">
                                             <h3>
                                                 التاجر المبتدأ
@@ -218,7 +218,7 @@ const PackageBox = () => {
                                     </div>
                                 ) : null
                             ) : packageDataMonthly !== null ? (
-                                <div className="content-package flex-column flex-xl-row">
+                                <div className="content-package">
                                     <div className="box">
                                         <h3>
                                             التاجر المبتدأ
@@ -371,7 +371,7 @@ const PackageBox = () => {
                     </div>
                 </div>
             </div>
-        </div>
+        </>
     );
 };
 

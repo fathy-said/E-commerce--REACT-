@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
@@ -15,6 +15,8 @@ import { Link, NavLink, useLocation } from "react-router-dom";
 
 const Header = () => {
     let location = useLocation();
+    let liLink = document.querySelectorAll(".header .navbar-nav a");
+    let [activeLink, setActiveLink] = useState(`التسجيل`);
 
     if (
         location.pathname === "/registerMerchant" ||
@@ -33,6 +35,23 @@ const Header = () => {
         document.querySelector("body").style.overflow = "auto";
     }
 
+    useEffect(() => {
+        if (location.pathname === "/") {
+            setActiveLink("التسجيل");
+        }
+        if (
+            document
+                .querySelector(".header .navbar .navbar-collapse")
+                .classList.contains("show")
+        ) {
+            document
+                .querySelector(".header .navbar .show")
+                .classList.remove("show");
+            document
+                .querySelector(".header .navbar button")
+                .classList.add("collapsed");
+        }
+    }, [location.pathname]);
     return (
         <>
             <div className="header">
@@ -59,13 +78,53 @@ const Header = () => {
                                 />
                             </Form>
                             <Nav className="me-auto my-2 my-lg-0" navbarScroll>
-                                <NavLink to={"/"}>الرئيسية</NavLink>
-                                <NavLink to={"hhh"}>السوق</NavLink>
-                                <NavLink to={"/blog"}>المدونة</NavLink>
-                                <NavLink to={"/start"}>كيف أبدأ</NavLink>
-                                <NavLink to={"/registerMerchant"}>
+                                <Link
+                                    to={"/"}
+                                    onClick={() => setActiveLink(`التسجيل`)}
+                                >
+                                    الرئيسية
+                                </Link>
+                                <Link
+                                    to={"hhh"}
+                                    className={
+                                        activeLink === "السوق" ? "active" : ""
+                                    }
+                                    onClick={() => setActiveLink(`السوق`)}
+                                >
+                                    السوق
+                                </Link>
+                                <Link
+                                    to={"/blog"}
+                                    className={
+                                        activeLink === "المدونة" ? "active" : ""
+                                    }
+                                    onClick={() => setActiveLink(`المدونة`)}
+                                >
+                                    المدونة
+                                </Link>
+                                <Link
+                                    to={"/start"}
+                                    className={
+                                        activeLink === "كيف أبدأ"
+                                            ? "active"
+                                            : ""
+                                    }
+                                    onClick={() => setActiveLink(`كيف أبدأ`)}
+                                >
+                                    كيف أبدأ
+                                </Link>
+                                <Link
+                                    to={"/registerMerchant"}
+                                    className={
+                                        location.pathname === "/" ||
+                                        activeLink === "التسجيل"
+                                            ? "active"
+                                            : ""
+                                    }
+                                    onClick={() => setActiveLink(`التسجيل`)}
+                                >
                                     التسجيل
-                                </NavLink>
+                                </Link>
                             </Nav>
                         </Navbar.Collapse>
                     </Navbar>

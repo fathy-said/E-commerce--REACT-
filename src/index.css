@@ -89,57 +89,6 @@
     }
 }
 
-/* Character Styles */
-/* .tajawal-—-medium-38pt {
-  font-family: var(--unnamed-font-family-tajawal);
-  font-style: var(--unnamed-font-style-normal);
-  font-weight: var(--unnamed-font-weight-medium);
-  font-size: var(--unnamed-font-size-38);
-  line-height: var(--unnamed-line-spacing-53);
-  letter-spacing: var(--unnamed-character-spacing-0);
-  color: var(--unnamed-color-f7fcff);
-} */
-
-/* .tajawal-—-bold-54pt {
-  font-family: var(--unnamed-font-family-tajawal);
-  font-style: var(--unnamed-font-style-normal);
-  font-weight: var(--unnamed-font-weight-bold);
-  font-size: var(--unnamed-font-size-54);
-  line-height: var(--unnamed-line-spacing-80);
-  letter-spacing: var(--unnamed-character-spacing-0-22);
-  color: var(--unnamed-color-f7fcff);
-} */
-
-/* .tajawal-—-bold-20pt {
-  font-family: var(--unnamed-font-family-tajawal);
-  font-style: var(--unnamed-font-style-normal);
-  font-weight: var(--unnamed-font-weight-bold);
-  font-size: var(--unnamed-font-size-20);
-  line-height: var(--unnamed-line-spacing-29);
-  letter-spacing: var(--unnamed-character-spacing-0-2);
-  color: var(--unnamed-color-011723);
-} */
-
-/* .tajawal-—bold-28pt {
-  font-family: var(--unnamed-font-family-tajawal);
-  font-style: var(--unnamed-font-style-normal);
-  font-weight: var(--unnamed-font-weight-bold);
-  font-size: var(--unnamed-font-size-28);
-  line-height: var(--unnamed-line-spacing-42);
-  letter-spacing: var(--unnamed-character-spacing-0-28);
-  color: var(--unnamed-color-011723);
-} */
-
-/* .tajawal-—regular-20pt {
-  font-family: var(--unnamed-font-family-tajawal);
-  font-style: var(--unnamed-font-style-normal);
-  font-weight: var(--unnamed-font-weight-normal);
-  font-size: var(--unnamed-font-size-20);
-  line-height: var(--unnamed-line-spacing-28);
-  letter-spacing: var(--unnamed-character-spacing-0-2);
-  color: var(--unnamed-color-011723);
-} */
-
 /* ================================global================================== */
 html {
 }
@@ -215,18 +164,15 @@ ul {
     margin: 0 auto;
 }
 
-/* ::-webkit-scrollbar {
-  width: 10px;
+::-webkit-scrollbar {
+    width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  background-color: var(--font-color-3);
-
-
+    background-color: var(--font-color-03);
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: var(--main-color-1);
-  border-radius: 30px;
-
-} */
+    background-color: var(--font-color-02);
+    border-radius: 30px;
+}

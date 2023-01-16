@@ -195,6 +195,10 @@
     overflow-y: auto;
     direction: ltr;
     padding-right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-direction: row;
 }
 
 .registerMerchant-box .all h4 {
@@ -229,6 +233,7 @@
     gap: 20px;
     direction: rtl;
     height: 1020px;
+    max-width: 570px;
 }
 
 .registerMerchant-box .all .user-form div {
@@ -260,20 +265,61 @@
 .registerMerchant-box .all .user-form div .box h5 {
     width: fit-content !important;
 } */
-.registerMerchant-box .all .user-form div span {
+.registerMerchant-box .all .user-form div .box {
     cursor: pointer;
     position: absolute;
-    /* width: 36px;
-    height: 36px; */
+    width: 36px;
+    height: 36px;
     display: flex;
     align-items: center;
     justify-content: center;
-    left: -10px;
+    left: -45px;
+    top: 40px;
 }
-.registerMerchant-box .all .user-form div .box span svg {
-    /* width: 100%; */
+.registerMerchant-box .all .user-form div span {
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+}
+.registerMerchant-box .all .user-form div .box span::before {
+    content: "مقارنة الباقات";
+    position: absolute;
+    /* display: none; */
+    top: -35px;
+    width: 110px;
+    color: var(--main-color-01);
+    font-size: var(--font-size-18);
+    font-weight: var(--font-weight-02);
+    text-align: center;
+    opacity: 0;
+    transition: var(--transition);
+}
+.registerMerchant-box .all .user-form div .box span:hover::before {
+    display: block;
+    content: "مقارنة الباقات";
+    opacity: 1;
 }
 
+@media (max-width: 1200px) {
+    .registerMerchant-box .all .user-form div .box {
+        cursor: pointer;
+        position: absolute;
+        width: 36px;
+        height: 36px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        right: 80px;
+        top: 20px;
+    }
+    .registerMerchant-box .all .user-form .info-package {
+        height: 120px;
+        justify-content: flex-end;
+    }
+}
 .registerMerchant-box .all .user-form div h5 {
     width: 100%;
     margin: 0;
@@ -510,5 +556,85 @@
     .registerMerchant-box .all-content .box-container-form {
         /* padding-right: 140px; */
         padding: 0 140px;
+    }
+}
+@media (min-width: 1200px) {
+    .registerMerchant-box .all .owner-form,
+    .registerMerchant-box .all-content .box-container-form .all .user-info,
+    .registerMerchant-box .all-content .content form {
+        max-width: 370px;
+    }
+}
+@media (min-width: 1250px) {
+    .registerMerchant-box .all .owner-form,
+    .registerMerchant-box .all-content .box-container-form .all .user-info,
+    .registerMerchant-box .all-content .content form {
+        max-width: 400px;
+    }
+}
+
+@media (min-width: 1300px) {
+    .registerMerchant-box .all .owner-form,
+    .registerMerchant-box .all-content .box-container-form .all .user-info,
+    .registerMerchant-box .all-content .content form {
+        max-width: 400px;
+    }
+}
+@media (min-width: 1350px) {
+    .registerMerchant-box .all .owner-form,
+    .registerMerchant-box .all .owner-form,
+    .registerMerchant-box .all-content .box-container-form .all .user-info,
+    .registerMerchant-box .all-content .content form {
+        max-width: 450px;
+    }
+}
+@media (min-width: 1440px) {
+    .registerMerchant-box .all .owner-form,
+    .registerMerchant-box .all-content .box-container-form .all .user-info,
+    .registerMerchant-box .all-content .content form {
+        max-width: 490px;
+    }
+}
+@media (min-width: 1480px) {
+    .registerMerchant-box .all .owner-form,
+    .registerMerchant-box .all-content .box-container-form .all .user-info,
+    .registerMerchant-box .all-content .content form {
+        max-width: 510px;
+    }
+}
+
+@media (min-width: 1520px) {
+    .registerMerchant-box .all .owner-form,
+    .registerMerchant-box .all-content .box-container-form .all .user-info,
+    .registerMerchant-box .all-content .content form {
+        max-width: 530px;
+    }
+}
+@media (min-width: 1550px) {
+    .registerMerchant-box .all .owner-form,
+    .registerMerchant-box .all-content .box-container-form .all .user-info,
+    .registerMerchant-box .all-content .content form {
+        max-width: 550px;
+    }
+}
+@media (min-width: 1650px) {
+    .registerMerchant-box .all .owner-form,
+    .registerMerchant-box .all-content .box-container-form .all .user-info,
+    .registerMerchant-box .all-content .content form {
+        max-width: 600px;
+    }
+}
+@media (min-width: 1720px) {
+    .registerMerchant-box .all .owner-form,
+    .registerMerchant-box .all-content .box-container-form .all .user-info,
+    .registerMerchant-box .all-content .content form {
+        max-width: 630px;
+    }
+}
+
+/* ============ */
+@media (min-width: 1880px) {
+    .registerMerchant-box .all-content .box-container-form {
+        padding-left: 60px;
     }
 }

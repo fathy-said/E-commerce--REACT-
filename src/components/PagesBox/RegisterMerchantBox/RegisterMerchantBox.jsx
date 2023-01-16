@@ -82,9 +82,8 @@ const RegisterMerchantBox = () => {
                                             <h5>رقم الجوال</h5>
                                             <input type="tel" />
                                         </div>
-                                        <div>
+                                        <div className="info-package">
                                             <h5>نوع الباقة</h5>
-
                                             <select
                                                 className="form-select"
                                                 aria-label="Default select example"
@@ -113,9 +112,16 @@ const RegisterMerchantBox = () => {
                                                     العلامه التجارية(مدفوع)
                                                 </option>
                                             </select>
-                                            <span>
-                                                <Svgcomparison />
-                                            </span>
+                                            <div
+                                                className="box"
+                                                onClick={() => {
+                                                    navigate("/packagePage");
+                                                }}
+                                            >
+                                                <span>
+                                                    <Svgcomparison />
+                                                </span>
+                                            </div>
                                         </div>
                                         <div>
                                             <h5>مدة الاشتراك</h5>

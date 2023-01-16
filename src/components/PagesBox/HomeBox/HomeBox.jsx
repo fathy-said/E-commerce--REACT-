@@ -276,7 +276,7 @@ const HomeBox = () => {
 
                         {getTypePackage ? (
                             packageDataYearly !== null ? (
-                                <div className="content-package flex-column flex-xl-row">
+                                <div className="content-package ">
                                     <div className="box">
                                         <h3>
                                             التاجر المبتدأ
@@ -426,7 +426,7 @@ const HomeBox = () => {
                                 </div>
                             ) : null
                         ) : packageDataMonthly !== null ? (
-                            <div className="content-package flex-column flex-xl-row">
+                            <div className="content-package">
                                 <div className="box">
                                     <h3>
                                         التاجر المبتدأ

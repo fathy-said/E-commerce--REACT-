@@ -19,6 +19,7 @@
     align-items: center;
     justify-content: flex-start;
     gap: 14px;
+    margin-bottom: 30px;
 }
 .package-box .title span {
     width: 30px;
@@ -148,6 +149,7 @@
     align-items: center;
     justify-content: center;
     gap: 14px;
+    flex-wrap: wrap;
 }
 
 .package-box .all .content-package .box {
@@ -300,4 +302,7 @@
         direction: rtl;
         height: 3000px;
     } */
+    .package-box .all .content-package .box {
+        width: 320px !important;
+    }
 }

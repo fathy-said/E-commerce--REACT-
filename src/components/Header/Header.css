@@ -114,7 +114,7 @@
     min-width: 100px;
 }
 
-.header .navbar-collapse .navbar-nav a:last-child,
+/* .header .navbar-collapse .navbar-nav, */
 .header .navbar-collapse .navbar-nav a.active {
     background-color: #f3f3e5;
     color: var(--default-color-01);

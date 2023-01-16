@@ -48,9 +48,7 @@ const StartBox = () => {
                                 </p>
                                 <div className="box-video">
                                     <iframe
-                                        width="560"
-                                        height="315"
-                                        src="https://www.youtube.com/embed/Ri7-vnrJD3k"
+                                        src="https://www.youtube.com/embed/nCO0KZ67b1Q"
                                         title="YouTube video player"
                                         frameborder="0"
                                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
