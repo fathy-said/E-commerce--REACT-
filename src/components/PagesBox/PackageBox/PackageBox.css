@@ -297,6 +297,8 @@
 }
 
 /* ===============end-package-box =================== */
+/* @media (max-width: 992px) {
+} */
 @media (max-width: 1200px) {
     /* .package-box .all-package-box {
         direction: rtl;
