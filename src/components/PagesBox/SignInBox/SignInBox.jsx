@@ -1,6 +1,6 @@
 import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { LogoHeader } from "../../index";
+import { LogoHeader, PasswordField } from "../../index";
 import { ReactComponent as SvgComponent } from "../../../assets/Icons/Component 59 – 11.svg";
 import { ReactComponent as SvgKey } from "../../../assets/Icons/key.svg";
 import "./SignInBox.css";
@@ -24,10 +24,7 @@ const SignInBox = () => {
                                         placeholder="ادخل اسم المستخدم او البريد الالكتروني"
                                     />
                                 </div>
-                                <div>
-                                    <h5>كلمة المرور</h5>
-                                    <input type="password" />
-                                </div>
+                                <PasswordField />
                             </div>
 
                             <div className="top">

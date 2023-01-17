@@ -1,15 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { CheckMarks, LogoHeader } from "../../index";
+import { CheckMarks, LogoHeader, PasswordField } from "../../index";
 import { ReactComponent as Svgarrwos } from "../../../assets/Icons/icon-30-arrwos back1.svg";
 import { ReactComponent as SvgComponent } from "../../../assets/Icons/Component 59 – 11.svg";
 import { ReactComponent as SvgUser } from "../../../assets/Icons/icon-24-user.svg";
 import { ReactComponent as Svgcomparison } from "../../../assets/Icons/comparison.svg";
+import { ReactComponent as EyeOPen } from "../../../assets/eye_open.svg";
+import { ReactComponent as EyeClose } from "../../../assets/eye_close.svg";
 
 import "./RegisterMerchantBox.css";
 const RegisterMerchantBox = () => {
     let navigate = useNavigate();
     let location = useLocation();
+
+    let type = "password";
 
     return (
         <>
@@ -183,10 +187,8 @@ const RegisterMerchantBox = () => {
                                             placeholder="sapmle@gmail.com"
                                         />
                                     </div>
-                                    <div>
-                                        <h5>كلمة المرور</h5>
-                                        <input type="password" />
-                                    </div>
+
+                                    <PasswordField />
                                 </form>
                                 <div className="box-pay">
                                     <div className="top">

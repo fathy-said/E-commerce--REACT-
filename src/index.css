@@ -111,7 +111,7 @@ a {
 @import url("https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap");
 
 * {
-    font-family: "Tajawal", sans-serif;
+    font-family: "Tajawal", sans-serif !important;
     box-sizing: border-box !important;
 }
 
@@ -157,7 +157,7 @@ ul {
 }
 
 .app {
-    max-width: 2000px;
+    max-width: 1920px;
     display: flex;
     align-items: center;
     justify-content: center;

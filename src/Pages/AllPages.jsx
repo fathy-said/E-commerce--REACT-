@@ -43,7 +43,6 @@ const AllPages = () => {
                             path="/createYourStore"
                             element={<CreateYourStore />}
                         />
-
                         <Route
                             path="/openControlPanel"
                             element={<OpenControlPanel />}

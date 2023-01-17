@@ -8,6 +8,7 @@
     bottom: 0;
     z-index: 500;
     /* background-color: #f5f8f9; */
+    max-width: 1920px;
 }
 
 .create-store-box .all-content {

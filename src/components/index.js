@@ -26,6 +26,7 @@ import OwnerBox from "./OwnerBox/OwnerBox";
 import PolicyBox from "./PolicyBox/PolicyBox";
 import LogoHeader from "./LogoHeader/LogoHeader";
 import CheckMarks from "./CheckMarks/CheckMarks";
+import PasswordField from "./PasswordField/PasswordField";
 
 export {
     FooterOverlay,
@@ -56,4 +57,5 @@ export {
     OpenControlPanelBox,
     PackageBox,
     CreateYourStorePaymentBox,
+    PasswordField,
 };

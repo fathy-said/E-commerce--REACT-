@@ -1,6 +1,6 @@
 import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { LogoHeader } from "../../index";
+import { LogoHeader, PasswordField } from "../../index";
 import { ReactComponent as Svgarrwos } from "../../../assets/Icons/icon-30-arrwos back1.svg";
 import { ReactComponent as SvgComponent } from "../../../assets/Icons/Component 59 – 11.svg";
 import { ReactComponent as SvgUser } from "../../../assets/Icons/icon-24-user.svg";
@@ -70,13 +70,7 @@ const RegisterRepresentativeBox = () => {
                                                 <option value="3">نوع</option>
                                             </select>
                                         </div>
-                                        <div>
-                                            <h5>كلمة المرور</h5>
-                                            <input
-                                                type="password"
-                                                placeholder=""
-                                            />
-                                        </div>
+                                        <PasswordField />
                                     </form>
                                 </div>
                             </div>
