@@ -12,138 +12,173 @@ import "./RegisterMerchantBox.css";
 const RegisterMerchantBox = () => {
     let navigate = useNavigate();
     let location = useLocation();
+    let [registerTarget, setRegisterTarget] = useState("merchant");
+    console.log(registerTarget);
 
     let type = "password";
 
     return (
         <>
             <div className="registerMerchant-box" dir="ltr">
-                <div className="all-content" dir="rtl">
-                    <div className="box-container-form">
+                <div
+                    className={
+                        registerTarget === "represented"
+                            ? "all-content show"
+                            : "all-content"
+                    }
+                    dir="rtl"
+                >
+                    <div
+                        className="box-container-form"
+                        style={{ overflow: "hidden" }}
+                    >
                         <LogoHeader />
-                        <div className="all">
-                            <h2>أنشئ حسابك واستمتع بالتجارة الإلكترونية</h2>
-                            <div className="user-info">
-                                <button className="bt-main">تسجيل تاجر</button>
-                                <button
-                                    className="bt-main"
-                                    onClick={() => {
-                                        navigate("/registerRepresentative");
-                                    }}
-                                >
-                                    تسجيل مندوب
-                                </button>
-                            </div>
-                            <div className="user-form">
-                                <h4 className="title">بيانات المتجر</h4>
-                                <div className="content">
-                                    <form action="">
-                                        <div>
-                                            <h5>اسم المتجر</h5>
-                                            <input
-                                                type="text"
-                                                placeholder="ادخل اسم المتجر"
-                                            />
-                                        </div>
-                                        <div>
-                                            <h5>الدومين</h5>
-                                            <input
-                                                type="email"
-                                                placeholder="https:www.utlopha.sample.com"
-                                            />
-                                        </div>
-                                        <div>
-                                            <h5>البريد الإلكتروني</h5>
-                                            <input
-                                                type="email"
-                                                placeholder="sapmle@gmail.com"
-                                            />
-                                        </div>
-
-                                        <div>
-                                            <h5>الدوله</h5>
-                                            <input
-                                                type="text"
-                                                placeholder="المملكة العربية السعودية"
-                                            />
-                                        </div>
-                                        <div>
-                                            <h5>المدينة</h5>
-
-                                            <select
-                                                className="form-select"
-                                                aria-label="Default select example"
-                                            >
-                                                <option selected>
-                                                    اختر المدينة
-                                                </option>
-                                                <option value="1">نوع</option>
-                                                <option value="2">نوع</option>
-                                                <option value="3">نوع</option>
-                                            </select>
-                                        </div>
-                                        <div className="phone">
-                                            <h5>رقم الجوال</h5>
-                                            <input type="tel" />
-                                        </div>
-                                        <div className="info-package">
-                                            <h5>نوع الباقة</h5>
-                                            <select
-                                                className="form-select"
-                                                aria-label="Default select example"
-                                                onChange={(e) => {
-                                                    if (
-                                                        e.currentTarget
-                                                            .value ===
-                                                        "التاجر (مجانية)"
-                                                    ) {
-                                                        navigate(
-                                                            "/createYourStore"
-                                                        );
-                                                    }
-                                                }}
-                                            >
-                                                <option selected>
-                                                    اختر نوع الباقة
-                                                </option>
-                                                <option value="التاجر (مجانية)">
-                                                    التاجر (مجانية)
-                                                </option>
-                                                <option value="2">
-                                                    التاجر المحترف (مدفوع)
-                                                </option>
-                                                <option value="3">
-                                                    العلامه التجارية(مدفوع)
-                                                </option>
-                                            </select>
-                                            <div
-                                                className="box"
-                                                onClick={() => {
-                                                    navigate("/packagePage");
-                                                }}
-                                            >
-                                                <span>
-                                                    <Svgcomparison />
-                                                </span>
+                        <div className="all-register">
+                            <div
+                                className={
+                                    registerTarget === "merchant"
+                                        ? " all all-1 show"
+                                        : " all all-1"
+                                }
+                            >
+                                <h2>أنشئ حسابك واستمتع بالتجارة الإلكترونية</h2>
+                                <div className="user-info">
+                                    <button className="bt-main">
+                                        تسجيل تاجر
+                                    </button>
+                                    <button
+                                        className="bt-main"
+                                        onClick={() => {
+                                            setRegisterTarget("represented");
+                                        }}
+                                    >
+                                        تسجيل مندوب
+                                    </button>
+                                </div>
+                                <div className="user-form">
+                                    <h4 className="title">بيانات المتجر</h4>
+                                    <div className="content">
+                                        <form action="">
+                                            <div>
+                                                <h5>اسم المتجر</h5>
+                                                <input
+                                                    type="text"
+                                                    placeholder="ادخل اسم المتجر"
+                                                />
                                             </div>
-                                        </div>
-                                        <div>
-                                            <h5>مدة الاشتراك</h5>
-                                            <select
-                                                className="form-select"
-                                                aria-label="Default select example"
-                                            >
-                                                <option selected>
-                                                    نوع النشاط
-                                                </option>
-                                                <option value="1">نوع</option>
-                                                <option value="2">نوع</option>
-                                                <option value="3">نوع</option>
-                                            </select>
-                                        </div>
-                                        <div>
-                                            <h5>نشاط المتجر</h5>
-                                            {/* <select
+                                            <div>
+                                                <h5>الدومين</h5>
+                                                <input
+                                                    type="email"
+                                                    placeholder="https:www.utlopha.sample.com"
+                                                />
+                                            </div>
+                                            <div>
+                                                <h5>البريد الإلكتروني</h5>
+                                                <input
+                                                    type="email"
+                                                    placeholder="sapmle@gmail.com"
+                                                />
+                                            </div>
+
+                                            <div>
+                                                <h5>الدوله</h5>
+                                                <input
+                                                    type="text"
+                                                    placeholder="المملكة العربية السعودية"
+                                                />
+                                            </div>
+                                            <div>
+                                                <h5>المدينة</h5>
+
+                                                <select
+                                                    className="form-select"
+                                                    aria-label="Default select example"
+                                                >
+                                                    <option selected>
+                                                        اختر المدينة
+                                                    </option>
+                                                    <option value="1">
+                                                        نوع
+                                                    </option>
+                                                    <option value="2">
+                                                        نوع
+                                                    </option>
+                                                    <option value="3">
+                                                        نوع
+                                                    </option>
+                                                </select>
+                                            </div>
+                                            <div className="phone">
+                                                <h5>رقم الجوال</h5>
+                                                <input type="tel" />
+                                            </div>
+                                            <div className="info-package">
+                                                <h5>نوع الباقة</h5>
+                                                <select
+                                                    className="form-select"
+                                                    aria-label="Default select example"
+                                                    onChange={(e) => {
+                                                        if (
+                                                            e.currentTarget
+                                                                .value ===
+                                                            "التاجر (مجانية)"
+                                                        ) {
+                                                            navigate(
+                                                                "/createYourStore"
+                                                            );
+                                                        }
+                                                    }}
+                                                >
+                                                    <option selected>
+                                                        اختر نوع الباقة
+                                                    </option>
+                                                    <option value="التاجر (مجانية)">
+                                                        التاجر (مجانية)
+                                                    </option>
+                                                    <option value="2">
+                                                        التاجر المحترف (مدفوع)
+                                                    </option>
+                                                    <option value="3">
+                                                        العلامه التجارية(مدفوع)
+                                                    </option>
+                                                </select>
+                                                <div
+                                                    className="box"
+                                                    onClick={() => {
+                                                        navigate(
+                                                            "/packagePage"
+                                                        );
+                                                    }}
+                                                >
+                                                    <span>
+                                                        <Svgcomparison />
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <h5>مدة الاشتراك</h5>
+                                                <select
+                                                    className="form-select"
+                                                    aria-label="Default select example"
+                                                >
+                                                    <option selected>
+                                                        نوع النشاط
+                                                    </option>
+                                                    <option value="1">
+                                                        نوع
+                                                    </option>
+                                                    <option value="2">
+                                                        نوع
+                                                    </option>
+                                                    <option value="3">
+                                                        نوع
+                                                    </option>
+                                                </select>
+                                            </div>
+                                            <div>
+                                                <h5>نشاط المتجر</h5>
+                                                {/* <select
                                                 className="form-select"
                                                 aria-label="Default select example"
                                             >
@@ -154,75 +189,189 @@ const RegisterMerchantBox = () => {
                                                 <option value="2">نوع</option>
                                                 <option value="3">نوع</option>
                                             </select> */}
-                                            <CheckMarks />
-                                        </div>
-                                    </form>
+                                                <CheckMarks />
+                                            </div>
+                                        </form>
+                                    </div>
                                 </div>
-                            </div>
-                            <div className="owner-form">
-                                <form action="">
-                                    <h4>بيانات المالك</h4>
-                                    <div className="name">
-                                        <h5>الاسم كامل</h5>
-                                        <input type="text" />
-                                        <span>
-                                            <SvgUser />
-                                        </span>
-                                    </div>
-                                    <div className="phone">
-                                        <h5>رقم الجوال</h5>
-                                        <input type="tel" />
-                                    </div>
-                                    <div className="name">
-                                        <h5>اسم المستخدم</h5>
-                                        <input type="text" />
-                                        <span>
-                                            <SvgUser />
-                                        </span>
-                                    </div>
-                                    <div>
-                                        <h5>البريد الإلكتروني</h5>
-                                        <input
-                                            type="email"
-                                            placeholder="sapmle@gmail.com"
-                                        />
-                                    </div>
-
-                                    <PasswordField />
-                                </form>
-                                <div className="box-pay">
-                                    <div className="top">
-                                        <div className="form-check">
+                                <div className="owner-form">
+                                    <form action="">
+                                        <h4>بيانات المالك</h4>
+                                        <div className="name">
+                                            <h5>الاسم كامل</h5>
+                                            <input type="text" />
+                                            <span>
+                                                <SvgUser />
+                                            </span>
+                                        </div>
+                                        <div className="phone">
+                                            <h5>رقم الجوال</h5>
+                                            <input type="tel" />
+                                        </div>
+                                        <div className="name">
+                                            <h5>اسم المستخدم</h5>
+                                            <input type="text" />
+                                            <span>
+                                                <SvgUser />
+                                            </span>
+                                        </div>
+                                        <div>
+                                            <h5>البريد الإلكتروني</h5>
                                             <input
-                                                className="form-check-input"
-                                                type="checkbox"
-                                                defaultValue=""
-                                                id="flexCheckDefault"
+                                                type="email"
+                                                placeholder="sapmle@gmail.com"
                                             />
                                         </div>
-                                        <h5>
-                                            بتسجيلك فإنك توافق على سياسة الشروط
-                                            والأحكام الخاصة بمنصة اطلبها
-                                        </h5>
+
+                                        <PasswordField />
+                                    </form>
+                                    <div className="box-pay">
+                                        <div className="top">
+                                            <div className="form-check">
+                                                <input
+                                                    className="form-check-input"
+                                                    type="checkbox"
+                                                    defaultValue=""
+                                                    id="flexCheckDefault"
+                                                />
+                                            </div>
+                                            <h5>
+                                                بتسجيلك فإنك توافق على سياسة
+                                                الشروط والأحكام الخاصة بمنصة
+                                                اطلبها
+                                            </h5>
+                                        </div>
+                                        <button
+                                            className="bt-main"
+                                            onClick={() => {
+                                                navigate("/verificationPage");
+                                            }}
+                                        >
+                                            دفع
+                                        </button>
+                                        <ul>
+                                            <li>لديك حساب بالفعل ؟</li>
+                                            <li
+                                                onClick={() => {
+                                                    navigate("/signInPage");
+                                                }}
+                                            >
+                                                قم بتسجيل الدخول
+                                            </li>
+                                        </ul>
                                     </div>
+                                </div>
+                            </div>
+                            <div
+                                className={
+                                    registerTarget === "represented"
+                                        ? " all all-2 show"
+                                        : "all all-2"
+                                }
+                            >
+                                <h2>أنشئ حسابك واستمتع بالتجارة الإلكترونية</h2>
+
+                                <div className="user-info">
+                                    <button className="bt-main">
+                                        تسجيل مندوب
+                                    </button>
                                     <button
                                         className="bt-main"
                                         onClick={() => {
-                                            navigate("/verificationPage");
+                                            setRegisterTarget("merchant");
                                         }}
                                     >
-                                        دفع
+                                        تسجيل تاجر
                                     </button>
-                                    <ul>
-                                        <li>لديك حساب بالفعل ؟</li>
-                                        <li
+                                </div>
+
+                                <div className="user-form">
+                                    <h4 className="title">بيانات المتجر</h4>
+
+                                    <div className="content">
+                                        <form action="">
+                                            <div>
+                                                <h5>اسم المندوب</h5>
+                                                <input
+                                                    type="text"
+                                                    placeholder="ادخل اسم المتجر"
+                                                />
+                                            </div>
+
+                                            <div>
+                                                <h5>البريد الإلكتروني</h5>
+                                                <input
+                                                    type="email"
+                                                    placeholder="sapmle@gmail.com"
+                                                />
+                                            </div>
+                                            <div className="phone">
+                                                <h5>رقم الجوال</h5>
+                                                <input type="tel" />
+                                            </div>
+
+                                            <div>
+                                                <h5>المدينة</h5>
+
+                                                <select
+                                                    className="form-select"
+                                                    aria-label="Default select example"
+                                                >
+                                                    <option selected>
+                                                        اختر المدينة
+                                                    </option>
+                                                    <option value="1">
+                                                        نوع
+                                                    </option>
+                                                    <option value="2">
+                                                        نوع
+                                                    </option>
+                                                    <option value="3">
+                                                        نوع
+                                                    </option>
+                                                </select>
+                                            </div>
+                                            <PasswordField />
+                                        </form>
+                                    </div>
+                                </div>
+                                <div className="owner-form">
+                                    <div className="box-pay">
+                                        <div className="top">
+                                            <div className="form-check">
+                                                <input
+                                                    className="form-check-input"
+                                                    type="checkbox"
+                                                    defaultValue=""
+                                                    id="flexCheckDefault"
+                                                />
+                                            </div>
+                                            <h5>
+                                                بتسجيلك فإنك توافق على سياسة
+                                                الشروط والأحكام الخاصة بمنصة
+                                                اطلبها
+                                            </h5>
+                                        </div>
+                                        <button
+                                            className="bt-main"
                                             onClick={() => {
-                                                navigate("/signInPage");
+                                                navigate("/verificationPage");
                                             }}
                                         >
-                                            قم بتسجيل الدخول
-                                        </li>
-                                    </ul>
+                                            تسجيل حساب جديد
+                                        </button>
+
+                                        <ul>
+                                            <li>لديك حساب بالفعل ؟</li>
+                                            <li
+                                                onClick={() => {
+                                                    navigate("/signInPage");
+                                                }}
+                                            >
+                                                قم بتسجيل الدخول
+                                            </li>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
                         </div>

@@ -7,10 +7,10 @@ import productSwiperImg2 from "../Img/product 2.png";
 import productSwiperImg3 from "../Img/product3.png";
 import productSwiperImg4 from "../Img/product 4.png";
 import partnerImg1 from "../Img/STC Pay.png";
-import partnerImg2 from "../Img/المشاهير.png";
+import partnerImg2 from "../Img/fames.png";
 import partnerImg3 from "../Img/Alibaba.png";
 import partnerImg4 from "../Img/DHL.png";
-import review from "../Img/قالوا عنا.png";
+import review from "../Img/tellour.png";
 import IMgTop from "../Img/image blog1.png";
 import ImgOwner from "../Img/persona2.png";
 // ==========

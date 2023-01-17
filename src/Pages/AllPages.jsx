@@ -57,10 +57,6 @@ const AllPages = () => {
                             path="/policyPayment"
                             element={<PolicyPayment />}
                         />
-                        <Route
-                            path="/registerRepresentative"
-                            element={<RegisterRepresentative />}
-                        />
 
                         <Route path="/signInPage" element={<SignInPage />} />
 

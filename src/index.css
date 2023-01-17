@@ -81,6 +81,9 @@
         --font-size-84: 48px;
         --font-size-94: 64px;
     }
+    .bt-main {
+        padding: 8px 20px;
+    }
 }
 @media (max-width: 1450px) {
     :root {
@@ -130,7 +133,7 @@ ul {
     font-size: var(--font-size-24);
     font-weight: var(--font-weight-03);
     letter-spacing: 0.1px;
-
+    white-space: nowrap;
     display: flex;
     align-items: center;
     justify-content: center;

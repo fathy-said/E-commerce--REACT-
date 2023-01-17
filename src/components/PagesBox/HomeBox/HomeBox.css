@@ -130,7 +130,7 @@
     width: 100%;
     flex: 1;
     height: 100%;
-    background-image: url("../../../assets/Img/شركات\ شحن\ متعددة.png");
+    background-image: url("../../../assets/Img/pachege-1.png");
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -145,7 +145,7 @@
     width: 100%;
     flex: 1;
     height: 100%;
-    background-image: url("../../../assets/Img/باقات\ اشتراك\ متعددة.png");
+    background-image: url("../../../assets/Img/pachege-2.png");
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -347,7 +347,7 @@
 
 .trade-info .box {
     position: relative;
-    background-image: url("../../../assets/Img/banner-\ نحن\ بوابتك\ لعالم\ التجارة\ الالكترونية.png");
+    background-image: url("../../../assets/Img/banner.png");
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
