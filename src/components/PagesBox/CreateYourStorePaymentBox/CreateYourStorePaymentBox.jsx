@@ -59,18 +59,22 @@ const CreateYourStorePaymentBox = () => {
                                         </div>
                                         <div>
                                             <h5>المدينة</h5>
-
-                                            <select
+                                            <input
+                                                type="text"
+                                                value={"المدينة"}
+                                            />
+                                            {/* <select
                                                 className="form-select"
                                                 aria-label="Default select example"
                                             >
                                                 <option selected>
                                                     اختر المدينة
                                                 </option>
+
                                                 <option value="1">نوع</option>
                                                 <option value="2">نوع</option>
                                                 <option value="3">نوع</option>
-                                            </select>
+                                            </select> */}
                                         </div>
                                         <div className="phone">
                                             <h5>رقم الجوال</h5>
@@ -96,7 +100,11 @@ const CreateYourStorePaymentBox = () => {
                                         </div>
                                         <div>
                                             <h5>مدة الاشتراك</h5>
-                                            <select
+                                            <input
+                                                type="text"
+                                                value={"مدة الاشتراك"}
+                                            />
+                                            {/* <select
                                                 className="form-select"
                                                 aria-label="Default select example"
                                             >
@@ -106,11 +114,15 @@ const CreateYourStorePaymentBox = () => {
                                                 <option value="1">نوع</option>
                                                 <option value="2">نوع</option>
                                                 <option value="3">نوع</option>
-                                            </select>
+                                            </select> */}
                                         </div>
                                         <div>
                                             <h5>نشاط المتجر</h5>
-                                            <select
+                                            <input
+                                                type="text"
+                                                value={"نشاط المتجر"}
+                                            />
+                                            {/* <select
                                                 className="form-select"
                                                 aria-label="Default select example"
                                             >
@@ -120,7 +132,7 @@ const CreateYourStorePaymentBox = () => {
                                                 <option value="1">نوع</option>
                                                 <option value="2">نوع</option>
                                                 <option value="3">نوع</option>
-                                            </select>
+                                            </select> */}
                                         </div>
                                     </form>
                                 </div>

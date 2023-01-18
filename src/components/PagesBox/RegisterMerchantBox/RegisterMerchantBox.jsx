@@ -128,6 +128,18 @@ const RegisterMerchantBox = () => {
                                                                 "/createYourStore"
                                                             );
                                                         }
+                                                        if (
+                                                            e.currentTarget
+                                                                .value ===
+                                                                `العلامه التجارية(مدفوع)` ||
+                                                            e.currentTarget
+                                                                .value ===
+                                                                `التاجر المحترف (مدفوع)`
+                                                        ) {
+                                                            navigate(
+                                                                "/createYourStorePayment"
+                                                            );
+                                                        }
                                                     }}
                                                 >
                                                     <option selected>
@@ -136,10 +148,10 @@ const RegisterMerchantBox = () => {
                                                     <option value="التاجر (مجانية)">
                                                         التاجر (مجانية)
                                                     </option>
-                                                    <option value="2">
+                                                    <option value="التاجر المحترف (مدفوع)">
                                                         التاجر المحترف (مدفوع)
                                                     </option>
-                                                    <option value="3">
+                                                    <option value="العلامه التجارية(مدفوع)">
                                                         العلامه التجارية(مدفوع)
                                                     </option>
                                                 </select>

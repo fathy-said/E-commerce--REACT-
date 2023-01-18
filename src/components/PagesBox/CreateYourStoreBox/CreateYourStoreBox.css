@@ -268,12 +268,12 @@
     padding: 0 20px;
     border: 1px solid #e4e4e4;
     border-radius: var(--main-border-radius-04);
-    color: var(--black-color-01);
+    color: var(--main-color-01);
 }
 
 .create-store-box .all .user-form div select,
 .create-store-box .all .user-form div input::placeholder {
-    color: var(--font-color-05);
+    color: var(--main-color-01);
 }
 
 .create-store-box .all .user-form div select {
