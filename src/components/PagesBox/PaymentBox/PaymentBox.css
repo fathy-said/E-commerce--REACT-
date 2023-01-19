@@ -279,6 +279,7 @@
     letter-spacing: 0px;
     font-weight: var(--font-weight-02);
     cursor: pointer;
+    white-space: nowrap;
 }
 
 @media (max-width: 768px) {
@@ -299,5 +300,6 @@
 
     .payment-box .payment-content ul {
         justify-content: center;
+        gap: 30px;
     }
 }

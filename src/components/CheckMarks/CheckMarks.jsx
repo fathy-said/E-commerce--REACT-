@@ -129,10 +129,3 @@ let CheckMarks = () => {
     );
 };
 export default CheckMarks;
-// import React from "react";
-
-// const CheckMarks = () => {
-//     return <div>sss</div>;
-// };
-
-// export default CheckMarks;

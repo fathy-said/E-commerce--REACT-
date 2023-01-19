@@ -14,7 +14,7 @@ const PolicyBox = ({
     let navigate = useNavigate();
     return (
         <>
-            <div className="policy-box">
+            <div className="policy-box-main">
                 <div className="container">
                     <div className="all">
                         <div className="box">

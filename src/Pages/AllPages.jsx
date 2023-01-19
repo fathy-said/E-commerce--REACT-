@@ -10,7 +10,6 @@ import {
     PolicyUse,
     RegisterMerchant,
     Start,
-    RegisterRepresentative,
     VerificationPage,
     PasswordBackPage,
     SendPasswordPage,
