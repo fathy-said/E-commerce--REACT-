@@ -50,17 +50,25 @@ let CheckMarks = () => {
                         document
                             .querySelector(".check-mark .MuiSelect-select ")
                             .setAttribute("aria-expanded", false);
-                        e.currentTarget
-                            .querySelector("svg")
-                            .classList.remove("MuiSelect-iconOpen");
-                        e.currentTarget
-                            .querySelector("svg")
-                            .classList.add("css-3qbkez-MuiSelect-icon");
+                        // e.currentTarget
+                        //     .querySelector("svg")
+                        //     .classList.remove("MuiSelect-iconOpen");
+                        // e.currentTarget
+                        //     .querySelector("svg")
+                        //     .classList.add("css-3qbkez-MuiSelect-icon");
+                        // e.currentTarget
+                        //     .querySelector("svg")
+                        //     .classList.add("css-bi4s6q");
                         // e.currentTarget.querySelector("svg").style.transform =
                         //     "rotate(0deg)";
-                        e.currentTarget
-                            .querySelector("svg")
-                            .classList.remove("css-10q54uo-MuiSelect-icon");
+                        // e.currentTarget
+                        //     .querySelector("svg")
+                        //     .classList.remove("css-10q54uo-MuiSelect-icon");
+                        // e.currentTarget
+                        //     .querySelector("svg")
+                        //     .classList.remove("css-1gyinnq");
+                        e.currentTarget.querySelector("svg").style.transform =
+                            "rotate(0deg)";
                     } else if (
                         e.currentTarget.classList.contains("check-mark")
                     ) {
@@ -69,18 +77,17 @@ let CheckMarks = () => {
                         document
                             .querySelector(".check-mark .MuiSelect-select ")
                             .setAttribute("aria-expanded", true);
-                        e.currentTarget
-                            .querySelector("svg")
-                            .classList.add("MuiSelect-iconOpen");
-                        e.currentTarget
-                            .querySelector("svg")
-                            .classList.remove("css-3qbkez-MuiSelect-icon");
-                        e.currentTarget
-                            .querySelector("svg")
-                            .classList.add("css-10q54uo-MuiSelect-icon");
+                        // e.currentTarget
+                        //     .querySelector("svg")
+                        //     .classList.add("MuiSelect-iconOpen");
+                        // e.currentTarget
+                        //     .querySelector("svg")
+                        //     .classList.remove("css-3qbkez-MuiSelect-icon");
+                        // e.currentTarget
+                        //     .querySelector("svg")
+                        //     .classList.add("css-10q54uo-MuiSelect-icon");
                         // e.currentTarget.querySelector("svg").style.transform =
                         //     "rotate(180deg)";
-                    } else {
                     }
                 }}
                 value={personName}
