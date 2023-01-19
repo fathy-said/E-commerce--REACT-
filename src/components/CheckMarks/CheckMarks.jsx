@@ -1,8 +1,6 @@
 import React from "react";
 import OutlinedInput from "@mui/material/OutlinedInput";
-import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
 import ListItemText from "@mui/material/ListItemText";
 import Select from "@mui/material/Select";
 import Checkbox from "@mui/material/Checkbox";
@@ -58,12 +56,14 @@ let CheckMarks = () => {
                         e.currentTarget
                             .querySelector("svg")
                             .classList.add("css-3qbkez-MuiSelect-icon");
-                        e.currentTarget.querySelector("svg").style.transform =
-                            "rotate(0deg)";
+                        // e.currentTarget.querySelector("svg").style.transform =
+                        //     "rotate(0deg)";
                         e.currentTarget
                             .querySelector("svg")
                             .classList.remove("css-10q54uo-MuiSelect-icon");
-                    } else {
+                    } else if (
+                        e.currentTarget.classList.contains("check-mark")
+                    ) {
                         document.querySelector("#menu-").style.position =
                             "fixed";
                         document
@@ -78,8 +78,9 @@ let CheckMarks = () => {
                         e.currentTarget
                             .querySelector("svg")
                             .classList.add("css-10q54uo-MuiSelect-icon");
-                        e.currentTarget.querySelector("svg").style.transform =
-                            "rotate(180deg)";
+                        // e.currentTarget.querySelector("svg").style.transform =
+                        //     "rotate(180deg)";
+                    } else {
                     }
                 }}
                 value={personName}

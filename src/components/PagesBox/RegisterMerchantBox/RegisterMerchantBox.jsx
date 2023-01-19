@@ -1,22 +1,28 @@
 import React, { useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { CheckMarks, LogoHeader, PasswordField } from "../../index";
 import { ReactComponent as Svgarrwos } from "../../../assets/Icons/icon-30-arrwos back1.svg";
 import { ReactComponent as SvgComponent } from "../../../assets/Icons/Component 59 – 11.svg";
 import { ReactComponent as SvgUser } from "../../../assets/Icons/icon-24-user.svg";
 import { ReactComponent as Svgcomparison } from "../../../assets/Icons/comparison.svg";
-import { ReactComponent as EyeOPen } from "../../../assets/eye_open.svg";
-import { ReactComponent as EyeClose } from "../../../assets/eye_close.svg";
+
+import Select from "@mui/material/Select";
+import MenuItem from "@mui/material/MenuItem";
+import { IoIosArrowDown } from "react-icons/io";
 
 import "./RegisterMerchantBox.css";
 const RegisterMerchantBox = () => {
     let navigate = useNavigate();
-    let location = useLocation();
     let [registerTarget, setRegisterTarget] = useState("merchant");
-    console.log(registerTarget);
 
-    let type = "password";
+    let [cityValue, setcityValue] = useState("");
+    let [packageValue, setPackageValue] = useState("");
+    let [packageTypeValue, setPackageTypeValue] = useState("");
+    // console.log(age);
 
+    // const handleChange = (event) => {
+    //     setAge(event.target.value);
+    // };
     return (
         <>
             <div className="registerMerchant-box" dir="ltr">
@@ -88,26 +94,46 @@ const RegisterMerchantBox = () => {
                                                     placeholder="المملكة العربية السعودية"
                                                 />
                                             </div>
+
                                             <div>
                                                 <h5>المدينة</h5>
 
-                                                <select
-                                                    className="form-select"
-                                                    aria-label="Default select example"
+                                                <Select
+                                                    sx={{
+                                                        height: "3.5rem",
+
+                                                        border: "1px solid rgba(167, 167, 167, 0.5)",
+
+                                                        "& .MuiOutlinedInput-notchedOutline":
+                                                            {
+                                                                border: "none",
+                                                            },
+                                                    }}
+                                                    value={cityValue}
+                                                    className="select-mu"
+                                                    onChange={(e) => {
+                                                        setcityValue(
+                                                            e.target.value
+                                                        );
+                                                    }}
+                                                    IconComponent={
+                                                        IoIosArrowDown
+                                                    }
+                                                    displayEmpty
                                                 >
-                                                    <option selected>
-                                                        اختر المدينة
-                                                    </option>
-                                                    <option value="1">
-                                                        نوع
-                                                    </option>
-                                                    <option value="2">
-                                                        نوع
-                                                    </option>
-                                                    <option value="3">
-                                                        نوع
-                                                    </option>
-                                                </select>
+                                                    <MenuItem value="">
+                                                        <>اختر المدينه</>
+                                                    </MenuItem>
+                                                    <MenuItem value={10}>
+                                                        1المدينه
+                                                    </MenuItem>
+                                                    <MenuItem value={20}>
+                                                        2المدينه
+                                                    </MenuItem>
+                                                    <MenuItem value={30}>
+                                                        المدينه3
+                                                    </MenuItem>
+                                                </Select>
                                             </div>
                                             <div className="phone">
                                                 <h5>رقم الجوال</h5>
@@ -115,46 +141,61 @@ const RegisterMerchantBox = () => {
                                             </div>
                                             <div className="info-package">
                                                 <h5>نوع الباقة</h5>
-                                                <select
-                                                    className="form-select"
-                                                    aria-label="Default select example"
+
+                                                <Select
+                                                    sx={{
+                                                        height: "3.5rem",
+
+                                                        border: "1px solid rgba(167, 167, 167, 0.5)",
+
+                                                        "& .MuiOutlinedInput-notchedOutline":
+                                                            {
+                                                                border: "none",
+                                                            },
+                                                    }}
+                                                    value={packageTypeValue}
+                                                    className="select-mu"
                                                     onChange={(e) => {
+                                                        setPackageTypeValue(
+                                                            e.target.value
+                                                        );
                                                         if (
-                                                            e.currentTarget
-                                                                .value ===
-                                                            "التاجر (مجانية)"
+                                                            e.target.value ===
+                                                            10
                                                         ) {
                                                             navigate(
                                                                 "/createYourStore"
                                                             );
                                                         }
                                                         if (
-                                                            e.currentTarget
-                                                                .value ===
-                                                                `العلامه التجارية(مدفوع)` ||
-                                                            e.currentTarget
-                                                                .value ===
-                                                                `التاجر المحترف (مدفوع)`
+                                                            e.target.value ===
+                                                                20 ||
+                                                            e.target.value ===
+                                                                30
                                                         ) {
                                                             navigate(
                                                                 "/createYourStorePayment"
                                                             );
                                                         }
                                                     }}
+                                                    IconComponent={
+                                                        IoIosArrowDown
+                                                    }
+                                                    displayEmpty
                                                 >
-                                                    <option selected>
+                                                    <MenuItem value="">
                                                         اختر نوع الباقة
-                                                    </option>
-                                                    <option value="التاجر (مجانية)">
+                                                    </MenuItem>
+                                                    <MenuItem value={10}>
                                                         التاجر (مجانية)
-                                                    </option>
-                                                    <option value="التاجر المحترف (مدفوع)">
+                                                    </MenuItem>
+                                                    <MenuItem value={20}>
                                                         التاجر المحترف (مدفوع)
-                                                    </option>
-                                                    <option value="العلامه التجارية(مدفوع)">
+                                                    </MenuItem>
+                                                    <MenuItem value={30}>
                                                         العلامه التجارية(مدفوع)
-                                                    </option>
-                                                </select>
+                                                    </MenuItem>
+                                                </Select>
                                                 <div
                                                     className="box"
                                                     onClick={() => {
@@ -170,37 +211,47 @@ const RegisterMerchantBox = () => {
                                             </div>
                                             <div>
                                                 <h5>مدة الاشتراك</h5>
-                                                <select
-                                                    className="form-select"
-                                                    aria-label="Default select example"
+
+                                                <Select
+                                                    sx={{
+                                                        height: "3.5rem",
+
+                                                        border: "1px solid rgba(167, 167, 167, 0.5)",
+
+                                                        "& .MuiOutlinedInput-notchedOutline":
+                                                            {
+                                                                border: "none",
+                                                            },
+                                                    }}
+                                                    value={packageValue}
+                                                    className="select-mu"
+                                                    onChange={(e) => {
+                                                        setPackageValue(
+                                                            e.target.value
+                                                        );
+                                                    }}
+                                                    IconComponent={
+                                                        IoIosArrowDown
+                                                    }
+                                                    displayEmpty
                                                 >
-                                                    <option selected>
-                                                        نوع النشاط
-                                                    </option>
-                                                    <option value="1">
-                                                        نوع
-                                                    </option>
-                                                    <option value="2">
-                                                        نوع
-                                                    </option>
-                                                    <option value="3">
-                                                        نوع
-                                                    </option>
-                                                </select>
+                                                    <MenuItem value="">
+                                                        <>اختر مده الاشتراك</>
+                                                    </MenuItem>
+                                                    <MenuItem value={10}>
+                                                        1اختر مده الاشتراك
+                                                    </MenuItem>
+                                                    <MenuItem value={20}>
+                                                        2اختر مده الاشتراك
+                                                    </MenuItem>
+                                                    <MenuItem value={30}>
+                                                        3 اختر مده الاشتراك
+                                                    </MenuItem>
+                                                </Select>
                                             </div>
                                             <div>
                                                 <h5>نشاط المتجر</h5>
-                                                {/* <select
-                                                className="form-select"
-                                                aria-label="Default select example"
-                                            >
-                                                <option selected>
-                                                    نوع النشاط
-                                                </option>
-                                                <option value="1">نوع</option>
-                                                <option value="2">نوع</option>
-                                                <option value="3">نوع</option>
-                                            </select> */}
+
                                                 <CheckMarks />
                                             </div>
                                         </form>
@@ -325,23 +376,42 @@ const RegisterMerchantBox = () => {
                                             <div>
                                                 <h5>المدينة</h5>
 
-                                                <select
-                                                    className="form-select"
-                                                    aria-label="Default select example"
+                                                <Select
+                                                    sx={{
+                                                        height: "3.5rem",
+
+                                                        border: "1px solid rgba(167, 167, 167, 0.5)",
+
+                                                        "& .MuiOutlinedInput-notchedOutline":
+                                                            {
+                                                                border: "none",
+                                                            },
+                                                    }}
+                                                    value={cityValue}
+                                                    className="select-mu"
+                                                    onChange={(e) => {
+                                                        setcityValue(
+                                                            e.target.value
+                                                        );
+                                                    }}
+                                                    IconComponent={
+                                                        IoIosArrowDown
+                                                    }
+                                                    displayEmpty
                                                 >
-                                                    <option selected>
-                                                        اختر المدينة
-                                                    </option>
-                                                    <option value="1">
-                                                        نوع
-                                                    </option>
-                                                    <option value="2">
-                                                        نوع
-                                                    </option>
-                                                    <option value="3">
-                                                        نوع
-                                                    </option>
-                                                </select>
+                                                    <MenuItem value="">
+                                                        <>اختر المدينه</>
+                                                    </MenuItem>
+                                                    <MenuItem value={10}>
+                                                        1المدينه
+                                                    </MenuItem>
+                                                    <MenuItem value={20}>
+                                                        2المدينه
+                                                    </MenuItem>
+                                                    <MenuItem value={30}>
+                                                        المدينه3
+                                                    </MenuItem>
+                                                </Select>
                                             </div>
                                             <PasswordField />
                                         </form>

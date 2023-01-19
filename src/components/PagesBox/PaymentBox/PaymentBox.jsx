@@ -3,15 +3,18 @@ import { LogoHeader } from "../../index.js";
 import "./PaymentBox.css";
 
 import { ImArrowRight } from "react-icons/im";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { ReactComponent as Svgpaypal } from "../../../assets/Icons/paypal.svg";
 import { ReactComponent as Svgmada } from "../../../assets/Icons/mada.svg";
 import { ReactComponent as SvgLink } from "../../../assets/Icons/link.svg";
-
+import { IoIosArrowDown } from "react-icons/io";
+import Select from "@mui/material/Select";
+import MenuItem from "@mui/material/MenuItem";
 const PaymentBox = () => {
     let [getPayment, setPayment] = useState("paypal");
+    let [PaymentValue, setPaymentValue] = useState("");
+
     let navigate = useNavigate();
-    let location = useLocation();
 
     return (
         <>
@@ -127,23 +130,40 @@ const PaymentBox = () => {
 
                                         <div>
                                             <h6>اختر البنك</h6>
-                                            <select
-                                                className="form-select"
-                                                aria-label="Default select example"
+                                            <Select
+                                                sx={{
+                                                    height: "3.5rem",
+
+                                                    border: "1px solid rgba(167, 167, 167, 0.5)",
+
+                                                    "& .MuiOutlinedInput-notchedOutline":
+                                                        {
+                                                            border: "none",
+                                                        },
+                                                }}
+                                                value={PaymentValue}
+                                                className="select-mu"
+                                                onChange={(e) => {
+                                                    setPaymentValue(
+                                                        e.target.value
+                                                    );
+                                                }}
+                                                IconComponent={IoIosArrowDown}
+                                                displayEmpty
                                             >
-                                                <option selected>
-                                                    اختر البنك المعتمد
-                                                </option>
-                                                <option value="1">
-                                                    اختر البنك المعتمد
-                                                </option>
-                                                <option value="2">
-                                                    اختر البنك المعتمد
-                                                </option>
-                                                <option value="3">
-                                                    اختر البنك المعتمد
-                                                </option>
-                                            </select>
+                                                <MenuItem value="">
+                                                    <>اختر البنك المعتمد</>
+                                                </MenuItem>
+                                                <MenuItem value={10}>
+                                                    1اختر البنك المعتمد
+                                                </MenuItem>
+                                                <MenuItem value={20}>
+                                                    2اختر البنك المعتمد
+                                                </MenuItem>
+                                                <MenuItem value={30}>
+                                                    3اختر البنك المعتمد
+                                                </MenuItem>
+                                            </Select>
                                         </div>
                                         <div>
                                             <h6>رقم الحساب</h6>

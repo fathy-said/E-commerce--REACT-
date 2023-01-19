@@ -140,6 +140,30 @@
     font-size: var(--font-size-18);
     font-weight: var(--font-weight-02);
 }
+.payment-box .select-mu {
+    height: 56px;
+    width: 100%;
+    background-color: #e7ecef;
+    border: 1px solid #e7ecef;
+    border-radius: var(--main-border-radius-04);
+    color: var(--black-color-01);
+    outline: none;
+    box-shadow: none;
+    padding: 0 20px;
+    background-position: left 0.75rem center;
+}
+
+.payment-box .select-mu svg {
+    left: 20px !important;
+    right: auto !important;
+    color: #67747b;
+    font-size: 17px;
+}
+.payment-box .select-mu .MuiSelect-select {
+    padding-right: 5px !important;
+    font-family: "Tajawal", sans-serif !important;
+    color: var(--font-color-05);
+}
 
 .payment-box .payment-content .form div select,
 .payment-box .payment-content .form div select:focus,

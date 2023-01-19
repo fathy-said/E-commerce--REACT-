@@ -11,6 +11,7 @@
 }
 .package-box .all-package-box {
     direction: rtl;
+    height: 1100px;
 }
 .package-box .title {
     margin: 0;
@@ -300,11 +301,15 @@
 /* @media (max-width: 992px) {
 } */
 @media (max-width: 1200px) {
-    /* .package-box .all-package-box {
-        direction: rtl;
-        height: 3000px;
-    } */
+    .package-box .all-package-box {
+        height: 1800px;
+    }
     .package-box .all .content-package .box {
         width: 320px !important;
+    }
+}
+@media (max-width: 768px) {
+    .package-box .all-package-box {
+        height: 2300px;
     }
 }

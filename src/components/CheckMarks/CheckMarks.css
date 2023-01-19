@@ -10,6 +10,10 @@
     color: #343a40;
     font-size: 17px;
 }
+.check-mark .MuiSelect-select {
+    /* padding-left: 0 !important;
+    padding-right: 30px !important; */
+}
 
 .check-mark-button button {
     width: 100%;
