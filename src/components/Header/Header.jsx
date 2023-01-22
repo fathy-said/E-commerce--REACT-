@@ -19,8 +19,9 @@ const Header = () => {
     let [activeLink, setActiveLink] = useState(`التسجيل`);
 
     if (
-        location.pathname === "/registerMerchant" ||
-        location.pathname === "/registerRepresentative" ||
+        location.pathname === "/register/merchant" ||
+        location.pathname === "/register/represented" ||
+        // location.pathname === "/registerRepresentative" ||
         location.pathname === "/paymentPage" ||
         location.pathname === "/signInPage" ||
         location.pathname === "/createYourStore" ||
@@ -58,7 +59,7 @@ const Header = () => {
                 <div className="container">
                     <Navbar expand="lg">
                         <Navbar.Brand>
-                            <img src={Logo} alt="" srcset="" />
+                            <img src={Logo} alt="" />
                         </Navbar.Brand>
 
                         <Navbar.Toggle aria-controls="navbarScroll">
@@ -114,10 +115,10 @@ const Header = () => {
                                     كيف أبدأ
                                 </Link>
                                 <Link
-                                    to={"/registerMerchant"}
+                                    to={"/register/merchant"}
                                     className={
                                         location.pathname === "/" ||
-                                        activeLink === "التسجيل"
+                                            activeLink === "التسجيل"
                                             ? "active"
                                             : ""
                                     }

@@ -1,5 +1,5 @@
-import React, { Component, useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import React, { useState } from "react";
+import { useLocation } from "react-router-dom";
 import { LogoHeader } from "../../index";
 import { ReactComponent as SvgComponent } from "../../../assets/Icons/Component 59 – 11.svg";
 import { ReactComponent as SvgRepeat } from "../../../assets/Icons/Repeat.svg";
@@ -7,7 +7,6 @@ import OtpInput from "react-otp-input";
 
 import "./VerificationBox.css";
 const VerificationBox = () => {
-    let navigate = useNavigate();
     let location = useLocation();
     if (location.pathname === "/verificationPage") {
         document.querySelector("body").style.overflow = "hidden";

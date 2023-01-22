@@ -77,7 +77,7 @@ const HomeBox = () => {
                     <button
                         className="bt-main"
                         onClick={() => {
-                            navigate("/registerMerchant");
+                            navigate("/register/merchant");
                         }}
                     >
                         التسجيل
@@ -127,7 +127,7 @@ const HomeBox = () => {
                                     className="form-select"
                                     aria-label="Default select example"
                                 >
-                                    <option selected>نوع النشاط</option>
+                                    <option defaultValue>نوع النشاط</option>
                                     <option value="1">نوع</option>
                                     <option value="2">نوع</option>
                                     <option value="3">نوع</option>
@@ -136,7 +136,7 @@ const HomeBox = () => {
                                     className="form-select"
                                     aria-label="Default select example"
                                 >
-                                    <option selected>المدينة</option>
+                                    <option defaultValue>المدينة</option>
                                     <option value="1">نوع</option>
                                     <option value="2">نوع</option>
                                     <option value="3">نوع</option>
@@ -182,7 +182,7 @@ const HomeBox = () => {
                         <button
                             className="bt-main"
                             onClick={() => {
-                                navigate("/registerMerchant");
+                                navigate("/register/merchant");
                             }}
                         >
                             التسجيل

@@ -12,7 +12,7 @@ import BlogBox from "./PagesBox/BlogBox/BlogBox";
 import DetailBlogBox from "./PagesBox/DetailBlogBox/DetailBlogBox";
 import PaymentBox from "./PagesBox/PaymentBox/PaymentBox";
 import StartBox from "./PagesBox/StartBox/StartBox";
-import RegisterMerchantBox from "./PagesBox/RegisterMerchantBox/RegisterMerchantBox";
+import RegisterBox from "./PagesBox/RegisterBox/RegisterBox";
 import RegisterRepresentativeBox from "./PagesBox/RegisterRepresentativeBox/RegisterRepresentativeBox";
 import VerificationBox from "./PagesBox/VerificationBox/VerificationBox";
 import PasswordBackBox from "./PagesBox/PasswordBackBox/PasswordBackBox";
@@ -47,7 +47,7 @@ export {
     PolicyBox,
     PaymentBox,
     LogoHeader,
-    RegisterMerchantBox,
+    RegisterBox,
     RegisterRepresentativeBox,
     VerificationBox,
     PasswordBackBox,

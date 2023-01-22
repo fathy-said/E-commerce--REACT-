@@ -1,10 +1,10 @@
 import React from "react";
-import { RegisterMerchantBox } from "../components/index";
+import { RegisterBox } from "../components/index";
 
 const RegisterMerchant = () => {
     return (
         <>
-            <RegisterMerchantBox />
+            <RegisterBox />
         </>
     );
 };

@@ -1,12 +1,10 @@
 import React from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { LogoHeader, PasswordField } from "../../index";
 import { ReactComponent as SvgComponent } from "../../../assets/Icons/Component 59 – 11.svg";
-import { ReactComponent as SvgKey } from "../../../assets/Icons/key.svg";
 import "./SignInBox.css";
 const SignInBox = () => {
     let navigate = useNavigate();
-    let location = useLocation();
 
     return (
         <>
@@ -49,9 +47,9 @@ const SignInBox = () => {
                             </div>
                             <button
                                 className="bt-main"
-                                // onClick={() => {
-                                //     navigate("/sendPasswordPage");
-                                // }}
+                            // onClick={() => {
+                            //     navigate("/sendPasswordPage");
+                            // }}
                             >
                                 تسجيل الدخول
                             </button>
@@ -59,7 +57,7 @@ const SignInBox = () => {
                                 <li> ليس لديك حساب؟</li>
                                 <li
                                     onClick={() => {
-                                        navigate("/registerMerchant");
+                                        navigate("/register/merchant");
                                     }}
                                 >
                                     أنشئ حساب

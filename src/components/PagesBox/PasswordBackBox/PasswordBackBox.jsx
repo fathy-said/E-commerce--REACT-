@@ -1,12 +1,11 @@
 import React from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { LogoHeader } from "../../index";
 import { ReactComponent as SvgComponent } from "../../../assets/Icons/Component 59 – 11.svg";
 import { ReactComponent as SvgKey } from "../../../assets/Icons/key.svg";
 import "./PasswordBackBox.css";
 const PasswordBackBox = () => {
     let navigate = useNavigate();
-    let location = useLocation();
 
     return (
         <>

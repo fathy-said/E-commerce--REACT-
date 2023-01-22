@@ -1,13 +1,11 @@
 import React from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { LogoHeader, PasswordField } from "../../index";
 import { ReactComponent as Svgarrwos } from "../../../assets/Icons/icon-30-arrwos back1.svg";
 import { ReactComponent as SvgComponent } from "../../../assets/Icons/Component 59 – 11.svg";
-import { ReactComponent as SvgUser } from "../../../assets/Icons/icon-24-user.svg";
 import "./RegisterRepresentativeBox.css";
 const RegisterRepresentativeBox = () => {
     let navigate = useNavigate();
-    let location = useLocation();
 
     return (
         <>

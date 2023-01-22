@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import { CheckMarks, LogoHeader, PasswordField } from "../../index";
 import { ReactComponent as Svgarrwos } from "../../../assets/Icons/icon-30-arrwos back1.svg";
 import { ReactComponent as SvgComponent } from "../../../assets/Icons/Component 59 – 11.svg";
@@ -10,11 +10,22 @@ import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
 import { IoIosArrowDown } from "react-icons/io";
 
-import "./RegisterMerchantBox.css";
-const RegisterMerchantBox = () => {
+import "./RegisterBox.css";
+const RegisterBox = () => {
     let navigate = useNavigate();
+    let parm = useParams()
     let [registerTarget, setRegisterTarget] = useState("merchant");
 
+    useEffect(() => {
+        if (parm.user === 'merchant' || parm.user === 'represented') {
+            setRegisterTarget(parm.user)
+
+        }
+        else {
+            navigate("*")
+
+        }
+    }, [parm.user]);
     let [cityValue, setcityValue] = useState("");
     let [packageValue, setPackageValue] = useState("");
     let [packageTypeValue, setPackageTypeValue] = useState("");
@@ -25,7 +36,7 @@ const RegisterMerchantBox = () => {
     // };
     return (
         <>
-            <div className="registerMerchant-box" dir="ltr">
+            <div className="register-box" dir="ltr">
                 <div
                     className={
                         registerTarget === "represented"
@@ -55,7 +66,8 @@ const RegisterMerchantBox = () => {
                                     <button
                                         className="bt-main"
                                         onClick={() => {
-                                            setRegisterTarget("represented");
+                                            // setRegisterTarget("represented");
+                                            navigate("/register/represented")
                                         }}
                                     >
                                         تسجيل مندوب
@@ -105,9 +117,9 @@ const RegisterMerchantBox = () => {
                                                         border: "1px solid rgba(167, 167, 167, 0.5)",
 
                                                         "& .MuiOutlinedInput-notchedOutline":
-                                                            {
-                                                                border: "none",
-                                                            },
+                                                        {
+                                                            border: "none",
+                                                        },
                                                     }}
                                                     value={cityValue}
                                                     className="select-mu"
@@ -149,9 +161,9 @@ const RegisterMerchantBox = () => {
                                                         border: "1px solid rgba(167, 167, 167, 0.5)",
 
                                                         "& .MuiOutlinedInput-notchedOutline":
-                                                            {
-                                                                border: "none",
-                                                            },
+                                                        {
+                                                            border: "none",
+                                                        },
                                                     }}
                                                     value={packageTypeValue}
                                                     className="select-mu"
@@ -169,9 +181,9 @@ const RegisterMerchantBox = () => {
                                                         }
                                                         if (
                                                             e.target.value ===
-                                                                20 ||
+                                                            20 ||
                                                             e.target.value ===
-                                                                30
+                                                            30
                                                         ) {
                                                             navigate(
                                                                 "/createYourStorePayment"
@@ -219,9 +231,9 @@ const RegisterMerchantBox = () => {
                                                         border: "1px solid rgba(167, 167, 167, 0.5)",
 
                                                         "& .MuiOutlinedInput-notchedOutline":
-                                                            {
-                                                                border: "none",
-                                                            },
+                                                        {
+                                                            border: "none",
+                                                        },
                                                     }}
                                                     value={packageValue}
                                                     className="select-mu"
@@ -341,7 +353,9 @@ const RegisterMerchantBox = () => {
                                     <button
                                         className="bt-main"
                                         onClick={() => {
-                                            setRegisterTarget("merchant");
+                                            // setRegisterTarget("merchant");
+                                            navigate("/register/merchant")
+
                                         }}
                                     >
                                         تسجيل تاجر
@@ -383,9 +397,9 @@ const RegisterMerchantBox = () => {
                                                         border: "1px solid rgba(167, 167, 167, 0.5)",
 
                                                         "& .MuiOutlinedInput-notchedOutline":
-                                                            {
-                                                                border: "none",
-                                                            },
+                                                        {
+                                                            border: "none",
+                                                        },
                                                     }}
                                                     value={cityValue}
                                                     className="select-mu"
@@ -484,4 +498,4 @@ const RegisterMerchantBox = () => {
     );
 };
 
-export default RegisterMerchantBox;
+export default RegisterBox;

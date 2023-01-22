@@ -8,7 +8,7 @@ import {
     PaymentPage,
     PolicyPayment,
     PolicyUse,
-    RegisterMerchant,
+    Register,
     Start,
     VerificationPage,
     PasswordBackPage,
@@ -34,8 +34,8 @@ const AllPages = () => {
                         />
                         <Route path="/start" element={<Start />} />
                         <Route
-                            path="/registerMerchant"
-                            element={<RegisterMerchant />}
+                            path="/register/:user"
+                            element={<Register />}
                         />
                         <Route path="/packagePage" element={<PackagePage />} />
                         <Route

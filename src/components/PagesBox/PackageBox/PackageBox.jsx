@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { LogoHeader, MainTitle } from "../../index";
+import { LogoHeader, } from "../../index";
 import { ReactComponent as Svghappy } from "../../../assets/Icons/icon-38-happy emojy.svg";
 import { IoCheckmarkSharp } from "react-icons/io5";
 import { ImArrowRight } from "react-icons/im";
