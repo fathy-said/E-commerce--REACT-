@@ -142,7 +142,11 @@ const HomeBox = () => {
                                     <option value="3">نوع</option>
                                 </select>
                             </div>
-                            <button>تأكيد</button>
+                            <button>تأكيد
+                                <span>
+                                    <AiOutlineSearch />
+                                </span>
+                            </button>
                         </form>
                     </div>
                     <div className="content-stores">

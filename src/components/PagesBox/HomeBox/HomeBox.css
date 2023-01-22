@@ -284,6 +284,10 @@
     color: var(--font-color-default);
     font-weight: var(--font-weight-03);
     font-size: var(--font-size-18);
+    gap: 10px;
+}
+.stores-info .container .header form button span {
+    display: none;
 }
 
 .stores-info .content-stores .row {
@@ -332,30 +336,43 @@
     }
 
     .stores-info .container .header form select {
-        width: 120px;
+        width: 130px;
     }
 }
 @media (max-width: 460px) {
     .stores-info .container .header form span {
         display: none;
     }
-}
-@media (max-width: 390px) {
     .stores-info .container .header form {
         flex-direction: column;
         border-radius: 12px;
-        min-height: 160px;
+        min-height: 145px;
         padding: 15px;
     }
     .stores-info .container .header form select {
-        width: 125px;
+        width: 100%;
     }
     .stores-info .container .header form .all-select {
         width: 100%;
     }
     .stores-info .container .header form button {
         border-radius: var(--main-border-radius-01);
+        width: 100%;
     }
+    .stores-info .container .header form button span {
+        all: unset;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--font-color-default);
+        font-weight: var(--font-weight-03);
+        font-size: var(--font-size-18);
+    }
+    .stores-info .container .header form button span svg {
+        color: var(--font-color-default);
+    }
+}
+@media (max-width: 390px) {
 }
 /* ===============end-stores-info=================== */
 /* ===============start-trade-info=================== */
