@@ -533,7 +533,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-
+    padding: 0 !important;
+    margin: 0 !important;
     gap: 15px;
 }
 
@@ -563,6 +564,7 @@
         flex: none;
         padding: 20px;
         padding: 40px 10px !important;
+        max-width: 100%;
     }
 
     .register-box .all-content .box-container-form {
@@ -571,6 +573,12 @@
     }
     .register-box .all-content .content form {
         max-width: 100%;
+    }
+    .register-box .all-content .box-container-form .all {
+        max-width: 100% !important;
+    }
+    .register-box .all-1 .user-form .content {
+        padding-right: 0 !important;
     }
 }
 
@@ -983,7 +991,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-
+    margin: 0 !important;
+    padding: 0 !important;
     gap: 15px;
 }
 
@@ -997,4 +1006,46 @@
 
 .register-box .all-2 .owner-form .box-pay ul li:nth-child(2) {
     color: var(--main-color-01);
+}
+@media (max-width: 390px) {
+    .register-box .all .owner-form {
+        width: 100%;
+        align-items: center;
+        justify-content: start;
+    }
+    .register-box .all-content .box-container-form .all .user-info {
+        gap: 10px;
+    }
+    .register-box .all-content .box-container-form .all .user-info button {
+        width: 100%;
+        max-width: 140px;
+        height: 45px;
+    }
+    .register-box .all .owner-form form {
+        width: 100%;
+        max-width: 270px;
+
+        gap: 25px;
+    }
+    .register-box .all-content .content form {
+        max-width: 270px;
+    }
+    .register-box .all .user-form .content {
+        justify-content: center;
+    }
+
+    .register-box .all .owner-form .box-pay ul {
+        gap: 10px;
+    }
+    .register-box .all .owner-form .box-pay ul li {
+        margin: 0;
+        white-space: nowrap;
+        font-size: var(--font-size-16);
+    }
+    .register-box .all .owner-form .box-pay {
+        width: 100%;
+        max-width: 270px;
+        margin: 0 auto;
+    }
+    /* ======================= */
 }

@@ -21,6 +21,7 @@ const Header = () => {
     if (
         location.pathname === "/register/merchant" ||
         location.pathname === "/register/represented" ||
+        location.pathname === "/sendPasswordPage" ||
         // location.pathname === "/registerRepresentative" ||
         location.pathname === "/paymentPage" ||
         location.pathname === "/signInPage" ||

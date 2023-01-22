@@ -29,11 +29,7 @@ const RegisterBox = () => {
     let [cityValue, setcityValue] = useState("");
     let [packageValue, setPackageValue] = useState("");
     let [packageTypeValue, setPackageTypeValue] = useState("");
-    // console.log(age);
 
-    // const handleChange = (event) => {
-    //     setAge(event.target.value);
-    // };
     return (
         <>
             <div className="register-box" dir="ltr">

@@ -303,3 +303,13 @@
         gap: 30px;
     }
 }
+@media (max-width: 390px) {
+    .payment-box .payment-content ul {
+        justify-content: center;
+        gap: 25px;
+    }
+    .payment-box .payment-content ul li {
+        gap: 5px;
+        font-size: var(--font-size-16);
+    }
+}

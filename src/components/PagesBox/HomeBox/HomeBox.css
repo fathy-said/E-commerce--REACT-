@@ -334,12 +334,29 @@
     .stores-info .container .header form select {
         width: 120px;
     }
-
+}
+@media (max-width: 460px) {
     .stores-info .container .header form span {
         display: none;
     }
 }
-
+@media (max-width: 390px) {
+    .stores-info .container .header form {
+        flex-direction: column;
+        border-radius: 12px;
+        min-height: 160px;
+        padding: 15px;
+    }
+    .stores-info .container .header form select {
+        width: 125px;
+    }
+    .stores-info .container .header form .all-select {
+        width: 100%;
+    }
+    .stores-info .container .header form button {
+        border-radius: var(--main-border-radius-01);
+    }
+}
 /* ===============end-stores-info=================== */
 /* ===============start-trade-info=================== */
 .trade-info {
@@ -534,6 +551,12 @@
     display: none;
 }
 
+@media (max-width: 390px) {
+    .out-features .container .box-left {
+        max-width: 100% !important;
+        min-width: auto;
+    }
+}
 /* ===============end-out-features=================== */
 /* ===============start-our-package=================== */
 .our-package {
@@ -769,6 +792,11 @@
 .our-package .all .content-package .box:nth-child(2) button {
     background-color: var(--main-color-01);
 }
+@media (max-width: 1200px) {
+    .our-package .all .content-package .box {
+        width: 330px !important;
+    }
+}
 
 @media (max-width: 768px) {
     .our-package .container .all {
@@ -794,12 +822,15 @@
         max-width: 300px;
     }
 }
-@media (max-width: 1200px) {
+@media (max-width: 390px) {
     .our-package .all .content-package .box {
-        width: 330px !important;
+        width: 280px !important;
+    }
+
+    .our-package .all .content-package .box button {
+        max-width: 250px;
     }
 }
-
 /* ===============end-our-package=================== */
 /* ===============start-our-review =================== */
 .our-review {

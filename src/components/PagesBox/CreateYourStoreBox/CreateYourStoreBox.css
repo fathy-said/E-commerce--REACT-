@@ -129,7 +129,7 @@
     justify-content: start;
     flex-direction: column;
     width: 100%;
-    max-width: 700px;
+    /* max-width: 700px; */
     gap: 60px;
 }
 
@@ -424,7 +424,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-
+    margin: 0 !important;
+    padding: 0 !important;
     gap: 15px;
 }
 
@@ -453,7 +454,8 @@
         height: 600px;
         flex: none;
         padding: 20px;
-        padding-top: 40px;
+        padding: 40px 10px !important;
+        max-width: 100%;
     }
 
     .create-store-box .all-content .box-container-form {
@@ -462,18 +464,73 @@
     height: 100%; */
         padding: 10px;
     }
+    .create-store-box .all .user-form .content {
+        padding-right: 0px !important;
+    }
 }
 
 @media (min-width: 992px) {
     .create-store-box .all-content .box-form-banner,
     .create-store-box .all-content .box-container-form {
-        padding-right: 40px;
+        padding: 0 40px;
     }
 }
 
-@media (min-width: 1400px) {
+@media (min-width: 1200px) {
     .create-store-box .all-content .box-form-banner,
     .create-store-box .all-content .box-container-form {
-        padding-right: 140px;
+        padding: 0 60px;
     }
+}
+@media (min-width: 1800px) {
+    .create-store-box .all-content .box-form-banner,
+    .create-store-box .all-content .box-container-form {
+        /* padding-right: 140px; */
+        padding: 0 140px;
+    }
+}
+/* ================ */
+@media (max-width: 390px) {
+    .create-store-box .all .owner-form {
+        width: 100%;
+        align-items: center;
+        justify-content: start;
+    }
+    .create-store-box .box-container-form .all .user-info {
+        gap: 10px;
+    }
+    .create-store-box .all-content .box-container-form .all .user-info button {
+        width: 100%;
+        max-width: 140px;
+        height: 45px;
+    }
+    .create-store-box .all .owner-form form {
+        width: 100%;
+        max-width: 270px;
+
+        gap: 25px;
+    }
+    .create-store-box .content form {
+        max-width: 270px;
+    }
+    .create-store-box .all .user-form .content {
+        justify-content: center;
+        display: flex;
+        align-items: center;
+    }
+
+    .create-store-box .all .owner-form .box-pay ul {
+        gap: 10px;
+    }
+    .create-store-box .all .owner-form .box-pay ul li {
+        margin: 0;
+        white-space: nowrap;
+        font-size: var(--font-size-16);
+    }
+    .create-store-box .all .owner-form .box-pay {
+        width: 100%;
+        max-width: 270px;
+        margin: 0 auto;
+    }
+    /* ======================= */
 }

@@ -221,10 +221,16 @@
 
     .start-box .start-content .start-body button {
         width: fit-content;
-        padding: 12px 60px;
+        padding: 12px 50px;
     }
 
     .start-box .start-hero {
         height: 200px;
+    }
+}
+@media (max-width: 400px) {
+    .start-box .start-content .start-body button {
+        width: fit-content;
+        padding: 12px 40px;
     }
 }
