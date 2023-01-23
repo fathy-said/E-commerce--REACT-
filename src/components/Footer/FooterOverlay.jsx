@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useScrollYPosition } from "react-use-scroll-position"
 import "./FooterOverlay.css";
 import LogoImg from "../../assets/Img/logo png.png";
@@ -8,10 +8,20 @@ import { ReactComponent as Icontwitter } from "../../assets/Icons/icon-24-twitte
 import { ReactComponent as Iconinstagram } from "../../assets/Icons/icon-32-instagram.svg";
 import { ReactComponent as Icontiktok } from "../../assets/Icons/icon-32-tiktok.svg";
 import { Link } from "react-router-dom";
-import { width } from "@mui/system";
-const FooterOverlay = () => {
-    // let scrollY = useScrollYPosition();
+import { HiChevronDoubleLeft } from 'react-icons/hi';
 
+const FooterOverlay = () => {
+    let scrolly = useScrollYPosition();
+    const [showup, setShowup] = useState(false);
+    useEffect(() => {
+        if (scrolly >= 500) {
+            setShowup(true)
+        }
+        else {
+            setShowup(false)
+
+        }
+    }, [scrolly]);
     return (
         <>
             <footer className="main-footer">
@@ -97,7 +107,11 @@ const FooterOverlay = () => {
                                             </a>
                                         </li>
                                         <li>
-                                            <Link to={'/policyUse'} className="main-footer-link">
+                                            <Link to={'/policyUse'} className="main-footer-link" onClick={() => {
+
+
+                                                window.scroll(0, 0)
+                                            }}>
                                                 سياسة الخصوصية
                                             </Link>
                                         </li>
@@ -142,15 +156,18 @@ const FooterOverlay = () => {
                         </nav>
                     </div>
                 </div>
+                <div className={showup === true ? "go-up show " : "go-up"} onClick={() => {
+                    window.scroll(0, 0)
+
+
+                }}>
+                    <span>
+                        <HiChevronDoubleLeft />
+                    </span>
+                </div>
             </footer>
         </>
     )
 };
 
 export default FooterOverlay
-// onClick = {() => {
-
-//     // console.log(scrolly)
-//     // scrollY(0)
-//     // window.scrollY(0)
-// }}>

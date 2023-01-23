@@ -1,6 +1,32 @@
 /* component */
 .main-footer {
 }
+.main-footer .go-up {
+    position: fixed;
+    width: 35px;
+    height: 35px;
+    background-color: var(--font-color-02);
+    right: -40px;
+    bottom: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    transition: var(--transition);
+    cursor: pointer;
+    z-index: 3000;
+}
+.main-footer .go-up span {
+    color: var(--font-color-default);
+}
+.main-footer .go-up span svg {
+    transform: rotate(90deg);
+    margin-bottom: 2px;
+}
+.main-footer .go-up.show {
+    right: 20px;
+    font-size: 18px;
+}
 
 .main-footer .all {
     background-color: var(--main-color-01);
