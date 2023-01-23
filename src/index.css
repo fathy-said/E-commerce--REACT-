@@ -81,10 +81,10 @@
         --font-size-28: 24px;
 
         --font-size-32: 28px;
-        --font-size-38: 28px;
-        --font-size-48: 38px;
-        --font-size-54: 45px;
-        --font-size-84: 48px;
+        --font-size-38: 26px;
+        --font-size-48: 28px;
+        --font-size-54: 36px;
+        --font-size-84: 45px;
         --font-size-94: 54px;
     }
     .bt-main {
@@ -100,11 +100,10 @@
         --font-size-22: 20px;
         --font-size-24: 22px;
         --font-size-28: 24px;
-
         --font-size-32: 25px;
         --font-size-38: 26px;
-        --font-size-48: 30px;
-        --font-size-54: 40px;
+        --font-size-48: 28px;
+        --font-size-54: 36px;
         --font-size-84: 45px;
         --font-size-94: 48px;
     }

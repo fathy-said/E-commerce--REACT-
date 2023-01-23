@@ -128,14 +128,17 @@ const BlogBox = () => {
                                                         alt=""
                                                     />
                                                 </div>
-                                                <h6>{el.name}</h6>
-                                                <h4>{el.title}</h4>
-                                                <p>{el.introduction}</p>
-                                                <OwnerBox
-                                                    NameOwner={el.OwnerName}
-                                                    DateOwner={el.OwnerDate}
-                                                    ImgOwner={el.IMgOWner}
-                                                />
+                                                <div className="box-order">
+                                                    <h6>{el.name}</h6>
+                                                    <h4>{el.title}</h4>
+                                                    <p>{el.introduction}</p>
+                                                    <OwnerBox
+                                                        NameOwner={el.OwnerName}
+                                                        DateOwner={el.OwnerDate}
+                                                        ImgOwner={el.IMgOWner}
+                                                    />
+                                                </div>
+
                                             </div>
                                         </div>
                                     );

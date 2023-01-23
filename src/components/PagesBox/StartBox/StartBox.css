@@ -234,3 +234,18 @@
         padding: 12px 40px;
     }
 }
+@media (max-width: 768px) {
+    .start-box .start-content .start-body .box-video video,
+    .start-box .start-content .start-body .box-video iframe {
+        height: 260px;
+    }
+    .start-box .all {
+        padding-bottom: 40px;
+    }
+    .start-box .start-content .start-body p {
+        text-align: center;
+    }
+    .start-box .start-hero {
+        border-radius: 14px;
+    }
+}
