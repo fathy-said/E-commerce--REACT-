@@ -2,7 +2,7 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import React from "react";
 // import required modules
-import { Pagination, Navigation } from "swiper";
+import { Pagination, Navigation, Autoplay } from "swiper";
 import "./ProductSwiper.css";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -15,8 +15,12 @@ let ProductSwiper = React.memo(({ productSwiperData }) => {
                 slidesPerView={6}
                 spaceBetween={40}
                 slidesPerGroup={1}
-                // loop={true}
-                loopFillGroupWithBlank={true}
+                // loopFillGroupWithBlank={true}
+                loop={true}
+                autoplay={{
+                    delay: 2000,
+                    disableOnInteraction: false,
+                }}
                 breakpoints={{
                     200: {
                         slidesPerView: 1,
@@ -35,8 +39,8 @@ let ProductSwiper = React.memo(({ productSwiperData }) => {
                     //     slidesPerView: 6,
                     // },
                 }}
-                navigation={true}
-                modules={[Pagination, Navigation]}
+                navigation={false}
+                modules={[Pagination, Navigation, Autoplay]}
                 className="mySwiper"
             >
                 {productSwiperData.map((el, index) => {

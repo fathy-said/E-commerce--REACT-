@@ -79,13 +79,14 @@
         --font-size-20: 20px;
         --font-size-24: 20px;
         --font-size-28: 24px;
-
         --font-size-32: 28px;
         --font-size-38: 26px;
         --font-size-48: 28px;
         --font-size-54: 36px;
         --font-size-84: 45px;
         --font-size-94: 54px;
+        --main-padding-top: 20px;
+        --main-padding-bottom: 20px;
     }
     .bt-main {
         padding: 8px 20px;

@@ -34,6 +34,9 @@ const BlogBox = () => {
             .classList.remove("active");
         e.currentTarget.classList.add("active");
     };
+    let goUpWindow = () => {
+        window.scroll(0, 0)
+    }
     let navigate = useNavigate();
     return (
         <>
@@ -84,14 +87,18 @@ const BlogBox = () => {
                     {blogLoading ? (
                         <LoadingBox />
                     ) : blogData.length ? (
-                        <div className="content-blog ">
+                        <div className="content-blog">
                             <div
                                 id={blogData[0].id}
                                 className="box-top flex-column flex-lg-row align-items-center align-items-lg-start"
-                                onClick={() =>
+                                onClick={() => {
                                     navigate(
                                         `/detail/${blogData[0].type}/${blogData[0].id}`
                                     )
+                                    goUpWindow()
+
+
+                                }
                                 }
                             >
                                 <div className="box-img">
@@ -115,10 +122,12 @@ const BlogBox = () => {
                                             className="box"
                                             id={el.id}
                                             key={el.id}
-                                            onClick={() =>
+                                            onClick={() => {
                                                 navigate(
                                                     `/detail/${el.type}/${el.id}`
                                                 )
+                                                goUpWindow()
+                                            }
                                             }
                                         >
                                             <div className="order">

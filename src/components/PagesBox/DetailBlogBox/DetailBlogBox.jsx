@@ -1,5 +1,5 @@
-import React from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import React, { useEffect } from "react";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { BlogHero, OwnerBox } from "../../index";
 import ImgCenterBanner from "../../../assets/Img/banner main blog.png";
 import ImgPerssona from "../../../assets/Img/persona.png";
@@ -9,8 +9,14 @@ import "./DetailBlogBox.css";
 
 import { ReactComponent as SvgBack } from "../../../assets/Icons/icon-30-arrwos back.svg";
 const DetailBlogBox = () => {
+    // let location = useLocation();
+
     let param = useParams();
     let navigate = useNavigate();
+    let goUpWindow = () => {
+        window.scroll(0, 0)
+    }
+
     return (
         <>
             <div className="detail-blog p-main">
@@ -22,7 +28,11 @@ const DetailBlogBox = () => {
                             <div className="col-md-12 col-lg-3  col-xxl-2 ">
                                 <div className="box-right">
                                     <ul>
-                                        <span onClick={() => navigate("/")}>
+                                        <span onClick={() => {
+                                            goUpWindow()
+
+                                            navigate("/")
+                                        }}>
                                             <SvgBack />
                                         </span>
                                         <h6>الكل</h6>

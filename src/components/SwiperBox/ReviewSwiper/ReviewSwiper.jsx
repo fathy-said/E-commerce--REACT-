@@ -18,7 +18,7 @@ let ReviewSwiper = ({ DataReviewSwiper }) => {
                 slidesPerGroup={1}
                 loop={true}
                 autoplay={{
-                    delay: 2500,
+                    delay: 2000,
                     disableOnInteraction: false,
                 }}
                 breakpoints={{
@@ -35,12 +35,12 @@ let ReviewSwiper = ({ DataReviewSwiper }) => {
             >
                 {DataReviewSwiper.length
                     ? DataReviewSwiper.map((el) => {
-                          return (
-                              <SwiperSlide key={el.id}>
-                                  <ReviewBox Img={el.Img} text={el.text} />
-                              </SwiperSlide>
-                          );
-                      })
+                        return (
+                            <SwiperSlide key={el.id}>
+                                <ReviewBox Img={el.Img} text={el.text} />
+                            </SwiperSlide>
+                        );
+                    })
                     : null}
             </Swiper>
         </>
