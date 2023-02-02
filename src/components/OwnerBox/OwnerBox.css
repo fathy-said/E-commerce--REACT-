@@ -15,10 +15,9 @@
 
 .owner-box .box .box-img {
     width: 65px !important;
-
     height: 65px !important;
-
     flex: none !important;
+    border-radius: 50% !important;
 }
 
 .owner-box .box .box-img img {

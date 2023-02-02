@@ -6,6 +6,8 @@ import PackageReducer from "./Reducer/PackageReducer.jsx";
 import ReviewReducer from "./Reducer/ReviewReducer.jsx";
 import PartnersReducer from "./Reducer/PartnersReducer.jsx";
 import BlogReducer from "./Reducer/BlogReducer.jsx";
+import HomeReducer from "./Reducer/HomeReducer.jsx";
+import BlogDataReducer from "./Reducer/BlogDataReducer";
 export let Store = configureStore({
     reducer: {
         ProductReducer,
@@ -15,5 +17,7 @@ export let Store = configureStore({
         ReviewReducer,
         PartnersReducer,
         BlogReducer,
+        HomeReducer,
+        BlogDataReducer,
     },
 });

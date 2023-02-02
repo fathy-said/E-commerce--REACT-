@@ -9,10 +9,17 @@ import { ReactComponent as Iconinstagram } from "../../assets/Icons/icon-32-inst
 import { ReactComponent as Icontiktok } from "../../assets/Icons/icon-32-tiktok.svg";
 import { Link } from "react-router-dom";
 import { HiChevronDoubleLeft } from 'react-icons/hi';
+import { useDispatch, useSelector } from "react-redux";
+import LoadingBox from "../LoadingBox/LoadingBox";
+import NotFoundData from "../NotFoundData/NotFoundData";
+import { useRef } from "react";
+import { PackageThunk } from "../../RTK/Thunk/PackageThunk";
 
 const FooterOverlay = () => {
     let scrolly = useScrollYPosition();
     const [showup, setShowup] = useState(false);
+    let dispatch = useDispatch();
+
     useEffect(() => {
         if (scrolly >= 500) {
             setShowup(true)
@@ -22,6 +29,16 @@ const FooterOverlay = () => {
 
         }
     }, [scrolly]);
+
+
+    useEffect(() => {
+        dispatch(PackageThunk());
+        // ===========
+
+    }, [dispatch]);
+    let { linkWebsite, homeLoadingData } = useSelector(
+        (state) => state.HomeReducer
+    );
     return (
         <>
             <footer className="main-footer">
@@ -31,7 +48,7 @@ const FooterOverlay = () => {
                             <a className="main-footer__logo" href="#0">
                                 <img src={LogoImg} alt="" />
                             </a>
-                            <ul>
+                            {/* <ul>
                                 <li>
                                     <a href="#">
                                         <Iconfacebook />
@@ -52,6 +69,27 @@ const FooterOverlay = () => {
                                         <Icontiktok />
                                     </a>
                                 </li>
+                            </ul> */}
+                            <ul>
+                                {
+                                    (linkWebsite.length && (
+                                        linkWebsite.map((el) => {
+                                            return (
+                                                <li key={el.id}>
+                                                    <a href={el.link}>
+                                                        <img src={el.logo} alt="" />
+                                                    </a>
+                                                </li>
+                                            );
+                                        })
+                                    ))
+                                }
+
+                                {/* <li>
+                                    <a href="https://mostaql.com">
+                                        <Icontiktok />
+                                    </a>
+                                </li> */}
                             </ul>
                         </div>
                         <nav className="box-right">

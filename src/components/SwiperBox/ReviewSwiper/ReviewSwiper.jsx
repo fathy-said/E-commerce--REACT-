@@ -37,11 +37,12 @@ let ReviewSwiper = ({ DataReviewSwiper }) => {
                     ? DataReviewSwiper.map((el) => {
                         return (
                             <SwiperSlide key={el.id}>
-                                <ReviewBox Img={el.Img} text={el.text} />
+                                <ReviewBox Img={el.user.image} text={el.comment_text} />
                             </SwiperSlide>
                         );
                     })
                     : null}
+
             </Swiper>
         </>
     );

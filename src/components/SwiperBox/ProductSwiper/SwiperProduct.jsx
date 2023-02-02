@@ -15,7 +15,7 @@ const SwiperProduct = ({ Img, Name, Evaluate, Mark }) => {
                         <h6>{Name}</h6>
                         <div className="info">
                             <span>
-                                {Evaluate}
+                                {Number(Evaluate).toFixed(1)}
                                 <AiFillStar />
                             </span>
                             <bdi>{Mark} ر.س</bdi>

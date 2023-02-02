@@ -27,6 +27,7 @@ import PolicyBox from "./PolicyBox/PolicyBox";
 import LogoHeader from "./LogoHeader/LogoHeader";
 import CheckMarks from "./CheckMarks/CheckMarks";
 import PasswordField from "./PasswordField/PasswordField";
+import NotFoundData from "./NotFoundData/NotFoundData";
 
 export {
     FooterOverlay,
@@ -58,4 +59,5 @@ export {
     PackageBox,
     CreateYourStorePaymentBox,
     PasswordField,
+    NotFoundData,
 };

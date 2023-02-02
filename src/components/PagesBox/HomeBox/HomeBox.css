@@ -19,15 +19,7 @@
     width: 100%;
     left: 0;
     bottom: 0;
-    background: transparent
-        linear-gradient(
-            108deg,
-            var(--unnamed-color-1dbbbe) 0%,
-            var(--unnamed-color-02466a) 100%
-        )
-        0% 0% no-repeat padding-box;
-    background: transparent linear-gradient(108deg, #1dbbbe 0%, #02466a 100%) 0%
-        0% no-repeat padding-box;
+
     z-index: 2;
     opacity: 0.6;
 }
@@ -766,16 +758,18 @@
     font-size: var(--font-size-20);
     font-weight: 400;
     letter-spacing: 0.22px;
+    color: #adb5b9 !important;
 }
 
 .our-package .all .content-package .box ul li svg {
-    color: #3ae374;
     font-size: var(--font-size-20);
 }
 
-.our-package .all .content-package .box ul li.not-active svg,
-.our-package .all .content-package .box ul li.not-active {
-    color: #adb5b9 !important;
+.our-package .all .content-package .box ul li.active svg {
+    color: #3ae374;
+}
+.our-package .all .content-package .box ul li.active {
+    color: var(--black-color-01) !important;
 }
 
 .our-package .all .content-package .box button {

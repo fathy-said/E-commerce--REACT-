@@ -7,7 +7,7 @@ let initState = {
 };
 
 let BlogReducer = createSlice({
-    name: "blog",
+    name: "blogK",
     initialState: initState,
     reducers: {
         blogDatatype: (state, action) => {

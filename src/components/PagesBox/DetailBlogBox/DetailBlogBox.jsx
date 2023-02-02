@@ -16,7 +16,6 @@ const DetailBlogBox = () => {
     let goUpWindow = () => {
         window.scroll(0, 0)
     }
-
     return (
         <>
             <div className="detail-blog p-main">
@@ -30,7 +29,6 @@ const DetailBlogBox = () => {
                                     <ul>
                                         <span onClick={() => {
                                             goUpWindow()
-
                                             navigate("/")
                                         }}>
                                             <SvgBack />

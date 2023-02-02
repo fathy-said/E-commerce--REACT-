@@ -40,7 +40,7 @@ let PartnerSwiper = ({ PartnerDataSwiper }) => {
                     ? PartnerDataSwiper.map((el) => {
                         return (
                             <SwiperSlide key={el.id}>
-                                <PartnerBox Img={el.Img} />
+                                <PartnerBox Img={el.logo} />
                             </SwiperSlide>
                         );
                     })

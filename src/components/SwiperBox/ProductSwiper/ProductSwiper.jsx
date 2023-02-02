@@ -47,10 +47,10 @@ let ProductSwiper = React.memo(({ productSwiperData }) => {
                     return (
                         <SwiperSlide key={el.id} id={el.id}>
                             <SwiperProduct
-                                Img={el.Img}
+                                Img={el.cover}
                                 Name={el.name}
-                                Evaluate={el.evaluate}
-                                Mark={el.mark}
+                                Evaluate={el.productRating}
+                                Mark={el.selling_price}
                             />
                         </SwiperSlide>
                     );
