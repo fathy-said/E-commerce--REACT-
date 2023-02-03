@@ -12,8 +12,9 @@ import { HiChevronDoubleLeft } from 'react-icons/hi';
 import { useDispatch, useSelector } from "react-redux";
 import LoadingBox from "../LoadingBox/LoadingBox";
 import NotFoundData from "../NotFoundData/NotFoundData";
-import { useRef } from "react";
 import { PackageThunk } from "../../RTK/Thunk/PackageThunk";
+import { HomeThunk } from "../../RTK/Thunk/HomeThunk";
+import { useRef } from "react";
 
 const FooterOverlay = () => {
     let scrolly = useScrollYPosition();
@@ -31,10 +32,15 @@ const FooterOverlay = () => {
     }, [scrolly]);
 
 
-    useEffect(() => {
-        dispatch(PackageThunk());
-        // ===========
+    const shouldData = useRef(true);
 
+    useEffect(() => {
+        if (shouldData.current) {
+
+            dispatch(HomeThunk());
+            // ===========
+            shouldData.current = false;
+        }
     }, [dispatch]);
     let { linkWebsite, homeLoadingData } = useSelector(
         (state) => state.HomeReducer

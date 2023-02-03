@@ -5,8 +5,6 @@ import IMgTop from "../../../assets/Img/image blog1.png";
 import ImgOwner from "../../../assets/Img/persona2.png";
 // =================redux======
 import { useDispatch, useSelector } from "react-redux";
-import { BlogThunk } from "../../../RTK/Thunk/BlogThunk";
-import { blogDatatype } from "../../../RTK/Reducer/BlogReducer";
 import { blogType } from "../../../RTK/Reducer/BlogDataReducer";
 import { useNavigate } from "react-router-dom";
 import { BlogDataThunk } from "../../../RTK/Thunk/BlogDataThunk";
@@ -28,7 +26,7 @@ const BlogBox = () => {
             // ===========
             shouldData.current = false;
         }
-    }, []);
+    }, [dispatch]);
     useEffect(() => {
         dispatch(blogType({ type: getTypeBlog }));
 
@@ -94,9 +92,9 @@ const BlogBox = () => {
                                 id={pagesTargetData[0].id}
                                 className="box-top flex-column flex-lg-row align-items-center align-items-lg-start"
                                 onClick={() => {
-                                    // navigate(
-                                    //     `/detail/${blogData[0].type}/${blogData[0].id}`
-                                    // )
+                                    navigate(
+                                        `/detail/${pagesTargetData[0].id}`
+                                    )
                                     goUpWindow()
 
 
@@ -108,8 +106,9 @@ const BlogBox = () => {
                                 </div>
                                 <div className="box-left">
                                     <h5>{pagesTargetData[0].title}</h5>
-                                    {/* <h2>{pagesTargetData[0].page_content}</h2> */}
-                                    <h2>page_content</h2>
+                                    {/* <div>{pagesTargetData[0].page_content}</div> */}
+                                    {/* <p dangerouslySetInnerHTML={{ __html: pagesTargetData[0].page_content }}></p> */}
+                                    {/* <h2>page_content</h2> */}
                                     <p>{pagesTargetData[0].seo_desc}</p>
                                     <OwnerBox
                                         NameOwner={pagesTargetData[0].user.name}
@@ -125,15 +124,15 @@ const BlogBox = () => {
                                             className="box"
                                             id={el.id}
                                             key={el.id}
-                                            onClick={() => {
-                                                // navigate(
-                                                //     `/detail/${el.type}/${el.id}`
-                                                // )
+
+                                        >
+                                            <div className="order" onClick={() => {
+                                                navigate(
+                                                    `/detail/${el.id}`
+                                                )
                                                 goUpWindow()
                                             }
-                                            }
-                                        >
-                                            <div className="order">
+                                            }>
                                                 <div className="box-img">
                                                     <img
                                                         src={el.image}

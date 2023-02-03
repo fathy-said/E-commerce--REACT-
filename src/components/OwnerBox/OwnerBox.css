@@ -18,6 +18,7 @@
     height: 65px !important;
     flex: none !important;
     border-radius: 50% !important;
+    overflow: hidden !important;
 }
 
 .owner-box .box .box-img img {

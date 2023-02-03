@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import OutlinedInput from "@mui/material/OutlinedInput";
 import MenuItem from "@mui/material/MenuItem";
 import ListItemText from "@mui/material/ListItemText";
@@ -16,7 +16,7 @@ const activiyType = [
 
 let CheckMarks = () => {
     const [personName, setPersonName] = React.useState([]);
-
+    const [openSubcategory, setOpenSubcategory] = useState(false);
     const handleChange = (event) => {
         const {
             target: { value },
@@ -43,53 +43,7 @@ let CheckMarks = () => {
                 multiple
                 displayEmpty
                 className="check-mark"
-                onClick={(e) => {
-                    if (e.target.className === "check-mark-button") {
-                        document.querySelector("#menu-").style.position =
-                            "unset ";
-                        document
-                            .querySelector(".check-mark .MuiSelect-select ")
-                            .setAttribute("aria-expanded", false);
-                        // e.currentTarget
-                        //     .querySelector("svg")
-                        //     .classList.remove("MuiSelect-iconOpen");
-                        // e.currentTarget
-                        //     .querySelector("svg")
-                        //     .classList.add("css-3qbkez-MuiSelect-icon");
-                        // e.currentTarget
-                        //     .querySelector("svg")
-                        //     .classList.add("css-bi4s6q");
-                        // e.currentTarget.querySelector("svg").style.transform =
-                        //     "rotate(0deg)";
-                        // e.currentTarget
-                        //     .querySelector("svg")
-                        //     .classList.remove("css-10q54uo-MuiSelect-icon");
-                        // e.currentTarget
-                        //     .querySelector("svg")
-                        //     .classList.remove("css-1gyinnq");
-                        e.currentTarget.querySelector("svg").style.transform =
-                            "rotate(0deg)";
-                    } else if (
-                        e.currentTarget.classList.contains("check-mark")
-                    ) {
-                        document.querySelector("#menu-").style.position =
-                            "fixed";
-                        document
-                            .querySelector(".check-mark .MuiSelect-select ")
-                            .setAttribute("aria-expanded", true);
-                        // e.currentTarget
-                        //     .querySelector("svg")
-                        //     .classList.add("MuiSelect-iconOpen");
-                        // e.currentTarget
-                        //     .querySelector("svg")
-                        //     .classList.remove("css-3qbkez-MuiSelect-icon");
-                        // e.currentTarget
-                        //     .querySelector("svg")
-                        //     .classList.add("css-10q54uo-MuiSelect-icon");
-                        // e.currentTarget.querySelector("svg").style.transform =
-                        //     "rotate(180deg)";
-                    }
-                }}
+
                 value={personName}
                 onChange={handleChange}
                 input={<OutlinedInput />}
@@ -109,7 +63,10 @@ let CheckMarks = () => {
 
                     return selected.join(", ");
                 }}
-                // MenuProps={MenuProps}
+                onClick={(e) => {
+                    setOpenSubcategory(true)
+                }}
+                open={openSubcategory}
             >
                 {activiyType.map((name) => (
                     <MenuItem
@@ -122,10 +79,17 @@ let CheckMarks = () => {
                     </MenuItem>
                 ))}
                 <MenuItem className="check-mark-button">
-                    <button className="check-mark-button">اختر</button>
+                    <button className="check-mark-button" onClick={(e) => {
+                        e.stopPropagation()
+                        setOpenSubcategory(!openSubcategory)
+
+
+                    }}>اختر</button>
                 </MenuItem>
             </Select>
         </>
     );
 };
 export default CheckMarks;
+
+

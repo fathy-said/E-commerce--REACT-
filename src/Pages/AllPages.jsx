@@ -29,7 +29,7 @@ const AllPages = () => {
                         <Route path="/" element={<Home />} />
                         <Route path="/blog" element={<Blog />} />
                         <Route
-                            path="/detail/:type/:id"
+                            path="/detail/:id"
                             element={<BlogDetail />}
                         />
                         <Route path="/start" element={<Start />} />
