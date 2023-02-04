@@ -249,7 +249,7 @@
     height: 50px;
 }
 
-.stores-info .container .header form select {
+.stores-info .container .header form .select-mu {
     cursor: pointer;
     width: 150px;
     height: 100%;
@@ -258,12 +258,27 @@
     border: none !important;
     border-radius: 0 !important;
     padding: 0 !important;
-    padding-right: 10px !important;
+    padding-right: 5px !important;
     color: var(--black-color-01);
     font-weight: var(--font-weight-03);
     font-size: var(--font-size-18);
+    background-color: var(--font-color-default);
 }
 
+.stores-info .container .header .select-mu svg {
+    left: 20px !important;
+    right: auto !important;
+    color: var(--black-color-01);
+    font-size: 17px;
+}
+.stores-info .container .header .select-mu .MuiSelect-select {
+    padding-right: 5px !important;
+    font-family: "Tajawal", sans-serif !important;
+    color: var(--black-color-01);
+}
+.stores-info .container .header .select-mu span {
+    border: none !important;
+}
 .stores-info .container .header form button {
     all: unset;
     cursor: pointer;
@@ -322,16 +337,7 @@
     font-size: var(--font-size-20);
 }
 
-@media (max-width: 768px) {
-    .stores-info .container .header form {
-        padding-right: 20px;
-    }
-
-    .stores-info .container .header form select {
-        width: 130px;
-    }
-}
-@media (max-width: 460px) {
+@media (max-width: 767px) {
     .stores-info .container .header form span {
         display: none;
     }
@@ -339,9 +345,9 @@
         flex-direction: column;
         border-radius: 12px;
         min-height: 145px;
-        padding: 15px;
+        padding: 10px;
     }
-    .stores-info .container .header form select {
+    .stores-info .container .header form .select-mu {
         width: 100%;
     }
     .stores-info .container .header form .all-select {

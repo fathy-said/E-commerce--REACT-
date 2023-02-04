@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./HomeBox.css";
-// import FeaturesVideo from "../../../assets/Videos/video.mp4";
 import {
     ProductSwiper,
     ReviewSwiper,
@@ -8,6 +7,10 @@ import {
     LoadingBox,
     NotFoundData,
 } from "../../index";
+import Select from "@mui/material/Select";
+import MenuItem from "@mui/material/MenuItem";
+import { IoIosArrowDown } from "react-icons/io";
+
 import { MainTitle } from "../../index";
 import { AiOutlineSearch } from "react-icons/ai";
 import { HiOutlineArrowNarrowLeft } from "react-icons/hi";
@@ -26,12 +29,8 @@ import featuresIMG from "../../../assets/Img/IMG_3541-removebg-preview.png";
 import GroupIMG from "../../../assets/Img/Group 1432.png";
 // ===============redux================
 import { useDispatch, useSelector } from "react-redux";
-import { productThunk } from "../../../RTK/Thunk/ProductThunk";
-import { StoresThunk } from "../../../RTK/Thunk/StoresThunk";
 import { VideoThunk } from "../../../RTK/Thunk/VideoThunk";
-import { PackageThunk } from "../../../RTK/Thunk/PackageThunk";
-import { ReviewThunk } from "../../../RTK/Thunk/ReviewThunk";
-import { PartnersThunk } from "../../../RTK/Thunk/PartnersThunk";
+import { storeFilterAction } from "../../../RTK/Reducer/HomeReducer"
 import { useNavigate } from "react-router-dom";
 import { HomeThunk } from "../../../RTK/Thunk/HomeThunk";
 const HomeBox = () => {
@@ -51,27 +50,21 @@ const HomeBox = () => {
     }, [dispatch]);
     let [getTypePackage, setTypePackage] = useState(true);
     // ===========
-    let { productsHome, homeLoadingData, storesHome, commentHome, partnersHome, homeAllData, packagesHome } = useSelector(
+    let { productsHome, homeLoadingData, storesHome, commentHome, partnersHome, homeAllData, packagesHome, StoreCities, StoreActivities } = useSelector(
         (state) => state.HomeReducer
     );
-
     // ===========
-    // let { productData, productLoading, } = useSelector(
-    //     (state) => state.ProductReducer
-    // );
-    // let { storesData, storesLoading } = useSelector(
-    //     (state) => state.StoresReducer
-    // );
 
-    // let { reviewData, reviewLoading } = useSelector(
-    //     (state) => state.ReviewReducer
-    // );
-    // let { partnersData, partnersLoading } = useSelector(
-    //     (state) => state.PartnersReducer
-    // );
 
     let { videoData } = useSelector((state) => state.VideoReducer);
-
+    let [getFilterStores, setFilterStores] = useState({ Type: '', Cities: '' });
+    let filterStores = (e) => {
+        e.preventDefault()
+        if ((getFilterStores.Cities) && (getFilterStores.Type)) {
+            // console.log(getFilterStores)
+            dispatch(storeFilterAction({ cities: getFilterStores.Cities, Type: getFilterStores.Type }))
+        }
+    }
     return (
         <>
             <div className="hero" style={{ backgroundImage: `url(${homeAllData?.slider1})` }}>
@@ -123,31 +116,91 @@ const HomeBox = () => {
                 <div className="container">
                     <div className="header flex-column flex-md-row gap-4 gap-md-3 ">
                         <MainTitle text={"المتاجر المتميزة"} />
-                        <form action="">
+                        <form action="" onSubmit={(e) => { filterStores(e) }}>
                             <span>
                                 <AiOutlineSearch />
                             </span>
                             <div className="all-select">
-                                <select
-                                    className="form-select"
-                                    aria-label="Default select example"
+
+                                <Select
+                                    sx={{
+                                        overflow: 'hidden',
+
+                                        "& .MuiOutlinedInput-notchedOutline":
+                                        {
+                                            border: "none",
+                                        },
+                                    }}
+                                    value={getFilterStores.Type}
+                                    className="select-mu"
+                                    onChange={(e) => {
+                                        setFilterStores(
+                                            { ...getFilterStores, Type: e.target.value }
+                                        );
+                                    }}
+                                    IconComponent={IoIosArrowDown}
+                                    displayEmpty
                                 >
-                                    <option defaultValue>نوع النشاط</option>
-                                    <option value="1">نوع</option>
-                                    <option value="2">نوع</option>
-                                    <option value="3">نوع</option>
-                                </select>
-                                <select
-                                    className="form-select"
-                                    aria-label="Default select example"
+                                    <MenuItem value="">
+                                        <>نوع النشاط</>
+                                    </MenuItem>
+                                    {
+                                        StoreActivities.length ? (
+                                            StoreActivities.map((el) => {
+                                                return (
+                                                    <MenuItem value={el.name} key={el.id}>
+                                                        {el.name}
+                                                    </MenuItem>
+
+                                                )
+
+                                            })
+                                        ) : null
+
+
+                                    }
+                                </Select>
+                                <Select
+                                    sx={{
+
+
+                                        "& .MuiOutlinedInput-notchedOutline":
+                                        {
+                                            border: "none",
+                                        },
+                                    }}
+                                    value={getFilterStores.Cities}
+                                    className="select-mu"
+                                    onChange={(e) => {
+                                        setFilterStores(
+                                            { ...getFilterStores, Cities: e.target.value }
+                                        );
+                                    }}
+                                    IconComponent={IoIosArrowDown}
+                                    displayEmpty
                                 >
-                                    <option defaultValue>المدينة</option>
-                                    <option value="1">نوع</option>
-                                    <option value="2">نوع</option>
-                                    <option value="3">نوع</option>
-                                </select>
+                                    <MenuItem value="">
+                                        <>المدينة</>
+                                    </MenuItem>
+                                    {
+                                        StoreCities.length ? (
+                                            StoreCities.map((el) => {
+                                                return (
+                                                    <MenuItem value={el.name} key={el.id}>
+                                                        {el.name}
+                                                    </MenuItem>
+
+                                                )
+
+                                            })
+                                        ) : null
+
+
+                                    }
+                                </Select>
+
                             </div>
-                            <button>تأكيد
+                            <button type="submit">تأكيد
                                 <span>
                                     <AiOutlineSearch />
                                 </span>

@@ -106,8 +106,7 @@ const BlogBox = () => {
                                 </div>
                                 <div className="box-left">
                                     <h5>{pagesTargetData[0].title}</h5>
-                                    {/* <div>{pagesTargetData[0].page_content}</div> */}
-                                    {/* <p dangerouslySetInnerHTML={{ __html: pagesTargetData[0].page_content }}></p> */}
+                                    <h2>{pagesTargetData[0].seo_title}</h2>
                                     {/* <h2>page_content</h2> */}
                                     <p>{pagesTargetData[0].seo_desc}</p>
                                     <OwnerBox
@@ -142,7 +141,7 @@ const BlogBox = () => {
                                                 <div className="box-order">
                                                     <h6>{el.title}</h6>
                                                     {/* <h4>{el.page_content}</h4> */}
-                                                    <h4>{el.title}</h4>
+                                                    <h4>{el.seo_title}</h4>
                                                     <p>{el.seo_desc}</p>
                                                     <OwnerBox
                                                         NameOwner={el.user.name}

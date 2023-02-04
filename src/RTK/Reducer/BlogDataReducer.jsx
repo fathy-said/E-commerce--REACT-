@@ -25,11 +25,11 @@ let BlogDataReducer = createSlice({
         let data = state.pagesData
         state.pagesTargetData = data.filter((el) => action.payload.type === el.postCategory.name);
       }
-      if (action.payload.type === " التسويق الرقمي") {
+      if (action.payload.type === "التسويق الرقمي") {
         let data = state.pagesData
         state.pagesTargetData = data.filter((el) => action.payload.type === el.postCategory.name);
       }
-      if (action.payload.type === " ادارة الاسواق") {
+      if (action.payload.type === "ادارة الاسواق") {
 
         let data = state.pagesData
         state.pagesTargetData = data.filter((el) => action.payload.type === el.postCategory.name);

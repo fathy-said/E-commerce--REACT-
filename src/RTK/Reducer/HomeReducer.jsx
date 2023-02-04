@@ -10,13 +10,22 @@ let initState = {
   footerHome: [],
   linkWebsite: [],
   homeAllData: [],
+  StoreActivities: [],
+  StoreCities: [],
 
 };
 let HomeReducer = createSlice({
 
   name: "home",
   initialState: initState,
-  reducers: {},
+  reducers: {
+    storeFilterAction: (state, action) => {
+      // console.log(action.payload)
+      // console.log(state.homeAllData.stores[24].city.name)
+      let data = state.homeAllData.stores
+      state.storesHome = data.filter((el) => (action.payload.cities === el.user.city.name) && (action.payload.Type === el.activity[0].name))
+    }
+  },
   extraReducers: (builder) => {
     builder
       .addCase(HomeThunk.pending, (state, action) => {
@@ -31,7 +40,9 @@ let HomeReducer = createSlice({
         state.commentHome = action.payload.data.comment
         state.partnersHome = action.payload.data.partners
         state.linkWebsite = action.payload.data.website_socialmedia
-        console.log(action.payload)
+        state.StoreCities = action.payload.data.cities
+        state.StoreActivities = action.payload.data.store_activities
+        // console.log(action.payload)
 
       })
       .addCase(HomeThunk.rejected, (state, action) => {
@@ -40,3 +51,4 @@ let HomeReducer = createSlice({
   }
 })
 export default HomeReducer.reducer
+export let { storeFilterAction } = HomeReducer.actions
