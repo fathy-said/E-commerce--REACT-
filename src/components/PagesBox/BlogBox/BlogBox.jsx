@@ -6,6 +6,7 @@ import ImgOwner from "../../../assets/Img/persona2.png";
 // =================redux======
 import { useDispatch, useSelector } from "react-redux";
 import { blogType } from "../../../RTK/Reducer/BlogDataReducer";
+import { PageIncrease } from "../../../RTK/Reducer/BlogDataReducer";
 import { useNavigate } from "react-router-dom";
 import { BlogDataThunk } from "../../../RTK/Thunk/BlogDataThunk";
 // =========================================================================
@@ -96,19 +97,17 @@ const BlogBox = () => {
                                         `/detail/${pagesTargetData[0].id}`
                                     )
                                     goUpWindow()
-
-
                                 }
                                 }
                             >
-                                <div className="box-img">
-                                    <img src={pagesTargetData[0].image} alt="" />
+                                <div className="box-img" >
+                                    <img src={pagesTargetData[0].image} alt="" style={{ minHeight: '250px' }} />
                                 </div>
                                 <div className="box-left">
-                                    <h5>{pagesTargetData[0].title}</h5>
-                                    <h2>{pagesTargetData[0].seo_title}</h2>
+                                    <h5>{pagesTargetData[0].postCategory.name}</h5>
+                                    <h2>{pagesTargetData[0].title}</h2>
                                     {/* <h2>page_content</h2> */}
-                                    <p>{pagesTargetData[0].seo_desc}</p>
+                                    <p>{pagesTargetData[0]?.page_desc}</p>
                                     <OwnerBox
                                         NameOwner={pagesTargetData[0].user.name}
                                         DateOwner={pagesTargetData[0].user.created_at}
@@ -139,10 +138,9 @@ const BlogBox = () => {
                                                     />
                                                 </div>
                                                 <div className="box-order">
-                                                    <h6>{el.title}</h6>
-                                                    {/* <h4>{el.page_content}</h4> */}
-                                                    <h4>{el.seo_title}</h4>
-                                                    <p>{el.seo_desc}</p>
+                                                    <h6>{el.postCategory.name}</h6>
+                                                    <h4>{el.title}</h4>
+                                                    <p>{el?.page_desc}</p>
                                                     <OwnerBox
                                                         NameOwner={el.user.name}
                                                         DateOwner={el.user.created_at}
@@ -155,7 +153,11 @@ const BlogBox = () => {
                                     );
                                 })}
                             </div>
-                            <button className="bt-main">عرض المزيد</button>
+                            <button className="bt-main" onClick={() => {
+                                dispatch(PageIncrease({ type: getTypeBlog }));
+
+
+                            }}>عرض المزيد</button>
                         </div>
                     ) : (
                         "لم يتم العثور على البيانات"

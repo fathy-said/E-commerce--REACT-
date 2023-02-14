@@ -1,11 +1,32 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { LogoHeader, PasswordField } from "../../index";
 import { ReactComponent as SvgComponent } from "../../../assets/Icons/Component 59 – 11.svg";
 import "./SignInBox.css";
+import { useDispatch, useSelector } from "react-redux";
+import { LoginThunk } from "../../../RTK/Login/Thunk/LoginThunk";
 const SignInBox = () => {
-    let navigate = useNavigate();
+    let dispatch = useDispatch()
+    let { loginToken, loginSuccess } = useSelector((state) => state.LoginReducer)
 
+
+    let navigate = useNavigate();
+    let [LoginData, setLoginData] = useState({ pass: '', userName: '' });
+    let [success, setsuccess] = useState(false);
+    let sendDataLogin = () => {
+        dispatch(LoginThunk({ pass: LoginData.pass, userName: LoginData.userName })).unwrap()
+            .then((e) => {
+                if (e.success) {
+                    setsuccess(e.success)
+                }
+                // handle result here
+            })
+            .catch((e) => {
+                console.log(e)
+                // handle error here
+            })
+
+    }
     return (
         <>
             <div className="sign-in-box" dir="ltr">
@@ -20,9 +41,14 @@ const SignInBox = () => {
                                     <input
                                         type="text"
                                         placeholder="ادخل اسم المستخدم او البريد الالكتروني"
+                                        value={LoginData.userName}
+                                        onChange={(e) => {
+                                            setLoginData({ ...LoginData, userName: e.target.value })
+
+                                        }}
                                     />
                                 </div>
-                                <PasswordField />
+                                <PasswordField DataPass={LoginData} setPass={setLoginData} />
                             </div>
 
                             <div className="top">
@@ -47,9 +73,11 @@ const SignInBox = () => {
                             </div>
                             <button
                                 className="bt-main"
-                            // onClick={() => {
-                            //     navigate("/sendPasswordPage");
-                            // }}
+                                onClick={() => {
+
+                                    sendDataLogin()
+
+                                }}
                             >
                                 تسجيل الدخول
                             </button>

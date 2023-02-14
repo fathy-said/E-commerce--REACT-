@@ -137,6 +137,7 @@
 }
 
 .main-footer .main-footer-link {
+    cursor: pointer;
     margin-bottom: 0;
     color: var(--back-color-01);
     font-size: var(--font-size-20);

@@ -40,9 +40,7 @@ const Header = () => {
     }
 
     useEffect(() => {
-        if (location.pathname === "/") {
-            setActiveLink("التسجيل");
-        }
+
         if (
             document
                 .querySelector(".header .navbar .navbar-collapse")
@@ -58,6 +56,18 @@ const Header = () => {
 
 
 
+    }, [location.pathname]);
+    useEffect(() => {
+
+        if (location.pathname === "/") {
+            setActiveLink("التسجيل");
+        }
+        if (location.pathname === "/start") {
+            setActiveLink("كيف أبدأ");
+        }
+        if (location.pathname === "/blog") {
+            setActiveLink("المدونة");
+        }
     }, [location.pathname]);
     useEffect(() => {
 

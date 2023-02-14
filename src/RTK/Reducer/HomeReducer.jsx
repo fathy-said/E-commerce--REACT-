@@ -7,12 +7,11 @@ let initState = {
   packagesHome: [],
   commentHome: [],
   partnersHome: [],
-  footerHome: [],
   linkWebsite: [],
   homeAllData: [],
+  homeFooter: [],
   StoreActivities: [],
   StoreCities: [],
-
 };
 let HomeReducer = createSlice({
 
@@ -23,8 +22,12 @@ let HomeReducer = createSlice({
       // console.log(action.payload)
       // console.log(state.homeAllData.stores[24].city.name)
       let data = state.homeAllData.stores
-      state.storesHome = data.filter((el) => (action.payload.cities === el.user.city.name) && (action.payload.Type === el.activity[0].name))
+      state.storesHome = data.filter((el) => (action.payload.cities === el.city.name) && (action.payload.Type === el.activity[0].name)).slice(0, 24)
+    },
+    storeIncrease: (state, action) => {
+      // console.log(action.payload)
     }
+
   },
   extraReducers: (builder) => {
     builder
@@ -34,8 +37,9 @@ let HomeReducer = createSlice({
       .addCase(HomeThunk.fulfilled, (state, action) => {
         state.homeLoadingData = false
         state.homeAllData = action.payload.data
+        state.homeFooter = action.payload.data.footer
         state.productsHome = action.payload.data.products
-        state.storesHome = action.payload.data.stores
+        state.storesHome = action.payload.data.stores.slice(0, 24)
         state.packagesHome = action.payload.data.packages
         state.commentHome = action.payload.data.comment
         state.partnersHome = action.payload.data.partners
@@ -51,4 +55,4 @@ let HomeReducer = createSlice({
   }
 })
 export default HomeReducer.reducer
-export let { storeFilterAction } = HomeReducer.actions
+export let { storeFilterAction, storeIncrease } = HomeReducer.actions

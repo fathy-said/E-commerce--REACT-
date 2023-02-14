@@ -7,12 +7,11 @@ import { ReactComponent as Iconfacebook } from "../../assets/Icons/icon-24-faceb
 import { ReactComponent as Icontwitter } from "../../assets/Icons/icon-24-twitter.svg";
 import { ReactComponent as Iconinstagram } from "../../assets/Icons/icon-32-instagram.svg";
 import { ReactComponent as Icontiktok } from "../../assets/Icons/icon-32-tiktok.svg";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { HiChevronDoubleLeft } from 'react-icons/hi';
 import { useDispatch, useSelector } from "react-redux";
 import LoadingBox from "../LoadingBox/LoadingBox";
 import NotFoundData from "../NotFoundData/NotFoundData";
-import { PackageThunk } from "../../RTK/Thunk/PackageThunk";
 import { HomeThunk } from "../../RTK/Thunk/HomeThunk";
 import { useRef } from "react";
 
@@ -20,7 +19,7 @@ const FooterOverlay = () => {
     let scrolly = useScrollYPosition();
     const [showup, setShowup] = useState(false);
     let dispatch = useDispatch();
-
+    let navigate = useNavigate()
     useEffect(() => {
         if (scrolly >= 500) {
             setShowup(true)
@@ -42,9 +41,12 @@ const FooterOverlay = () => {
             shouldData.current = false;
         }
     }, [dispatch]);
-    let { linkWebsite, homeLoadingData } = useSelector(
+    let { linkWebsite, homeLoadingData, homeAllData, homeFooter } = useSelector(
         (state) => state.HomeReducer
     );
+    let goUpWindow = () => {
+        window.scroll(0, 0)
+    }
     return (
         <>
             <footer className="main-footer">
@@ -52,7 +54,7 @@ const FooterOverlay = () => {
                     <div className="container flex-column flex-lg-row-reverse  align-items-center align-items-lg-start ">
                         <div className="box-left">
                             <a className="main-footer__logo" href="#0">
-                                <img src={LogoImg} alt="" />
+                                <img src={homeAllData?.logo_footer} alt="" />
                             </a>
                             {/* <ul>
                                 <li>
@@ -134,31 +136,31 @@ const FooterOverlay = () => {
                                 <li className="text-center text-lg-end ">
                                     <h4 className="">معلومات</h4>
                                     <ul className="text-center text-lg-end ">
-                                        <li>
-                                            <a
-                                                href="#0"
-                                                className="main-footer-link"
-                                            >
-                                                من نحن
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a
-                                                href="#0"
-                                                className="main-footer-link"
-                                            >
-                                                الأسئلة الشائعة
-                                            </a>
-                                        </li>
-                                        <li>
+                                        {
+                                            (homeFooter.length && (
+                                                homeFooter.map((el) => {
+                                                    return (
+                                                        <li key={el.id} className="main-footer-link" onClick={() => {
+
+                                                            navigate('/YourPolicy/' + el.id)
+                                                            goUpWindow()
+
+                                                        }}>
+                                                            {el.title}
+                                                        </li>
+                                                    );
+                                                })
+                                            ))
+                                        }
+                                        {/* <li>
                                             <Link to={'/policyUse'} className="main-footer-link" onClick={() => {
 
 
-                                                window.scroll(0, 0)
+                                                goUpWindow()
                                             }}>
                                                 سياسة الخصوصية
                                             </Link>
-                                        </li>
+                                        </li> */}
                                     </ul>
                                 </li>
                                 <li className="text-center text-lg-end ">

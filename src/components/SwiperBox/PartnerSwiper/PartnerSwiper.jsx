@@ -18,7 +18,7 @@ let PartnerSwiper = ({ PartnerDataSwiper }) => {
                 slidesPerGroup={1}
                 loop={true}
                 autoplay={{
-                    delay: 2000,
+                    delay: 2500,
                     disableOnInteraction: false,
                 }}
                 breakpoints={{

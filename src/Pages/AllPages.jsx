@@ -18,6 +18,7 @@ import {
     OpenControlPanel,
     PackagePage,
     CreateYourStorePayment,
+    YourPolicy,
 } from "./index";
 const AllPages = () => {
     return (
@@ -52,6 +53,7 @@ const AllPages = () => {
                         />
                         <Route path="/paymentPage" element={<PaymentPage />} />
                         <Route path="/policyUse" element={<PolicyUse />} />
+                        <Route path="/YourPolicy/:policyID" element={<YourPolicy />} />
                         <Route
                             path="/policyPayment"
                             element={<PolicyPayment />}

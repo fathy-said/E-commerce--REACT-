@@ -15,7 +15,8 @@ let ProductSwiper = React.memo(({ productSwiperData }) => {
                 slidesPerView={6}
                 spaceBetween={40}
                 slidesPerGroup={1}
-                // loopFillGroupWithBlank={true}
+                centeredSlides={true}
+                loopFillGroupWithBlank={true}
                 loop={true}
                 autoplay={{
                     delay: 2000,

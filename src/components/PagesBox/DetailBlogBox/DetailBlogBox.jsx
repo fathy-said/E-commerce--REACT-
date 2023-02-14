@@ -76,10 +76,10 @@ const DetailBlogBox = () => {
 
                                             </div>
                                             <h1>
-                                                كيف تقوم بإنشاء متجرك الإلكتروني وإدارة
-                                                المنتجات باحترافية عالية
+                                                {/* كيف تقوم بإنشاء متجرك الإلكتروني وإدارة
+                                                المنتجات باحترافية عالية */}
 
-                                                {/* {detailPages[0]?.seo_title} */}
+                                                {detailPages[0]?.title}
 
                                             </h1>
                                             <div dangerouslySetInnerHTML={{ __html: detailPages[0]?.page_content }} />

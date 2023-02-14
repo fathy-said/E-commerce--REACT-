@@ -30,7 +30,7 @@ import GroupIMG from "../../../assets/Img/Group 1432.png";
 // ===============redux================
 import { useDispatch, useSelector } from "react-redux";
 import { VideoThunk } from "../../../RTK/Thunk/VideoThunk";
-import { storeFilterAction } from "../../../RTK/Reducer/HomeReducer"
+import { storeFilterAction, storeIncrease } from "../../../RTK/Reducer/HomeReducer"
 import { useNavigate } from "react-router-dom";
 import { HomeThunk } from "../../../RTK/Thunk/HomeThunk";
 const HomeBox = () => {
@@ -65,6 +65,7 @@ const HomeBox = () => {
             dispatch(storeFilterAction({ cities: getFilterStores.Cities, Type: getFilterStores.Type }))
         }
     }
+
     return (
         <>
             <div className="hero" style={{ backgroundImage: `url(${homeAllData?.slider1})` }}>
@@ -212,27 +213,35 @@ const HomeBox = () => {
 
                             {
                                 homeLoadingData === true ? <LoadingBox /> : (storesHome.length ? (
-                                    storesHome.map((el) => {
-                                        return (
-                                            <div
-                                                className=" container-box col-6  col-md-4 col-lg-3 col-xl-2 "
-                                                key={el.id}
-                                            >
-                                                <div className="box">
-                                                    <img src={el.logo} alt="" />
+                                    <>
+                                        {storesHome.map((el) => {
+                                            return (
+                                                <div
+                                                    className=" container-box col-6  col-md-4 col-lg-3 col-xl-2 "
+                                                    key={el.id}
+                                                >
+                                                    <div className="box">
+                                                        <img src={el.logo} alt="" />
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        );
-                                    })
+                                            );
+                                        })}
+                                        <bdi onClick={() => {
+                                            // if ((getFilterStores.Cities) && (getFilterStores.Type)) {
+                                            //     dispatch(storeIncrease({ cities: getFilterStores.Cities, Type: getFilterStores.Type }))
+                                            // }
+                                        }}>
+                                            عرض المزيد من المتاجر
+                                            <HiOutlineArrowNarrowLeft />
+                                        </bdi>
+                                    </>
+
                                 ) : (
                                     <NotFoundData />))
 
                             }
                         </div>
-                        <bdi>
-                            عرض المزيد من المتاجر
-                            <HiOutlineArrowNarrowLeft />
-                        </bdi>
+
                     </div>
                 </div>
             </div>
@@ -361,7 +370,7 @@ const HomeBox = () => {
                                                 {
                                                     packagesHome[0]?.plans.map((el) => {
                                                         return (
-                                                            <li key={el.id} className={el.status === "active" ? 'active' : ''}>
+                                                            <li key={el.id} className={el.selected === true ? 'active' : ''}>
                                                                 <IoCheckmarkSharp />
                                                                 {el.name}
                                                             </li>
@@ -398,7 +407,7 @@ const HomeBox = () => {
                                                 {
                                                     packagesHome[1]?.plans.map((el) => {
                                                         return (
-                                                            <li key={el.id} className={el.status === "active" ? 'active' : ''}>
+                                                            <li key={el.id} className={el.selected === true ? 'active' : ''}>
                                                                 <IoCheckmarkSharp />
                                                                 {el.name}
                                                             </li>
@@ -436,7 +445,7 @@ const HomeBox = () => {
                                                 {
                                                     packagesHome[2]?.plans.map((el) => {
                                                         return (
-                                                            <li key={el.id} className={el.status === "active" ? 'active' : ''}>
+                                                            <li key={el.id} className={el.selected === true ? 'active' : ''}>
                                                                 <IoCheckmarkSharp />
                                                                 {el.name}
                                                             </li>
@@ -475,7 +484,7 @@ const HomeBox = () => {
                                                 {
                                                     packagesHome[0]?.plans.map((el) => {
                                                         return (
-                                                            <li key={el.id} className={el.status === "active" ? 'active' : ''}>
+                                                            <li key={el.id} className={el.selected === true ? 'active' : ''}>
                                                                 <IoCheckmarkSharp />
                                                                 {el.name}
                                                             </li>
@@ -512,7 +521,7 @@ const HomeBox = () => {
                                                 {
                                                     packagesHome[1]?.plans.map((el) => {
                                                         return (
-                                                            <li key={el.id} className={el.status === "active" ? 'active' : ''}>
+                                                            <li key={el.id} className={el.selected === true ? 'active' : ''}>
                                                                 <IoCheckmarkSharp />
                                                                 {el.name}
                                                             </li>
@@ -550,7 +559,7 @@ const HomeBox = () => {
                                                 {
                                                     packagesHome[2]?.plans.map((el) => {
                                                         return (
-                                                            <li key={el.id} className={el.status === "active" ? 'active' : ''}>
+                                                            <li key={el.id} className={el.selected === true ? 'active' : ''}>
                                                                 <IoCheckmarkSharp />
                                                                 {el.name}
                                                             </li>

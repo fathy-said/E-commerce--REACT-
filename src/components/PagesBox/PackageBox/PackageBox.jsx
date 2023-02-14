@@ -26,7 +26,7 @@ const PackageBox = () => {
             // ===========
             shouldData.current = false;
         }
-    }, []);
+    }, [dispatch]);
     let navigate = useNavigate();
 
     return (
