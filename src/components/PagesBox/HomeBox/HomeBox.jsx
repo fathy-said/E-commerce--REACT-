@@ -18,6 +18,7 @@ import { HiOutlineArrowNarrowLeft } from "react-icons/hi";
 import { IoCheckmarkSharp } from "react-icons/io5";
 
 // ===============Data================
+import Media from 'react-media';
 // ===============Icon================
 import { ReactComponent as Svghand } from "../../../assets/Icons/icon-touch hand-36.svg";
 import { ReactComponent as SvgVideo } from "../../../assets/Icons/ico - 24 - audiovisual - play_circle_outlined.svg";
@@ -30,7 +31,7 @@ import GroupIMG from "../../../assets/Img/Group 1432.png";
 // ===============redux================
 import { useDispatch, useSelector } from "react-redux";
 import { VideoThunk } from "../../../RTK/Thunk/VideoThunk";
-import { storeFilterAction, storeIncrease } from "../../../RTK/Reducer/HomeReducer"
+import { storeFilterAction, storeIncrease, storeChangeSlice } from "../../../RTK/Reducer/HomeReducer"
 import { useNavigate } from "react-router-dom";
 import { HomeThunk } from "../../../RTK/Thunk/HomeThunk";
 const HomeBox = () => {
@@ -57,7 +58,17 @@ const HomeBox = () => {
 
 
     let { videoData } = useSelector((state) => state.VideoReducer);
+
+
+
+    // =======================
     let [getFilterStores, setFilterStores] = useState({ Type: '', Cities: '' });
+    let [getMedia, setMedia] = useState('');
+    let changeMedia = (e) => {
+        e?.small
+            ? setMedia('small')
+            : setMedia('large')
+    }
     let filterStores = (e) => {
         e.preventDefault()
         if ((getFilterStores.Cities) && (getFilterStores.Type)) {
@@ -65,9 +76,22 @@ const HomeBox = () => {
             dispatch(storeFilterAction({ cities: getFilterStores.Cities, Type: getFilterStores.Type }))
         }
     }
+    useEffect(() => {
+        dispatch(storeChangeSlice(getMedia))
+    }, [getMedia, dispatch]);
 
     return (
         <>
+
+            {/* =============media============== */}
+            <Media queries={{
+                small: "(max-width: 599px)",
+            }}
+                onChange={(e) => {
+                    changeMedia(e)
+                }}
+            />
+            {/* =============media============== */}
             <div className="hero" style={{ backgroundImage: `url(${homeAllData?.slider1})` }}>
                 <div className="container">
                     <h2>أهلاً بك في منصة اطلبها</h2>
@@ -112,7 +136,8 @@ const HomeBox = () => {
                 </div>
             </div>
 
-            {/* =========================== */}
+
+
             <div className="stores-info p-main">
                 <div className="container">
                     <div className="header flex-column flex-md-row gap-4 gap-md-3 ">

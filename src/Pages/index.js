@@ -1,3 +1,5 @@
+// import React from "react";
+
 export { default as Home } from "./Home.jsx";
 export { default as AllPages } from "./AllPages.jsx";
 export { default as Blog } from "./Blog.jsx";
@@ -17,3 +19,4 @@ export { default as OpenControlPanel } from "./OpenControlPanel.jsx";
 export { default as PackagePage } from "./PackagePage.jsx";
 export { default as CreateYourStorePayment } from "./CreateYourStorePayment.jsx";
 export { default as YourPolicy } from "./YourPolicy.jsx";
+// ===============

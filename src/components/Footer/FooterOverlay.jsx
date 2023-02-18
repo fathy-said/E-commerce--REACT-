@@ -201,6 +201,15 @@ const FooterOverlay = () => {
                             </ul>
                         </nav>
                     </div>
+                    <div className="copyright-box container">
+                        <hr />
+                        <h5>
+                            جميع الحقوق محفوظة <span> لمنصة اطلبها </span>2023
+                        </h5>
+                        <h5>
+                            برمجة وتطوير <span>شبكة فاز</span>
+                        </h5>
+                    </div>
                 </div>
                 <div className={showup === true ? "go-up show " : "go-up"} onClick={() => {
                     window.scroll(0, 0)

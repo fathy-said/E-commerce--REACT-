@@ -17,7 +17,6 @@ let LoginReducer = createSlice({
         state.loginLoading = true;
       })
       .addCase(LoginThunk.fulfilled, (state, action) => {
-        // console.log(action.payload);
 
         state.loginToken = action.payload.data?.token;
         state.loginToken = action.payload.loginSuccess;

@@ -3,14 +3,15 @@ import React, { useState } from "react";
 import "./PasswordField.css";
 import { ReactComponent as EyeOPen } from "../../assets/eye_open.svg";
 import { ReactComponent as EyeClose } from "../../assets/eye_close.svg";
-const PasswordField = ({ DataPass, setPass }) => {
+
+const PasswordField = ({ Data }) => {
     const [showPassword, setShowPassword] = useState(false);
 
     let type = "password";
     return (
         <>
             {
-                DataPass ? (
+                Data ? (
                     <>
                         <div className="password-field">
                             {type === "password" ? (
@@ -34,19 +35,17 @@ const PasswordField = ({ DataPass, setPass }) => {
                             <h5>كلمة المرور</h5>
                             <input
                                 type={
-                                    !type === "password"
-                                        ? type
-                                        : showPassword
-                                            ? "text"
-                                            : type
+                                    !type === "password" ? type : showPassword ? "text" : type
                                 }
-                                value={DataPass?.pass}
 
-                                onChange={(e) => {
-                                    setPass({ ...DataPass, pass: e.target.value })
-                                }}
+                                name="pass"
+                                onChange={Data.handleChange}
+                                value={Data.values.pass}
                             />
                         </div>
+                        {Data.errors.pass && Data.touched.pass ? (
+                            <span style={{ width: "100%", color: 'red' }}>{Data.errors.pass}</span>
+                        ) : null}
                     </>
                 ) : (
                     <>
