@@ -455,7 +455,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-
+    margin: 0 !important;
+    padding: 0 !important;
     gap: 15px;
 }
 
@@ -477,14 +478,16 @@
         justify-content: flex-start;
         flex-direction: column-reverse;
         gap: 15px;
-        height: 2800px;
+        height: 2400px;
     }
-
+    .create-store-payment-box .all .user-form .content {
+        padding-right: 0 !important;
+    }
     .create-store-payment-box .all-content .box-form-banner {
         height: 600px;
         flex: none;
-        padding: 20px;
-        padding-top: 40px !important;
+        padding: 40px 10px !important;
+        max-width: 100%;
     }
 
     .create-store-payment-box .all-content .box-container-form {
@@ -516,4 +519,54 @@
         /* padding-right: 140px; */
         padding: 0 140px;
     }
+}
+/* =================== */
+@media (max-width: 390px) {
+    .create-store-payment-box .all .owner-form {
+        width: 100%;
+        align-items: center;
+        justify-content: start;
+    }
+    .create-store-payment-box .box-container-form .all .user-info {
+        gap: 10px;
+    }
+    .create-store-payment-box
+        .all-content
+        .box-container-form
+        .all
+        .user-info
+        button {
+        width: 100%;
+        max-width: 140px;
+        height: 45px;
+    }
+    .create-store-payment-box .all .owner-form form {
+        width: 100%;
+        max-width: 270px;
+
+        gap: 25px;
+    }
+    .create-store-payment-box .content form {
+        max-width: 270px;
+    }
+    .create-store-payment-box .all .user-form .content {
+        justify-content: center;
+        display: flex;
+        align-items: center;
+    }
+
+    .create-store-payment-box .all .owner-form .box-pay ul {
+        gap: 10px;
+    }
+    .create-store-payment-box .all .owner-form .box-pay ul li {
+        margin: 0;
+        white-space: nowrap;
+        font-size: var(--font-size-16);
+    }
+    .create-store-payment-box .all .owner-form .box-pay {
+        width: 100%;
+        max-width: 270px;
+        margin: 0 auto;
+    }
+    /* ======================= */
 }

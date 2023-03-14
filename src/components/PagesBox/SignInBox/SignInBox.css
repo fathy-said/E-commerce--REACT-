@@ -230,6 +230,7 @@
         flex: none;
         padding: 20px;
         padding-top: 40px;
+        max-width: 100%;
     }
 
     .sign-in-box .all-content .box-container-form {
@@ -261,4 +262,13 @@
     .sign-in-box .all-content .box-container-form {
         padding: 0 140px;
     }
+}
+@media (max-width: 390px) {
+    .sign-in-box .all-content .box-form-banner {
+        padding: 10px !important;
+    }
+    .sign-in-box .all-content .box-container-form .all .box input {
+        font-size: 15px;
+    }
+    /* ======================= */
 }

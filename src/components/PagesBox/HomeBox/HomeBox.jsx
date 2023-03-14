@@ -1,12 +1,16 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./HomeBox.css";
-// import FeaturesVideo from "../../../assets/Videos/video.mp4";
 import {
     ProductSwiper,
     ReviewSwiper,
     PartnerSwiper,
     LoadingBox,
+    NotFoundData,
 } from "../../index";
+import Select from "@mui/material/Select";
+import MenuItem from "@mui/material/MenuItem";
+import { IoIosArrowDown } from "react-icons/io";
+
 import { MainTitle } from "../../index";
 import { AiOutlineSearch } from "react-icons/ai";
 import { HiOutlineArrowNarrowLeft } from "react-icons/hi";
@@ -14,6 +18,7 @@ import { HiOutlineArrowNarrowLeft } from "react-icons/hi";
 import { IoCheckmarkSharp } from "react-icons/io5";
 
 // ===============Data================
+import Media from 'react-media';
 // ===============Icon================
 import { ReactComponent as Svghand } from "../../../assets/Icons/icon-touch hand-36.svg";
 import { ReactComponent as SvgVideo } from "../../../assets/Icons/ico - 24 - audiovisual - play_circle_outlined.svg";
@@ -25,59 +30,76 @@ import featuresIMG from "../../../assets/Img/IMG_3541-removebg-preview.png";
 import GroupIMG from "../../../assets/Img/Group 1432.png";
 // ===============redux================
 import { useDispatch, useSelector } from "react-redux";
-import { productThunk } from "../../../RTK/Thunk/ProductThunk";
-import { StoresThunk } from "../../../RTK/Thunk/StoresThunk";
 import { VideoThunk } from "../../../RTK/Thunk/VideoThunk";
-import { PackageThunk } from "../../../RTK/Thunk/PackageThunk";
-import { ReviewThunk } from "../../../RTK/Thunk/ReviewThunk";
-import { PartnersThunk } from "../../../RTK/Thunk/PartnersThunk";
+import { storeFilterAction, storeIncrease, storeChangeSlice } from "../../../RTK/Reducer/HomeReducer"
 import { useNavigate } from "react-router-dom";
+import { HomeThunk } from "../../../RTK/Thunk/HomeThunk";
 const HomeBox = () => {
     let dispatch = useDispatch();
-    const shouldData = useRef(true);
     let navigate = useNavigate();
+
+    const shouldData = useRef(true);
 
     useEffect(() => {
         if (shouldData.current) {
-            dispatch(productThunk());
-            dispatch(StoresThunk());
+
             dispatch(VideoThunk());
-            dispatch(PackageThunk());
-            dispatch(ReviewThunk());
-            dispatch(PartnersThunk());
+            dispatch(HomeThunk());
             // ===========
             shouldData.current = false;
         }
-    }, []);
+    }, [dispatch]);
     let [getTypePackage, setTypePackage] = useState(true);
-    let { productData, productLoading } = useSelector(
-        (state) => state.ProductReducer
+    // ===========
+    let { productsHome, homeLoadingData, storesHome, commentHome, partnersHome, homeAllData, packagesHome, StoreCities, StoreActivities } = useSelector(
+        (state) => state.HomeReducer
     );
-    let { storesData, storesLoading } = useSelector(
-        (state) => state.StoresReducer
-    );
-    let { packageDataMonthly, packageDataYearly } = useSelector(
-        (state) => state.PackageReducer
-    );
-    let { reviewData, reviewLoading } = useSelector(
-        (state) => state.ReviewReducer
-    );
-    let { partnersData, partnersLoading } = useSelector(
-        (state) => state.PartnersReducer
-    );
+    // ===========
+
 
     let { videoData } = useSelector((state) => state.VideoReducer);
 
+
+
+    // =======================
+    let [getFilterStores, setFilterStores] = useState({ Type: '', Cities: '' });
+    let [getMedia, setMedia] = useState('');
+    let changeMedia = (e) => {
+        e?.small
+            ? setMedia('small')
+            : setMedia('large')
+    }
+    let filterStores = (e) => {
+        e.preventDefault()
+        if ((getFilterStores.Cities) && (getFilterStores.Type)) {
+            // console.log(getFilterStores)
+            dispatch(storeFilterAction({ cities: getFilterStores.Cities, Type: getFilterStores.Type }))
+        }
+    }
+    useEffect(() => {
+        dispatch(storeChangeSlice(getMedia))
+    }, [getMedia, dispatch]);
+
     return (
         <>
-            <div className="hero">
+
+            {/* =============media============== */}
+            <Media queries={{
+                small: "(max-width: 599px)",
+            }}
+                onChange={(e) => {
+                    changeMedia(e)
+                }}
+            />
+            {/* =============media============== */}
+            <div className="hero" style={{ backgroundImage: `url(${homeAllData?.slider1})` }}>
                 <div className="container">
                     <h2>أهلاً بك في منصة اطلبها</h2>
                     <h3>انضم الان الى منصة التجارة الالكترونية الشاملة</h3>
                     <button
                         className="bt-main"
                         onClick={() => {
-                            navigate("/registerMerchant");
+                            navigate("/register/merchant");
                         }}
                     >
                         التسجيل
@@ -89,100 +111,175 @@ const HomeBox = () => {
                 <div className="container">
                     <MainTitle text="المنتجات المتميزة" />
                     <div className="all">
-                        {productLoading ? (
-                            <LoadingBox />
-                        ) : productData.length ? (
-                            <ProductSwiper productSwiperData={productData} />
-                        ) : (
-                            <h2>لم يتم العثور على البيانات</h2>
-                        )}
+
+                        {
+                            homeLoadingData === true ? <LoadingBox /> : (productsHome.length ? (
+                                <ProductSwiper productSwiperData={productsHome} />
+                            ) : (
+                                <NotFoundData />))
+
+                        }
                     </div>
                 </div>
             </div>
             {/* =========================== */}
             <div className="box-information p-main flex-column flex-md-row">
-                <div className="box-right">
+                <div className="box-right" style={{ backgroundImage: `url(${homeAllData?.banar1})` }}>
                     <div className="container">
                         <h4>باقات اشتراك متعددة</h4>
                     </div>
                 </div>
-                <div className="box-left">
+                <div className="box-left" style={{ backgroundImage: `url(${homeAllData?.banar2})` }}>
                     <div className="container">
                         <h4> شركات شحن متعددة</h4>
                     </div>
                 </div>
             </div>
 
-            {/* =========================== */}
+
+
             <div className="stores-info p-main">
                 <div className="container">
                     <div className="header flex-column flex-md-row gap-4 gap-md-3 ">
                         <MainTitle text={"المتاجر المتميزة"} />
-                        <form action="">
+                        <form action="" onSubmit={(e) => { filterStores(e) }}>
                             <span>
                                 <AiOutlineSearch />
                             </span>
                             <div className="all-select">
-                                <select
-                                    className="form-select"
-                                    aria-label="Default select example"
+
+                                <Select
+                                    sx={{
+                                        overflow: 'hidden',
+
+                                        "& .MuiOutlinedInput-notchedOutline":
+                                        {
+                                            border: "none",
+                                        },
+                                    }}
+                                    value={getFilterStores.Type}
+                                    className="select-mu"
+                                    onChange={(e) => {
+                                        setFilterStores(
+                                            { ...getFilterStores, Type: e.target.value }
+                                        );
+                                    }}
+                                    IconComponent={IoIosArrowDown}
+                                    displayEmpty
                                 >
-                                    <option selected>نوع النشاط</option>
-                                    <option value="1">نوع</option>
-                                    <option value="2">نوع</option>
-                                    <option value="3">نوع</option>
-                                </select>
-                                <select
-                                    className="form-select"
-                                    aria-label="Default select example"
+                                    <MenuItem value="">
+                                        <>نوع النشاط</>
+                                    </MenuItem>
+                                    {
+                                        StoreActivities.length ? (
+                                            StoreActivities.map((el) => {
+                                                return (
+                                                    <MenuItem value={el.name} key={el.id}>
+                                                        {el.name}
+                                                    </MenuItem>
+
+                                                )
+
+                                            })
+                                        ) : null
+
+
+                                    }
+                                </Select>
+                                <Select
+                                    sx={{
+
+
+                                        "& .MuiOutlinedInput-notchedOutline":
+                                        {
+                                            border: "none",
+                                        },
+                                    }}
+                                    value={getFilterStores.Cities}
+                                    className="select-mu"
+                                    onChange={(e) => {
+                                        setFilterStores(
+                                            { ...getFilterStores, Cities: e.target.value }
+                                        );
+                                    }}
+                                    IconComponent={IoIosArrowDown}
+                                    displayEmpty
                                 >
-                                    <option selected>المدينة</option>
-                                    <option value="1">نوع</option>
-                                    <option value="2">نوع</option>
-                                    <option value="3">نوع</option>
-                                </select>
+                                    <MenuItem value="">
+                                        <>المدينة</>
+                                    </MenuItem>
+                                    {
+                                        StoreCities.length ? (
+                                            StoreCities.map((el) => {
+                                                return (
+                                                    <MenuItem value={el.name} key={el.id}>
+                                                        {el.name}
+                                                    </MenuItem>
+
+                                                )
+
+                                            })
+                                        ) : null
+
+
+                                    }
+                                </Select>
+
                             </div>
-                            <button>تأكيد</button>
+                            <button type="submit">تأكيد
+                                <span>
+                                    <AiOutlineSearch />
+                                </span>
+                            </button>
                         </form>
                     </div>
                     <div className="content-stores">
                         <div className="row">
-                            {storesLoading ? (
-                                <LoadingBox />
-                            ) : storesData.length ? (
-                                storesData.map((el, index) => {
-                                    return (
-                                        <div
-                                            className=" container-box col-6  col-md-4 col-lg-3 col-xl-2 "
-                                            key={index}
-                                        >
-                                            <div className="box">
-                                                <img src={el.Img} alt="" />
-                                            </div>
-                                        </div>
-                                    );
-                                })
-                            ) : (
-                                <h2>لم يتم العثور على البيانات</h2>
-                            )}
+
+                            {
+                                homeLoadingData === true ? <LoadingBox /> : (storesHome.length ? (
+                                    <>
+                                        {storesHome.map((el) => {
+                                            return (
+                                                <div
+                                                    className=" container-box col-6  col-md-4 col-lg-3 col-xl-2 "
+                                                    key={el.id}
+                                                >
+                                                    <div className="box">
+                                                        <img src={el.logo} alt="" />
+                                                    </div>
+                                                </div>
+                                            );
+                                        })}
+                                        <bdi onClick={() => {
+                                            // if ((getFilterStores.Cities) && (getFilterStores.Type)) {
+                                            //     dispatch(storeIncrease({ cities: getFilterStores.Cities, Type: getFilterStores.Type }))
+                                            // }
+                                        }}>
+                                            عرض المزيد من المتاجر
+                                            <HiOutlineArrowNarrowLeft />
+                                        </bdi>
+                                    </>
+
+                                ) : (
+                                    <NotFoundData />))
+
+                            }
                         </div>
-                        <bdi>
-                            عرض المزيد من المتاجر
-                            <HiOutlineArrowNarrowLeft />
-                        </bdi>
+
                     </div>
                 </div>
             </div>
             {/* =========================== */}
-            <div className="trade-info p-main">
-                <div className="box">
+            <div className="trade-info p-main" >
+                <div className="box" style={{ backgroundImage: `url(${homeAllData?.banar3})` }}>
                     <div className="container">
                         <h4>نحن بوابتك لعالم التجارة الإلكترونية</h4>
                         <h5>انشئ متجرك وتمتع بالتجربة المجانية</h5>
                         <button
                             className="bt-main"
                             onClick={() => {
-                                navigate("/registerMerchant");
+                                navigate("/register/merchant");
                             }}
                         >
                             التسجيل
@@ -190,7 +287,6 @@ const HomeBox = () => {
                     </div>
                 </div>
             </div>
-
             {/* =========================== */}
             <div className="out-features p-main">
                 <div className="container ">
@@ -252,9 +348,7 @@ const HomeBox = () => {
                     </div>
                 </div>
             </div>
-
             {/* =========================== */}
-
             <div className="our-package p-main">
                 <div className="container">
                     <MainTitle text={"باقات اطلبها"} />
@@ -274,298 +368,245 @@ const HomeBox = () => {
                             </li>
                         </ul>
 
-                        {getTypePackage ? (
-                            packageDataYearly !== null ? (
-                                <div className="content-package ">
-                                    <div className="box">
-                                        <h3>
-                                            التاجر المبتدأ
-                                            <Svghappy />
-                                        </h3>
-                                        <h2>
-                                            <span>
+                        {
+                            homeLoadingData ? (<LoadingBox />) : (packagesHome.length ? (
+
+                                getTypePackage === true ? (
+                                    <div className="content-package" >
+                                        <div className="box">
+                                            <h3>
+                                                {packagesHome[0]?.name}
+                                                <Svghappy />
+                                            </h3>
+                                            <h2>
+                                                <span>
+
+                                                    {packagesHome[0]?.yearly_price}
+
+
+                                                </span>
+                                                <span>ر.س</span>
+                                                <span>
+                                                    {/* {getTypePackage ? 'سنوي' : ''} */}
+                                                    سنوي
+                                                </span>
+                                            </h2>
+                                            <ul>
                                                 {
-                                                    packageDataYearly.startUp
-                                                        .price
+                                                    packagesHome[0]?.plans.map((el) => {
+                                                        return (
+                                                            <li key={el.id} className={el.selected === true ? 'active' : ''}>
+                                                                <IoCheckmarkSharp />
+                                                                {el.name}
+                                                            </li>
+
+                                                        )
+
+                                                    })
                                                 }
-                                            </span>
-                                            <span>ر.س</span>
-                                            <span>
-                                                {packageDataYearly.type}
-                                            </span>
-                                        </h2>
-                                        <ul>
-                                            <li>
-                                                <IoCheckmarkSharp />
-                                                100منتج
-                                            </li>
-                                            <li>
-                                                <IoCheckmarkSharp />
-                                                10تصنيفات
-                                            </li>
-                                            <li>
-                                                <IoCheckmarkSharp />
-                                                دعم فني 24
-                                            </li>
-                                            <li className="not-active">
-                                                <IoCheckmarkSharp />
-                                                تجربة مجانية
-                                            </li>
-                                            <li className="not-active">
-                                                <IoCheckmarkSharp />
-                                                تجربة مجانية
-                                            </li>
-                                            <li className="not-active">
-                                                <IoCheckmarkSharp />
-                                                تخصيص القالب
-                                            </li>
-                                            <li className="not-active">
-                                                <IoCheckmarkSharp />
-                                                خدمات الاستشارة
-                                            </li>
-                                        </ul>
 
-                                        <button>ابدأ الآن</button>
-                                    </div>
-                                    <div className="box">
-                                        <h3>
-                                            العلامة التجارية
-                                            <Svgemojy2 />
-                                        </h3>
-                                        <h2>
-                                            <span>
-                                                {packageDataYearly.brand.price}
-                                            </span>
-                                            <span>ر.س</span>
-                                            <span>
-                                                {packageDataYearly.type}
-                                            </span>
-                                        </h2>
-                                        <ul>
-                                            <li>
-                                                <IoCheckmarkSharp />
-                                                100منتج
-                                            </li>
-                                            <li>
-                                                <IoCheckmarkSharp />
-                                                10تصنيفات
-                                            </li>
-                                            <li>
-                                                <IoCheckmarkSharp />
-                                                دعم فني 24
-                                            </li>
-                                            <li>
-                                                <IoCheckmarkSharp />
-                                                تجربة مجانية
-                                            </li>
-                                            <li>
-                                                <IoCheckmarkSharp />
-                                                تجربة مجانية
-                                            </li>
-                                            <li>
-                                                <IoCheckmarkSharp />
-                                                تخصيص القالب
-                                            </li>
-                                            <li>
-                                                <IoCheckmarkSharp />
-                                                خدمات الاستشارة
-                                            </li>
-                                        </ul>
 
-                                        <button>ابدأ الآن</button>
-                                    </div>
-                                    <div className="box">
-                                        <h3>
-                                            التاجر المحترف <Svgemojy />
-                                        </h3>
-                                        <h2>
-                                            <span>
+                                            </ul>
+
+                                            <button>ابدأ الآن</button>
+                                        </div>
+                                        <div className="box">
+                                            <h3>
+                                                {packagesHome[1]?.name}
+                                                <Svgemojy2 />
+                                            </h3>
+                                            <h2>
+                                                <span>
+
+                                                    {packagesHome[1]?.yearly_price}
+
+
+                                                </span>
+                                                <span>ر.س</span>
+                                                <span>
+                                                    {/* {getTypePackage ? 'سنوي' : ''} */}
+                                                    سنوي
+                                                </span>
+                                            </h2>
+                                            <ul>
                                                 {
-                                                    packageDataYearly
-                                                        .professional.price
+                                                    packagesHome[1]?.plans.map((el) => {
+                                                        return (
+                                                            <li key={el.id} className={el.selected === true ? 'active' : ''}>
+                                                                <IoCheckmarkSharp />
+                                                                {el.name}
+                                                            </li>
+
+                                                        )
+
+                                                    })
                                                 }
-                                            </span>
-                                            <span>ر.س</span>
-                                            <span>
-                                                {packageDataYearly.type}
-                                            </span>
-                                        </h2>
-                                        <ul>
-                                            <li>
-                                                <IoCheckmarkSharp />
-                                                100منتج
-                                            </li>
-                                            <li>
-                                                <IoCheckmarkSharp />
-                                                10تصنيفات
-                                            </li>
-                                            <li>
-                                                <IoCheckmarkSharp />
-                                                دعم فني 24
-                                            </li>
-                                            <li>
-                                                <IoCheckmarkSharp />
-                                                تجربة مجانية
-                                            </li>
-                                            <li>
-                                                <IoCheckmarkSharp />
-                                                تجربة مجانية
-                                            </li>
-                                            <li>
-                                                <IoCheckmarkSharp />
-                                                تخصيص القالب
-                                            </li>
-                                            <li className="not-active">
-                                                <IoCheckmarkSharp />
-                                                خدمات الاستشارة
-                                            </li>
-                                        </ul>
 
-                                        <button>ابدأ الآن</button>
-                                    </div>
-                                </div>
-                            ) : null
-                        ) : packageDataMonthly !== null ? (
-                            <div className="content-package">
-                                <div className="box">
-                                    <h3>
-                                        التاجر المبتدأ
-                                        <Svghappy />
-                                    </h3>
-                                    <h2>
-                                        <span>
-                                            {packageDataMonthly.startUp.price}
-                                        </span>
-                                        <span>ر.س</span>
-                                        <span>{packageDataMonthly.type}</span>
-                                    </h2>
-                                    <ul>
-                                        <li>
-                                            <IoCheckmarkSharp />
-                                            100منتج
-                                        </li>
-                                        <li>
-                                            <IoCheckmarkSharp />
-                                            10تصنيفات
-                                        </li>
-                                        <li>
-                                            <IoCheckmarkSharp />
-                                            دعم فني 24
-                                        </li>
-                                        <li className="not-active">
-                                            <IoCheckmarkSharp />
-                                            تجربة مجانية
-                                        </li>
-                                        <li className="not-active">
-                                            <IoCheckmarkSharp />
-                                            تجربة مجانية
-                                        </li>
-                                        <li className="not-active">
-                                            <IoCheckmarkSharp />
-                                            تخصيص القالب
-                                        </li>
-                                        <li className="not-active">
-                                            <IoCheckmarkSharp />
-                                            خدمات الاستشارة
-                                        </li>
-                                    </ul>
 
-                                    <button>ابدأ الآن</button>
-                                </div>
-                                <div className="box">
-                                    <h3>
-                                        العلامة التجارية
-                                        <Svgemojy2 />
-                                    </h3>
-                                    <h2>
-                                        <span>
-                                            {packageDataMonthly.brand.price}
-                                        </span>
-                                        <span>ر.س</span>
-                                        <span>{packageDataMonthly.type}</span>
-                                    </h2>
-                                    <ul>
-                                        <li>
-                                            <IoCheckmarkSharp />
-                                            100منتج
-                                        </li>
-                                        <li>
-                                            <IoCheckmarkSharp />
-                                            10تصنيفات
-                                        </li>
-                                        <li>
-                                            <IoCheckmarkSharp />
-                                            دعم فني 24
-                                        </li>
-                                        <li>
-                                            <IoCheckmarkSharp />
-                                            تجربة مجانية
-                                        </li>
-                                        <li>
-                                            <IoCheckmarkSharp />
-                                            تجربة مجانية
-                                        </li>
-                                        <li>
-                                            <IoCheckmarkSharp />
-                                            تخصيص القالب
-                                        </li>
-                                        <li>
-                                            <IoCheckmarkSharp />
-                                            خدمات الاستشارة
-                                        </li>
-                                    </ul>
+                                            </ul>
 
-                                    <button>ابدأ الآن</button>
-                                </div>
-                                <div className="box">
-                                    <h3>
-                                        التاجر المحترف <Svgemojy />
-                                    </h3>
-                                    <h2>
-                                        <span>
-                                            {
-                                                packageDataMonthly.professional
-                                                    .price
-                                            }
-                                        </span>
-                                        <span>ر.س</span>
-                                        <span>{packageDataMonthly.type}</span>
-                                    </h2>
-                                    <ul>
-                                        <li>
-                                            <IoCheckmarkSharp />
-                                            100منتج
-                                        </li>
-                                        <li>
-                                            <IoCheckmarkSharp />
-                                            10تصنيفات
-                                        </li>
-                                        <li>
-                                            <IoCheckmarkSharp />
-                                            دعم فني 24
-                                        </li>
-                                        <li>
-                                            <IoCheckmarkSharp />
-                                            تجربة مجانية
-                                        </li>
-                                        <li>
-                                            <IoCheckmarkSharp />
-                                            تجربة مجانية
-                                        </li>
-                                        <li>
-                                            <IoCheckmarkSharp />
-                                            تخصيص القالب
-                                        </li>
-                                        <li className="not-active">
-                                            <IoCheckmarkSharp />
-                                            خدمات الاستشارة
-                                        </li>
-                                    </ul>
+                                            <button>ابدأ الآن</button>
+                                        </div>
+                                        <div className="box">
 
-                                    <button>ابدأ الآن</button>
-                                </div>
-                            </div>
-                        ) : null}
+                                            <h3>
+                                                {packagesHome[2]?.name}
+                                                <Svgemojy />
+                                            </h3>
+                                            <h2>
+                                                <span>
+
+                                                    {packagesHome[2]?.yearly_price}
+
+
+                                                </span>
+                                                <span>ر.س</span>
+                                                <span>
+                                                    {/* {getTypePackage ? 'سنوي' : ''} */}
+                                                    سنوي
+                                                </span>
+                                            </h2>
+                                            <ul>
+                                                {
+                                                    packagesHome[2]?.plans.map((el) => {
+                                                        return (
+                                                            <li key={el.id} className={el.selected === true ? 'active' : ''}>
+                                                                <IoCheckmarkSharp />
+                                                                {el.name}
+                                                            </li>
+
+                                                        )
+
+                                                    })
+                                                }
+
+
+                                            </ul>
+
+                                            <button>ابدأ الآن</button>
+                                        </div>
+                                    </div>) : (
+                                    <div className="content-package">
+                                        <div className="box">
+                                            <h3>
+                                                {packagesHome[0]?.name}
+                                                <Svghappy />
+                                            </h3>
+                                            <h2>
+                                                <span>
+
+                                                    {packagesHome[0]?.monthly_price}
+
+
+                                                </span>
+                                                <span>ر.س</span>
+                                                <span>
+                                                    {/* {getTypePackage ? 'سنوي' : ''} */}
+                                                    شهرى
+                                                </span>
+                                            </h2>
+                                            <ul>
+                                                {
+                                                    packagesHome[0]?.plans.map((el) => {
+                                                        return (
+                                                            <li key={el.id} className={el.selected === true ? 'active' : ''}>
+                                                                <IoCheckmarkSharp />
+                                                                {el.name}
+                                                            </li>
+
+                                                        )
+
+                                                    })
+                                                }
+
+
+                                            </ul>
+
+                                            <button>ابدأ الآن</button>
+                                        </div>
+                                        <div className="box">
+                                            <h3>
+                                                {packagesHome[1]?.name}
+                                                <Svgemojy2 />
+                                            </h3>
+                                            <h2>
+                                                <span>
+
+                                                    {packagesHome[1]?.monthly_price}
+
+
+                                                </span>
+                                                <span>ر.س</span>
+                                                <span>
+                                                    {/* {getTypePackage ? 'سنوي' : ''} */}
+                                                    شهرى
+                                                </span>
+                                            </h2>
+                                            <ul>
+                                                {
+                                                    packagesHome[1]?.plans.map((el) => {
+                                                        return (
+                                                            <li key={el.id} className={el.selected === true ? 'active' : ''}>
+                                                                <IoCheckmarkSharp />
+                                                                {el.name}
+                                                            </li>
+
+                                                        )
+
+                                                    })
+                                                }
+
+
+                                            </ul>
+
+                                            <button>ابدأ الآن</button>
+                                        </div>
+                                        <div className="box">
+
+                                            <h3>
+                                                {packagesHome[2]?.name}
+                                                <Svgemojy />
+                                            </h3>
+                                            <h2>
+                                                <span>
+
+                                                    {packagesHome[2]?.monthly_price}
+
+
+                                                </span>
+                                                <span>ر.س</span>
+                                                <span>
+                                                    {/* {getTypePackage ? 'سنوي' : ''} */}
+                                                    شهرى
+                                                </span>
+                                            </h2>
+                                            <ul>
+                                                {
+                                                    packagesHome[2]?.plans.map((el) => {
+                                                        return (
+                                                            <li key={el.id} className={el.selected === true ? 'active' : ''}>
+                                                                <IoCheckmarkSharp />
+                                                                {el.name}
+                                                            </li>
+
+                                                        )
+
+                                                    })
+                                                }
+
+
+                                            </ul>
+
+                                            <button>ابدأ الآن</button>
+                                        </div>
+                                    </div>)
+
+
+
+
+                            ) : (<NotFoundData />))
+
+                        }
                     </div>
                 </div>
             </div>
@@ -574,13 +615,14 @@ const HomeBox = () => {
                 <div className="container gap-2 gap-md-5 ">
                     <MainTitle text={"قالوا عنا"} />
                     <div className="all">
-                        {reviewLoading ? (
-                            <LoadingBox />
-                        ) : reviewData.length ? (
-                            <ReviewSwiper DataReviewSwiper={reviewData} />
-                        ) : (
-                            <h2>لم يتم العثور على البيانات</h2>
-                        )}
+
+                        {
+                            homeLoadingData === true ? <LoadingBox /> : (commentHome.length ? (
+                                <ReviewSwiper DataReviewSwiper={commentHome} />
+                            ) : (
+                                <NotFoundData />))
+
+                        }
                     </div>
                 </div>
             </div>
@@ -589,13 +631,14 @@ const HomeBox = () => {
                 <div className="container gap-2 gap-md-5 ">
                     <MainTitle text={"شركاء النجاح"} />
                     <div className="all ">
-                        {partnersLoading ? (
-                            <LoadingBox />
-                        ) : partnersData.length ? (
-                            <PartnerSwiper PartnerDataSwiper={partnersData} />
-                        ) : (
-                            <h2>لم يتم العثور على البيانات</h2>
-                        )}
+
+                        {
+                            homeLoadingData === true ? <LoadingBox /> : (partnersHome.length ? (
+                                <PartnerSwiper PartnerDataSwiper={partnersHome} />
+                            ) : (
+                                <NotFoundData />))
+
+                        }
                     </div>
                 </div>
             </div>

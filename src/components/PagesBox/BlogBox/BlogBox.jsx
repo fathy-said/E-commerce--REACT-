@@ -1,32 +1,37 @@
 import React, { useEffect, useRef, useState } from "react";
-import { BlogHero, LoadingBox, OwnerBox } from "../../index";
+import { BlogHero, LoadingBox, NotFoundData, OwnerBox } from "../../index";
 import "./BlogBox.css";
 import IMgTop from "../../../assets/Img/image blog1.png";
 import ImgOwner from "../../../assets/Img/persona2.png";
 // =================redux======
 import { useDispatch, useSelector } from "react-redux";
-import { BlogThunk } from "../../../RTK/Thunk/BlogThunk";
-import { blogDatatype } from "../../../RTK/Reducer/BlogReducer";
+import { blogType } from "../../../RTK/Reducer/BlogDataReducer";
+import { PageIncrease } from "../../../RTK/Reducer/BlogDataReducer";
 import { useNavigate } from "react-router-dom";
+import { BlogDataThunk } from "../../../RTK/Thunk/BlogDataThunk";
 // =========================================================================
 const BlogBox = () => {
     let [getTypeBlog, setTypeBlog] = useState("all");
     let dispatch = useDispatch();
-    let { blogData, blogAllData, blogLoading } = useSelector(
-        (state) => state.BlogReducer
+
+    // ================
+    let { BlogLoadingData, postCategory, pagesTargetData } = useSelector(
+        (state) => state.BlogDataReducer
     );
+    // ================
+
     const shouldData = useRef(true);
     useEffect(() => {
         if (shouldData.current) {
-            dispatch(BlogThunk());
+            dispatch(BlogDataThunk());
             // ===========
             shouldData.current = false;
         }
-    }, []);
+    }, [dispatch]);
     useEffect(() => {
-        dispatch(blogDatatype({ type: getTypeBlog }));
-    }, [getTypeBlog]);
-    // console.log(blogData);
+        dispatch(blogType({ type: getTypeBlog }));
+
+    }, [getTypeBlog, dispatch]);
     // ===============
     let changeActiveMenu = (e) => {
         e.currentTarget.parentElement
@@ -34,6 +39,9 @@ const BlogBox = () => {
             .classList.remove("active");
         e.currentTarget.classList.add("active");
     };
+    let goUpWindow = () => {
+        window.scroll(0, 0)
+    }
     let navigate = useNavigate();
     return (
         <>
@@ -51,97 +59,105 @@ const BlogBox = () => {
                             >
                                 الكل
                             </li>
-                            <li
-                                className="bt-main"
-                                onClick={(e) => {
-                                    changeActiveMenu(e);
-                                    setTypeBlog("trade");
-                                }}
-                            >
-                                التجارة الالكترونية
-                            </li>
-                            <li
-                                className="bt-main"
-                                onClick={(e) => {
-                                    changeActiveMenu(e);
-                                    setTypeBlog("shop");
-                                }}
-                            >
-                                التسويق الرقمي
-                            </li>
-                            <li
-                                className="bt-main"
-                                onClick={(e) => {
-                                    changeActiveMenu(e);
-                                    setTypeBlog("stores");
-                                }}
-                            >
-                                إدارة الأسواق
-                            </li>
+                            {
+                                (postCategory.length ? (
+                                    postCategory.map((el) => {
+                                        return (
+                                            <li
+                                                className="bt-main"
+                                                onClick={(e) => {
+                                                    changeActiveMenu(e);
+                                                    setTypeBlog(el.name);
+                                                }}
+                                                key={el.id}
+                                            >
+                                                {el.name}
+                                            </li>
+
+
+                                        )
+
+
+                                    })
+                                ) : null)
+
+                            }
                         </ul>
                     </div>
 
-                    {blogLoading ? (
+                    {BlogLoadingData ? (
                         <LoadingBox />
-                    ) : blogData.length ? (
-                        <div className="content-blog ">
+                    ) : pagesTargetData.length ? (
+                        <div className="content-blog">
                             <div
-                                id={blogData[0].id}
+                                id={pagesTargetData[0].id}
                                 className="box-top flex-column flex-lg-row align-items-center align-items-lg-start"
-                                onClick={() =>
+                                onClick={() => {
                                     navigate(
-                                        `/detail/${blogData[0].type}/${blogData[0].id}`
+                                        `/detail/${pagesTargetData[0].id}`
                                     )
+                                    goUpWindow()
+                                }
                                 }
                             >
-                                <div className="box-img">
-                                    <img src={blogData[0].ImgBlog} alt="" />
+                                <div className="box-img" >
+                                    <img src={pagesTargetData[0].image} alt="" style={{ minHeight: '250px' }} />
                                 </div>
                                 <div className="box-left">
-                                    <h5>{blogData[0].name}</h5>
-                                    <h2>{blogData[0].title}</h2>
-                                    <p>{blogData[0].introduction}</p>
+                                    <h5>{pagesTargetData[0].postCategory.name}</h5>
+                                    <h2>{pagesTargetData[0].title}</h2>
+                                    {/* <h2>page_content</h2> */}
+                                    <p>{pagesTargetData[0]?.page_desc}</p>
                                     <OwnerBox
-                                        NameOwner={blogData[0].OwnerName}
-                                        DateOwner={blogData[0].OwnerDate}
-                                        ImgOwner={blogData[0].IMgOWner}
+                                        NameOwner={pagesTargetData[0].user.name}
+                                        DateOwner={pagesTargetData[0].user.created_at}
+                                        ImgOwner={pagesTargetData[0].user.image}
                                     />
                                 </div>
                             </div>
                             <div className="box-body">
-                                {blogData.map((el) => {
+                                {pagesTargetData.map((el) => {
                                     return (
                                         <div
                                             className="box"
                                             id={el.id}
                                             key={el.id}
-                                            onClick={() =>
-                                                navigate(
-                                                    `/detail/${el.type}/${el.id}`
-                                                )
-                                            }
+
                                         >
-                                            <div className="order">
+                                            <div className="order" onClick={() => {
+                                                navigate(
+                                                    `/detail/${el.id}`
+                                                )
+                                                goUpWindow()
+                                            }
+                                            }>
                                                 <div className="box-img">
                                                     <img
-                                                        src={el.ImgBlog}
+                                                        src={el.image}
                                                         alt=""
                                                     />
                                                 </div>
-                                                <h6>{el.name}</h6>
-                                                <h4>{el.title}</h4>
-                                                <p>{el.introduction}</p>
-                                                <OwnerBox
-                                                    NameOwner={el.OwnerName}
-                                                    DateOwner={el.OwnerDate}
-                                                    ImgOwner={el.IMgOWner}
-                                                />
+                                                <div className="box-order">
+                                                    <h6>{el.postCategory.name}</h6>
+                                                    <h4>{el.title}</h4>
+                                                    <p>{el?.page_desc}</p>
+                                                    <OwnerBox
+                                                        NameOwner={el.user.name}
+                                                        DateOwner={el.user.created_at}
+                                                        ImgOwner={el.user.image}
+                                                    />
+                                                </div>
+
                                             </div>
                                         </div>
                                     );
                                 })}
                             </div>
-                            <button className="bt-main">عرض المزيد</button>
+                            <button className="bt-main" onClick={() => {
+                                dispatch(PageIncrease({ type: getTypeBlog }));
+
+
+                            }}>عرض المزيد</button>
                         </div>
                     ) : (
                         "لم يتم العثور على البيانات"

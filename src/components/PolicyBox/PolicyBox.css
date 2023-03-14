@@ -1,17 +1,18 @@
-.policy-box {
-    min-height: 100vh;
+.policy-box-main {
+    min-height: 900px;
     background-color: #fff;
     padding-top: 80px;
     max-width: 1920px;
 }
 
-.policy-box .container {
+.policy-box-main .container {
     display: flex;
     align-items: center;
     justify-content: center;
+    padding-bottom: 60px;
 }
 
-.policy-box .container .all {
+.policy-box-main .container .all {
     max-width: 1364px;
     display: flex;
     align-items: flex-start;
@@ -20,14 +21,14 @@
     gap: 40px;
 }
 
-.policy-box .container .all .box {
+.policy-box-main .container .all .box {
     display: flex;
     align-items: flex-start;
     justify-content: start;
     flex-direction: column;
 }
 
-.policy-box .container .all .box .info {
+.policy-box-main .container .all .box .info {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -35,7 +36,7 @@
     margin-bottom: 26px;
 }
 
-.policy-box .container .all .box .info h5 {
+.policy-box-main .container .all .box .info h5 {
     margin: 0;
     color: var(--font-color-02);
     font-size: var(--font-size-18);
@@ -43,7 +44,7 @@
     font-weight: var(--font-weight-03);
 }
 
-.policy-box .container .all .box .info span {
+.policy-box-main .container .all .box .info span {
     width: 30px;
     height: 30px;
     display: flex;
@@ -55,10 +56,10 @@
     cursor: pointer;
 }
 
-.policy-box .container .all .box .info span svg {
+.policy-box-main .container .all .box .info span svg {
 }
 
-.policy-box .container .all .box h6 {
+.policy-box-main .container .all .box h6 {
     margin: 0;
     color: var(--font-color-02);
     font-size: var(--font-size-20);
@@ -67,7 +68,7 @@
     margin-right: 40px;
 }
 
-.policy-box .container .all .content {
+.policy-box-main .container .all .content {
     box-shadow: #0000000f 0px 0px 12px;
     padding: 24px;
     display: flex;
@@ -77,7 +78,7 @@
     gap: 24px;
 }
 
-.policy-box .container .all .content p {
+.policy-box-main .container .all .content p {
     font-size: var(--font-size-20);
     color: var(--black-color-01);
     margin: 0;

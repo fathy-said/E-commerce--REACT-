@@ -65,6 +65,12 @@
     --main-padding-bottom: 45px;
 }
 
+@media (max-width: 1450px) {
+    :root {
+        --font-size-84: 48px;
+        --font-size-94: 65px;
+    }
+}
 @media (max-width: 992px) {
     :root {
         --font-size-15: 15px;
@@ -73,25 +79,39 @@
         --font-size-20: 20px;
         --font-size-24: 20px;
         --font-size-28: 24px;
-
         --font-size-32: 28px;
-        --font-size-38: 28px;
-        --font-size-48: 38px;
-        --font-size-54: 45px;
-        --font-size-84: 48px;
-        --font-size-94: 64px;
+        --font-size-38: 26px;
+        --font-size-48: 28px;
+        --font-size-54: 36px;
+        --font-size-84: 45px;
+        --font-size-94: 54px;
+        --main-padding-top: 20px;
+        --main-padding-bottom: 20px;
     }
     .bt-main {
         padding: 8px 20px;
     }
 }
-@media (max-width: 1450px) {
+@media (max-width: 390px) {
     :root {
-        --font-size-84: 48px;
-        --font-size-94: 65px;
+        --font-size-15: 14px;
+        --font-size-16: 15px;
+        --font-size-18: 17px;
+        --font-size-20: 18px;
+        --font-size-22: 20px;
+        --font-size-24: 22px;
+        --font-size-28: 24px;
+        --font-size-32: 25px;
+        --font-size-38: 26px;
+        --font-size-48: 28px;
+        --font-size-54: 36px;
+        --font-size-84: 45px;
+        --font-size-94: 48px;
+    }
+    .bt-main {
+        padding: 7px 17px;
     }
 }
-
 /* ================================global================================== */
 html {
 }
@@ -116,6 +136,7 @@ a {
 * {
     font-family: "Tajawal", sans-serif !important;
     box-sizing: border-box !important;
+    scroll-behavior: smooth !important;
 }
 
 ul {
@@ -167,8 +188,12 @@ ul {
     margin: 0 auto;
 }
 
-::-webkit-scrollbar {
-    width: 10px;
+body ul.MuiList-root {
+    max-height: 300px;
+}
+body div::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
 }
 
 ::-webkit-scrollbar-track {
@@ -176,6 +201,19 @@ ul {
 }
 
 ::-webkit-scrollbar-thumb {
+    background-color: var(--font-color-02);
+    border-radius: 30px;
+}
+html::-webkit-scrollbar {
+    width: 10px !important;
+    height: 5px;
+}
+
+html::-webkit-scrollbar-track {
+    background-color: var(--font-color-03);
+}
+
+html::-webkit-scrollbar-thumb {
     background-color: var(--font-color-02);
     border-radius: 30px;
 }

@@ -182,6 +182,7 @@
         flex: none;
         padding: 20px;
         padding-top: 40px;
+        max-width: 100%;
     }
 
     .verificationBox-box .all-content .box-container-form {
@@ -194,7 +195,7 @@
         gap: 15px;
     }
     .verificationBox-box .all-content .box-container-form .all .box input {
-        width: 54px;
+        width: 54px !important;
         height: 60px;
     }
 }
@@ -217,4 +218,18 @@
     .verificationBox-box .all-content .box-container-form {
         padding: 0 140px;
     }
+}
+
+@media (max-width: 390px) {
+    .verificationBox-box .all-content .box-form-banner {
+        height: 600px;
+    }
+    .verificationBox-box .all-content .box-container-form .all .box {
+        gap: 10px;
+    }
+    .verificationBox-box .all-content .box-container-form .all .box input {
+        width: 45px !important;
+        height: 45px;
+    }
+    /* ======================= */
 }

@@ -1,25 +1,49 @@
 import React from "react";
+import { Suspense } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { FooterOverlay, Header, NotFoundPage } from "../components";
 import {
-    Blog,
-    BlogDetail,
+    // Blog,
+    // BlogDetail,
+    // Start,
     Home,
-    PaymentPage,
-    PolicyPayment,
-    PolicyUse,
-    RegisterMerchant,
-    Start,
-    RegisterRepresentative,
-    VerificationPage,
-    PasswordBackPage,
-    SendPasswordPage,
-    SignInPage,
-    CreateYourStore,
-    OpenControlPanel,
-    PackagePage,
-    CreateYourStorePayment,
+    // PaymentPage,
+    // PolicyPayment,
+    // PolicyUse,
+    // Register,
+    // VerificationPage,
+    // PasswordBackPage,
+    // SendPasswordPage,
+    // SignInPage,
+    // CreateYourStore,
+    // OpenControlPanel,
+    // PackagePage,
+    // CreateYourStorePayment,
+    // YourPolicy,
 } from "./index";
+// const Home = React.lazy(() => import("./Home"));
+const Blog = React.lazy(() => import("./Blog"));
+const BlogDetail = React.lazy(() => import("./BlogDetail"));
+const Start = React.lazy(() => import("./Start"));
+const PolicyPayment = React.lazy(() => import("./PolicyPayment"));
+const PolicyUse = React.lazy(() => import("./PolicyUse"));
+const PaymentPage = React.lazy(() => import("./PaymentPage"));
+const Register = React.lazy(() => import("./Register"));
+const RegisterRepresentative = React.lazy(() =>
+    import("./RegisterRepresentative")
+);
+const VerificationPage = React.lazy(() => import("./VerificationPage"));
+const PasswordBackPage = React.lazy(() => import("./PasswordBackPage"));
+const SendPasswordPage = React.lazy(() => import("./SendPasswordPage"));
+const SignInPage = React.lazy(() => import("./SignInPage"));
+const CreateYourStore = React.lazy(() => import("./CreateYourStore"));
+const OpenControlPanel = React.lazy(() => import("./OpenControlPanel"));
+const PackagePage = React.lazy(() => import("./PackagePage"));
+const CreateYourStorePayment = React.lazy(() =>
+    import("./CreateYourStorePayment")
+);
+const YourPolicy = React.lazy(() => import("./YourPolicy"));
+
 const AllPages = () => {
     return (
         <>
@@ -27,51 +51,144 @@ const AllPages = () => {
                 <BrowserRouter>
                     <Header />
                     <Routes>
-                        <Route path="/" element={<Home />} />
-                        <Route path="/blog" element={<Blog />} />
                         <Route
-                            path="/detail/:type/:id"
-                            element={<BlogDetail />}
+                            path="/"
+                            element={
+                                <Suspense>
+                                    <Home />
+                                </Suspense>
+                            }
                         />
-                        <Route path="/start" element={<Start />} />
                         <Route
-                            path="/registerMerchant"
-                            element={<RegisterMerchant />}
+                            path="/blog"
+                            element={
+                                <Suspense>
+                                    <Blog />
+                                </Suspense>
+                            }
                         />
-                        <Route path="/packagePage" element={<PackagePage />} />
+                        <Route
+                            path="/detail/:id"
+                            element={
+                                <Suspense>
+                                    <BlogDetail />
+                                </Suspense>
+                            }
+                        />
+                        <Route
+                            path="/start"
+                            element={
+                                <Suspense>
+                                    <Start />
+                                </Suspense>
+                            }
+                        />
+                        <Route
+                            path="/register/:user"
+                            element={
+                                <Suspense>
+                                    <Register />
+                                </Suspense>
+                            }
+                        />
+                        <Route
+                            path="/packagePage"
+                            element={
+                                <Suspense>
+                                    <PackagePage />
+                                </Suspense>
+                            }
+                        />
                         <Route
                             path="/createYourStore"
-                            element={<CreateYourStore />}
+                            element={
+                                <Suspense>
+                                    <CreateYourStore />
+                                </Suspense>
+                            }
                         />
                         <Route
                             path="/openControlPanel"
-                            element={<OpenControlPanel />}
+                            element={
+                                <Suspense>
+                                    <OpenControlPanel />
+                                </Suspense>
+                            }
                         />
                         <Route
                             path="/createYourStorePayment"
-                            element={<CreateYourStorePayment />}
+                            element={
+                                <Suspense>
+                                    <CreateYourStorePayment />
+                                </Suspense>
+                            }
                         />
-                        <Route path="/paymentPage" element={<PaymentPage />} />
-                        <Route path="/policyUse" element={<PolicyUse />} />
+                        <Route
+                            path="/paymentPage"
+                            element={
+                                <Suspense>
+                                    <PaymentPage />
+                                </Suspense>
+                            }
+                        />
+                        <Route
+                            path="/policyUse"
+                            element={
+                                <Suspense>
+                                    <PolicyUse />
+                                </Suspense>
+                            }
+                        />
+                        <Route
+                            path="/YourPolicy/:policyID"
+                            element={
+                                <Suspense>
+                                    <YourPolicy />
+                                </Suspense>
+                            }
+                        />
                         <Route
                             path="/policyPayment"
-                            element={<PolicyPayment />}
+                            element={
+                                <Suspense>
+                                    <PolicyPayment />
+                                </Suspense>
+                            }
                         />
 
-                        <Route path="/signInPage" element={<SignInPage />} />
+                        <Route
+                            path="/signInPage"
+                            element={
+                                <Suspense>
+                                    <SignInPage />
+                                </Suspense>
+                            }
+                        />
 
                         <Route
                             path="/passwordBackPage"
-                            element={<PasswordBackPage />}
+                            element={
+                                <Suspense>
+                                    <PasswordBackPage />
+                                </Suspense>
+                            }
                         />
                         <Route
                             path="/sendPasswordPage"
-                            element={<SendPasswordPage />}
+                            element={
+                                <Suspense>
+                                    <SendPasswordPage />
+                                </Suspense>
+                            }
                         />
 
                         <Route
                             path="/verificationPage"
-                            element={<VerificationPage />}
+                            element={
+                                <Suspense>
+                                    <VerificationPage />
+                                </Suspense>
+                            }
                         />
                         <Route path="*" element={<NotFoundPage />} />
                     </Routes>

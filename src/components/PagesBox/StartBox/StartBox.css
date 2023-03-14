@@ -16,7 +16,7 @@
 
 .start-box .all {
     padding-top: 40px;
-    padding-bottom: 250px;
+    padding-bottom: 150px;
 }
 
 .start-box .container {
@@ -87,6 +87,7 @@
     padding: 20px;
     position: relative;
     border-radius: var(--main-border-radius-16);
+    cursor: pointer;
 }
 .start-box .start-content .top .box:nth-child(1) {
     background-image: url("../../../assets/Img/image@2x.png");
@@ -178,6 +179,7 @@
 .start-box .start-content .start-body .info h4 span {
     position: relative;
     z-index: 7;
+    white-space: nowrap;
 }
 
 .start-box .start-content .start-body p {
@@ -194,16 +196,22 @@
     align-items: center;
     justify-content: center;
     margin-bottom: 48px;
+    overflow: hidden;
+    cursor: pointer;
 }
 
 .start-box .start-content .start-body .box-video video,
-.start-box .start-content .start-body .box-video iframe {
+.start-box .start-content .start-body .box-video iframe,
+.start-box .start-content .start-body .box-video .box-img {
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: var(--main-border-radius-16);
-    height: 547px;
+    max-height: 547px;
+}
+.start-box .start-content .start-body .box-video .box-img img {
+    border-radius: var(--main-border-radius-17);
 }
 
 .start-box .start-content .start-body button {
@@ -221,10 +229,35 @@
 
     .start-box .start-content .start-body button {
         width: fit-content;
-        padding: 12px 60px;
+        padding: 12px 50px;
     }
 
     .start-box .start-hero {
         height: 200px;
+    }
+}
+@media (max-width: 400px) {
+    .start-box .start-content .start-body button {
+        width: fit-content;
+        padding: 12px 25px;
+        font-size: var(--font-size-20);
+    }
+}
+@media (max-width: 768px) {
+    .start-box .start-content .start-body .box-video video,
+    .start-box .start-content .start-body .box-video iframe {
+        height: 260px;
+    }
+    .start-box .all {
+        padding-bottom: 40px;
+    }
+    .start-box .start-content .start-body p {
+        text-align: center;
+    }
+    .start-box .start-hero {
+        border-radius: 14px;
+    }
+    .start-box .start-content .top .box h4 span {
+        font-size: var(--font-size-18);
     }
 }

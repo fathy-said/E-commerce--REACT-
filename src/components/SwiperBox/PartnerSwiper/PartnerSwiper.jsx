@@ -18,7 +18,7 @@ let PartnerSwiper = ({ PartnerDataSwiper }) => {
                 slidesPerGroup={1}
                 loop={true}
                 autoplay={{
-                    delay: 3500,
+                    delay: 2500,
                     disableOnInteraction: false,
                 }}
                 breakpoints={{
@@ -38,12 +38,12 @@ let PartnerSwiper = ({ PartnerDataSwiper }) => {
             >
                 {PartnerDataSwiper.length
                     ? PartnerDataSwiper.map((el) => {
-                          return (
-                              <SwiperSlide key={el.id}>
-                                  <PartnerBox Img={el.Img} />
-                              </SwiperSlide>
-                          );
-                      })
+                        return (
+                            <SwiperSlide key={el.id}>
+                                <PartnerBox Img={el.logo} />
+                            </SwiperSlide>
+                        );
+                    })
                     : null}
             </Swiper>
         </>
