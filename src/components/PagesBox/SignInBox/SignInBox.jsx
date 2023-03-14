@@ -1,147 +1,132 @@
-import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState } from "react";
+import { Navigate,useNavigate } from "react-router-dom";
 import { LogoHeader, PasswordField } from "../../index";
 import { ReactComponent as SvgComponent } from "../../../assets/Icons/Component 59 – 11.svg";
 import "./SignInBox.css";
-import { useDispatch, useSelector } from "react-redux";
-import { LoginThunk } from "../../../RTK/Login/Thunk/LoginThunk";
-import { useFormik } from 'formik';
-import * as Yup from 'yup';
-
-const SignupSchema = Yup.object().shape({
-    userName: Yup.string()
-        .min(5, 'Too Short!')
-        .max(20, 'Too Long!')
-        .required('Required').matches(/^[A-Z]/, 'The first letter must be capitalize'),
-    pass: Yup.string()
-        .min(4, 'Too Short!')
-        .max(8, 'Too Long!')
-        .required('Required'),
-
-});
+import axios from "axios";
+import { useCookies } from 'react-cookie';
 
 const SignInBox = () => {
-    let dispatch = useDispatch()
-    let { loginToken, loginSuccess } = useSelector((state) => state.LoginReducer)
+    const [cookies, setCookie] = useCookies(['access_token'])
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
+    const [usernameError, setUsernameError] = useState('');
+    const [passwordError, setPasswordError] = useState('');
+    const [error, setError] = useState('');
+    const navigate = useNavigate();
 
-
-    let navigate = useNavigate();
-    let [LoginData, setLoginData] = useState({ pass: '', userName: '' });
-    // let [success, setSuccess] = useState(false);
-    let sendDataLogin = (e) => {
-        e.preventDefault()
-        dispatch(LoginThunk({ pass: LoginData.pass, userName: LoginData.userName })).unwrap()
-            .then((e) => {
-                if (e.success) {
-                    // setSuccess(e.success)
-                    localStorage.setItem('Login_Token', e.data.token);
-                    window.location = 'https://admin.atlbha.com'
-                }
-                else {
-                    localStorage.setItem('Login_Token', null);
-                    alert("كلمه السر او الاسم خطأ");
-                }
-                // handle result here
-            })
-            .catch((e) => {
-                console.log(e)
-                // handle error here
-            })
-
-
+    const Login = () => {
+        setError('');
+        setUsernameError('');
+        setPasswordError('');
+        const data = {
+            user_name: username,
+            password: password
+        }
+        axios.post('https://backend.atlbha.com/api/loginapi', data).then((res) => {
+            if (res?.data?.success === true && res?.data?.data?.status === 200) {
+                setCookie('access_token', res?.data?.data?.token);
+                navigate('/'); // url dashboard tajer
+            } else {
+                setUsernameError(res?.data?.message?.en?.user_name?.[0]);
+                setPasswordError(res?.data?.message?.en?.password?.[0]);
+                setError(res?.data?.message?.ar);
+            }
+        });
     }
-    const formik = useFormik({
-        initialValues: {
-            userName: '',
-            pass: '',
-        },
-        onSubmit: values => {
-            console.log(values)
-        },
-        validationSchema: SignupSchema,
-    });
-    return (
-        <>
-            <div className="sign-in-box" dir="ltr" onSubmit={formik.handleSubmit}>
-                <div className="all-content" dir="rtl">
-                    <div className="box-container-form">
-                        <LogoHeader />
-                        <form action="" className="all">
-                            <h2>قم بتسجيل الدخول الى حسابك</h2>
-                            <div className="box">
-                                <div>
-                                    <h5>الاسم</h5>
+
+    const handleKeyDown = (event) => {
+        if (event.key === 'Enter') {
+            event.preventDefault();
+            Login();
+        }
+    };
+
+    return cookies.access_token ? 
+    (
+        // url dashboard tajer
+        <Navigate to='/' />
+    ) 
+    : 
+    (
+        <div className="sign-in-box" dir="ltr">
+            <div className="all-content" dir="rtl">
+                <div className="box-container-form">
+                    <LogoHeader />
+                    <div className="all">
+                        <h2>قم بتسجيل الدخول الى حسابك</h2>
+                        <div className="box">
+                            <div>
+                                <h5>الاسم</h5>
+                                <input
+                                    type="text"
+                                    placeholder="ادخل اسم المستخدم او البريد الالكتروني"
+                                    value={username}
+                                    onChange={(e) => setUsername(e.target.value)}
+                                    onKeyDown={handleKeyDown}
+                                />
+                                <span className="wrong-text">{usernameError}</span>
+                            </div>
+                            <PasswordField
+                                password={password}
+                                setPassword={setPassword}
+                                passwordError={passwordError}
+                                handleKeyDown={handleKeyDown}
+                            />
+                            <span className="wrong-text">{error}</span>
+                        </div>
+                        <div className="top">
+                            <div className="check">
+                                <div className="form-check">
                                     <input
-                                        type="text"
-                                        placeholder="ادخل اسم المستخدم او البريد الالكتروني"
-                                        // value={LoginData.userName}
-                                        // onChange={(e) => {
-                                        //     setLoginData({ ...LoginData, userName: e.target.value })
-
-                                        // }}
-                                        name="userName"
-                                        onChange={formik.handleChange}
-                                        value={formik.values.userName}
-
+                                        className="form-check-input"
+                                        type="checkbox"
+                                        defaultValue=""
+                                        id="flexCheckDefault"
                                     />
 
                                 </div>
-                                {formik.errors.userName && formik.touched.userName ? (
-                                    <span style={{ width: "100%", color: 'red' }}>{formik.errors.userName}</span>
-                                ) : null}
-                                <PasswordField DataPass={LoginData} setPass={setLoginData} Data={formik} />
+                                <h6>تذكرني</h6>
                             </div>
-                            <div className="top">
-                                <div className="check">
-                                    <div className="form-check">
-                                        <input
-                                            className="form-check-input"
-                                            type="checkbox"
-                                            defaultValue=""
-                                            id="flexCheckDefault"
-                                        />
-                                    </div>
-                                    <h6>تذكرني</h6>
-                                </div>
-                                <h5
-                                    onClick={() => {
-                                        navigate("/passwordBackPage");
-                                    }}
-                                >
-                                    نسيت كلمة المرور ؟
-                                </h5>
-                            </div>
-                            <button
-                                className="bt-main"
-                                type="submit"
+                            <h5
+                                onClick={() => {
+                                    navigate("/passwordBackPage");
+                                }}
                             >
-                                تسجيل الدخول
-                            </button>
-                            <ul>
-                                <li> ليس لديك حساب؟</li>
-                                <li
-                                    onClick={() => {
-                                        navigate("/register/merchant");
-                                    }}
-                                >
-                                    أنشئ حساب
-                                </li>
-                            </ul>
-                        </form>
-                    </div>
-                    <div className="box-form-banner">
-                        <span className="over-info">
-                            <SvgComponent />
-                        </span>
-                        <div className="info-svg">
-                            <h4>منصة اطلبها للتجارة الإلكترونية</h4>
-                            <h1> مرحباً بعودتك</h1>
+                                نسيت كلمة المرور ؟
+                            </h5>
                         </div>
+                        <button
+                            className="bt-main"
+                            onClick={Login}
+                        >
+                            تسجيل الدخول
+                        </button>
+                        <ul>
+                            <li> ليس لديك حساب؟</li>
+                            <li
+                                onClick={() => {
+                                    navigate("/registerMerchant");
+                                }}
+                            >
+                                أنشئ حساب
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div className="box-form-banner">
+                    <span className="over-info">
+                        <SvgComponent />
+                    </span>
+                    <div className="info-svg">
+                        <h4>منصة اطلبها للتجارة الإلكترونية</h4>
+                        <h1> مرحباً بعودتك</h1>
                     </div>
                 </div>
             </div>
-        </>
-    );
+        </div>
+    )
 };
 
 export default SignInBox;
