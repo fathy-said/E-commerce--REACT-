@@ -111,7 +111,6 @@
 .sign-in-box .all-content .box-container-form .all .box {
     margin: 70px 0 44px;
     display: flex;
-    align-items: center;
     justify-content: center;
     width: 100%;
     flex-direction: column;
@@ -119,9 +118,7 @@
 }
 .sign-in-box .all-content .box-container-form .all .box div {
     display: flex;
-    align-items: center;
     justify-content: center;
-    height: 91px;
     width: 100%;
     flex-direction: column;
     gap: 10px;
@@ -213,6 +210,10 @@
 .sign-in-box .all-content .box-container-form .all ul li:nth-child(2) {
     color: var(--main-color-01);
     cursor: pointer;
+}
+.sign-in-box .all-content .wrong-text{
+    color: #ff3b3b;
+    font-size: 14px;
 }
 
 @media (max-width: 992px) {

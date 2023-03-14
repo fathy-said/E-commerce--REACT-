@@ -2,9 +2,8 @@ import React, { useState } from "react";
 import "./PasswordField.css";
 import { ReactComponent as EyeOPen } from "../../assets/eye_open.svg";
 import { ReactComponent as EyeClose } from "../../assets/eye_close.svg";
-const PasswordField = () => {
+const PasswordField = ({password,setPassword,passwordError,handleKeyDown}) => {
     const [showPassword, setShowPassword] = useState(false);
-
     let type = "password";
     return (
         <>
@@ -29,6 +28,9 @@ const PasswordField = () => {
 
                 <h5>كلمة المرور</h5>
                 <input
+                    value={password}
+                    onChange={(e)=>setPassword(e.target.value)}
+                    onKeyDown={handleKeyDown}
                     type={
                         !type === "password"
                             ? type
@@ -37,6 +39,7 @@ const PasswordField = () => {
                             : type
                     }
                 />
+                <span className="wrong-text">{passwordError}</span>
             </div>
         </>
     );
